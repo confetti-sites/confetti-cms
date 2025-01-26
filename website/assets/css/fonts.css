@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "pluto";
+  src: url("/website/assets/fonts/plutomedium-webfont.woff2")
+      format("woff2"),
+    url("/website/assets/fonts/plutomedium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pluto";
+  src: url("/website/assets/fonts/plutoregular-webfont.woff2")
+      format("woff2"),
+    url("/website/assets/fonts/plutoregular-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pluto";
+  src: url("/website/assets/fonts/plutothin-webfont.woff2") format("woff2"),
+    url("/website/assets/fonts/plutothin-webfont.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+

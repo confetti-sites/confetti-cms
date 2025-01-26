@@ -1,0 +1,43 @@
+{
+  environments: [
+    {
+      // Key serves as a name for the environment
+      // Common values: 'prod', test or 'dev', but it’s flexible
+      // In teams, you can use your name for your personal development environment
+      name: 'dev',
+      // Determines the target code in the Dockerfile to run
+      // - development (monitors code changes)
+      // - production (optimized for speed)
+      // For testing, use 'production' and set the key to 'test'
+      stage: 'development',
+      options: {
+        when_no_data_is_saved_show_fake_data: true,
+      },
+      containers: [
+        // Main view service
+        {
+          name: 'view',
+          hosts: [
+            '__HOST__',
+          ],
+          paths: [
+            '/',
+          ],
+        },
+        // For all api services
+        {
+          hosts: [
+            '__HOST__',
+          ],
+          paths: [
+            // Replace '__SERVICE__' with the name of the service.
+            // The place of the Dockerfile generates the service name.
+            // For /website/tailwind.Dockerfile, the service name will be 'website-tailwind'.
+            // The service 'website-tailwind' will be available at '/conf_api/website-tailwind'.
+            '/conf_api/__SERVICE__',
+          ],
+        },
+      ],
+    },
+  ],
+}

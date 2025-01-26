@@ -1,0 +1,1 @@
+<p class="pt-3 font-body">{!! $block['data']['text'] !!}</p>
