@@ -80,7 +80,7 @@ class SelectFileComponent extends ComponentStandard implements SelectModelInterf
         // Get default value
         if ($file === null) {
             $component = $this->getComponent();
-            $file      = $component->getDecoration('default');
+            $file      = $component->getDecoration('default', 'default');
         }
 
         // If no default value is set, use the first file in the list

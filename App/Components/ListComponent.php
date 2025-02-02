@@ -120,7 +120,7 @@ class ListComponent
     {
         // If has a decoration sortable, then we want to sort the list
         // But if the order is already set, then we don't want to sort the list
-        if ($this->getComponent()->getDecoration('sortable') && empty($this->contentStore->getOrderBy())) {
+        if ($this->getComponent()->getDecoration('sortable', 'sortable') && empty($this->contentStore->getOrderBy())) {
             $this->sortable();
         }
 
@@ -143,7 +143,8 @@ class ListComponent
         // of the time, the number of component types is less than 2 because when you adjust one part
         // (in the middle) of the query, we can use the cached query to retrieve the rest of the query.
         return new class($this->parentContentId, $this->relativeContentId, $this->contentStore, $this->as, $className) implements IteratorAggregate, Countable {
-            private array $result = [];
+            // If null, then the results are not fetched/generated yet
+            private ?array $result = null;
             private bool $complete = false;
 
             public function __construct(
@@ -161,14 +162,13 @@ class ListComponent
              */
             public function generateFakeComponents(): void
             {
-                if ($this->complete) {
+                if ($this->result !== null) {
                     return;
                 }
 
                 // We store the fake components in a property, because we want to generate them only once.
                 // Otherwise, we generate them every time with different results.
-                $this->result ??= $this->getFakeComponents($this->className);
-                $this->complete = true;
+                $this->result = $this->getFakeComponents($this->className);
             }
 
             public function toArray(): array
@@ -183,14 +183,17 @@ class ListComponent
 
             public function getIterator(): Traversable
             {
-                if ($this->contentStore->canFake() && $this->contentStore->isFake()) {
-                    $this->generateFakeComponents();
-                }
-                if ($this->complete) {
+                if ($this->result !== null) {
                     foreach ($this->result as $item) {
                         yield $item;
                     }
                     return;
+                }
+
+
+
+                if ($this->contentStore->canFake() && $this->contentStore->isFake()) {
+                    $this->generateFakeComponents();
                 }
 
                 try {
@@ -259,7 +262,6 @@ class ListComponent
 
                 // When the limit is 1, we don't need to load the rest of the items
                 if ($this->contentStore->getLimit() === 1) {
-                $this->complete = true;
                     return;
                 }
 
@@ -272,7 +274,6 @@ class ListComponent
                     $this->result[] = $row;
                     yield $row;
                 }
-                $this->complete = true;
             }
 
             /**
@@ -300,8 +301,8 @@ class ListComponent
                 $contentId = ComponentStandard::mergeIds($this->parentContentId, $this->relativeContentId);
 
                 // Get the number of items. If not present,
-                $min    = $component->getDecoration('min')['value'] ?? null;
-                $max    = $this->contentStore->getLimit() ?? $component->getDecoration('max')['value'] ?? null;
+                $min    = $component->getDecoration('min', 'min');
+                $max    = $this->contentStore->getLimit() ?? $component->getDecoration('max', 'max');
                 $amount = $this->getFakeAmount($min, $max);
 
                 $i     = 1;
@@ -335,7 +336,8 @@ class ListComponent
 
                 // Use min, average or max
                 $average = ($min + $max) / 2;
-                $amount  = [$min, $average, $max];
+                // Give the average 2 times more chance
+                $amount  = [$min, $average, $average, $max];
                 return (int) $amount[array_rand($amount)];
             }
         };
@@ -503,7 +505,7 @@ class ListComponent
 
     private static function getDefinedColumns(self $model): ?array
     {
-        return $model->getComponent()->getDecoration('columns');
+        return $model->getComponent()->getDecoration('columns', 'columns');
     }
 
     private static function getDefaultColumns(self $model): array

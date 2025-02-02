@@ -107,7 +107,7 @@ class ContentComponent extends ComponentStandard
 
     public function getDefaultData(): array
     {
-        return $this->getEditorDataByText($this->getComponent()->getDecoration('default'));
+        return $this->getEditorDataByText($this->getComponent()->getDecoration('default', 'default'));
     }
 
     private function getEditorDataByText(mixed $value): array

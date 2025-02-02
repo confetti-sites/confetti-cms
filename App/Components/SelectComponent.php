@@ -27,7 +27,7 @@ class SelectComponent extends ComponentStandard
             return $default;
         }
 
-        $options = $component->getDecoration('options');
+        $options = $component->getDecoration('options', 'options');
         if (empty($options)) {
             return null;
         }

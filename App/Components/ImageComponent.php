@@ -33,7 +33,7 @@ class ImageComponent extends ComponentStandard
         }
 
         $component = $this->getComponent();
-        $width = $component->getDecoration('widthPx') ?? 300;
+        $width = $component->getDecoration('widthPx', 'widthPx') ?? 400;
 
         // Get the ratio from decoration and calculate the height
         $ratioW = $component->getDecoration('ratio', 'width') ?? 4;
@@ -85,7 +85,12 @@ class ImageComponent extends ComponentStandard
     }
 
     /**
+     * @param string $class set the class attribute of the img tag
+     * @param string $style set the style attribute of the img tag
+     * @param string $alt set the alt attribute of the img tag. For accessibility reasons, only use this if the image is not purely decorative.
+     *
      * @return string
+     *
      * Example:
      * <picture>
      * <source media="(min-width: 640px)" srcset="giraffe.jpeg 1x, giraffe_2x.jpeg 2x" />
@@ -96,6 +101,13 @@ class ImageComponent extends ComponentStandard
     public function getPicture(string $class = '', string $style = '', string $alt = ''): string
     {
         $alt = htmlspecialchars($alt);
+        $width = $this->getComponent()->getDecoration('widthPx', 'widthPx');
+        $ratio = $this->getComponent()->getDecoration('ratio');
+        if ($width && $ratio['width'] && $ratio['height']) {
+            $height = $width / $ratio['width'] * $ratio['height'];
+        } else {
+            $height = '';
+        }
 
         $data = $this->get();
         if ($this->getSource('standard')) {
@@ -106,7 +118,7 @@ class ImageComponent extends ComponentStandard
         $html = '<picture>';
         $html .= $this->getBigSource() ?? '';
         $html .= $this->getMobileSource();
-        $html .= "<img src=\"$url\" alt=\"$alt\" class='$class' style='$style' />";
+        $html .= "<img src=\"$url\" alt=\"$alt\" class='$class' style='$style' width='$width' height='$height' />";
         $html .= '</picture>';
         return $html;
     }
