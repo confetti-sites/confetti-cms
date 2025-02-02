@@ -16,6 +16,7 @@
       containers: [
         // Main view service
         {
+          // Do not change the name 'view' since it is connected to the view.Dockerfile
           name: 'view',
           hosts: [
             'confetti-cms.confetti-cms.localhost',

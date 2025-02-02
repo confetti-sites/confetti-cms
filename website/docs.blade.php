@@ -9,7 +9,11 @@
     }
 @endphp
 @extends('website.layouts.main')
-
+@if($current !== null)
+    @section('head_title', $current->content->getTitle())
+@else
+    @section('head_title', 'Confetti CMS - Documentation')
+@endif
 @section('content')
 <!-- Left menu -->
 <div class="relative container mx-auto md:flex max-w-8xl justify-center sm:px-2 lg:px-4">

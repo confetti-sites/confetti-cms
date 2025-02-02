@@ -11,10 +11,9 @@ if ($currentContentId === '') {
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
-    <title>Admin_service</title>
+    <title>Admin</title>
 
     <link rel="stylesheet" href="/resources/admin__tailwind/tailwind.output.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100" rel="stylesheet" />
     <script src="/admin/assets/js/thema.js" defer></script>
 </head>
 

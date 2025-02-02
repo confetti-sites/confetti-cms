@@ -1,4 +1,5 @@
 @extends('website.layouts.blank')
+@section('head_title', 'Waiting List')
 @guest()
     @include('website.waitlist')
 @else

@@ -1,5 +1,5 @@
 @php(newRoot(new \model\homepage))
-
+@section('head_title', 'Confetti CMS')
 @extends('website.layouts.main')
 
 @section('content')

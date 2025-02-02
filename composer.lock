@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5b8e6afae227ba6774108d8bf6dc3e4",
+    "content-hash": "3caaa3e887647adf5c66a48287282cbe",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -96,16 +96,16 @@
         },
         {
             "name": "confetti-cms/foundation",
-            "version": "v0.1.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/confetti-cms/foundation.git",
-                "reference": "0097e2938548dcf5134d743912f53493a9423afb"
+                "reference": "c72dac4f68a59aa04d3483fe66fd9967b0f00aca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/confetti-cms/foundation/zipball/0097e2938548dcf5134d743912f53493a9423afb",
-                "reference": "0097e2938548dcf5134d743912f53493a9423afb",
+                "url": "https://api.github.com/repos/confetti-cms/foundation/zipball/c72dac4f68a59aa04d3483fe66fd9967b0f00aca",
+                "reference": "c72dac4f68a59aa04d3483fe66fd9967b0f00aca",
                 "shasum": ""
             },
             "require": {
@@ -132,9 +132,9 @@
             ],
             "support": {
                 "issues": "https://github.com/confetti-cms/foundation/issues",
-                "source": "https://github.com/confetti-cms/foundation/tree/v0.1.1"
+                "source": "https://github.com/confetti-cms/foundation/tree/v1.1.0"
             },
-            "time": "2025-01-23T22:14:35+00:00"
+            "time": "2025-01-31T21:24:22+00:00"
         },
         {
             "name": "eftec/bladeone",

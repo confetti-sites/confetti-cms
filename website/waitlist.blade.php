@@ -1,5 +1,5 @@
 @extends('website.layouts.blank')
-
+@section('head_title', 'Waiting List')
 @section('content')
     <!-- This has to be here to prevent the page from jumping -->
     <!-- The next screen will be on Auth0 -->
