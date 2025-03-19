@@ -46,6 +46,8 @@ export class LimText extends Paragraph {
      * @param {string} value
      */
     set storageValue(value) {
+        // Trim <br>
+        value = value.replace(/<br>/g, '');
         if (value === this.config.originalValue) {
             // if value is same as original value, remove it from local storage
             localStorage.removeItem(this.config.contentId);

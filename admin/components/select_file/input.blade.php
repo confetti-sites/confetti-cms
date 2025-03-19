@@ -2,7 +2,7 @@
 @php
     /** @var \App\Components\SelectFileComponent $model */
     use Confetti\Foundation\Helpers\ComponentStandard;
-    $useLabelForRelative = $model->getComponent()->getDecoration('useLabelFor');
+    $useLabelForRelative = $model->getComponent()->getDecoration('useLabelFor', 'useLabelFor');
     $optionsValues = array_map(function ($option) {
         return [
             'source_path' => $option->getComponent()->source->getPath(),
