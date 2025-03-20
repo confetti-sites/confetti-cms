@@ -331,13 +331,13 @@ class ListComponent
                     // To prevent rendering too many items, we don't fake to many items in deeper levels.
                     $deeper = $this->contentStore->isFake();
                     // When you can divide the current seconds by 2, then we use 20, otherwise 1-3
-                    $max = ((int) date('s')) % 2 === 0 ? ($deeper ? 5 : 20) : random_int(1, 3);
+                    $max = ((int) date('s')) % 2 === 0 ? ($deeper ? 5 : 30) : random_int(1, 3);
                 }
 
                 // Use min, average or max
                 $average = ($min + $max) / 2;
                 // Give the average 2 times more chance
-                $amount  = [$min, $average, $average, $max];
+                $amount  = [$min, $average, $max];
                 return (int) $amount[array_rand($amount)];
             }
         };

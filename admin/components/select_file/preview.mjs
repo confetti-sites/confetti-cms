@@ -45,6 +45,6 @@ export default class {
         // And make a title of this
         value = value.charAt(0).toUpperCase() + value.slice(1);
 
-        return `${value}`;
+        return `<div class="p-3">${value}</div>`;
     }
 }

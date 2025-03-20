@@ -7,6 +7,13 @@ export default class {
     /**
      * @param {string} id
      * @param {any} value
+     * For example:
+     * {
+     *     "share_link": "https://tally.so/r/wQ8LDQ",
+     *     "embed_url": "https://tally.so/embed/wQ8LDQ",
+     *     "admin_url": "https://tally.so/forms/wQ8LDQ",
+     *     "title": "Newsletter"
+     * }
      * @param component {object}
      * For example:
      * {
@@ -23,14 +30,16 @@ export default class {
      * }
      */
     constructor(id, value, component) {
-        this.id = id;
-        if (value === null && component.decorations.default !== undefined) {
-            this.value = component.decorations.default.default;
-        }
         this.value = value;
     }
 
     toHtml() {
-        return `<div class="h-5 w-5 rounded-full" id="${this.id}" style="background-color:${this.value}"></div>`;
+        return `
+            <div class="flex items-center justify-between pt-3 pb-3 pl-3 pr-4 sm:pr-0">
+                ${this.value ? ` 
+                <div class="line-clamp-2">${this.value.title}</div>
+                <a href="${this.value.admin_url}" target="_blank" class="px-2 py-1 text-sm font-medium leading-5 cursor-pointer text-white bg-emerald-700 hover:bg-emerald-800 border border-transparent rounded-md whitespace-nowrap">Tally</a>
+                ` : 'Not provided'}
+            </div>`;
     }
 }

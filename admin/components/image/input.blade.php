@@ -18,7 +18,7 @@
         import {IconTrash, IconUndo, IconUpload, Media, Storage} from '/admin/assets/js/admin_service.mjs';
         import {html, reactive} from 'https://esm.sh/@arrow-js/core';
         // https://fengyuanchen.github.io/cropperjs
-        import Cropper from 'https://esm.sh/cropperjs';
+        import Cropper from 'https://esm.sh/cropperjs@1.5.6';
 
         /**
          * @typedef {object} Value

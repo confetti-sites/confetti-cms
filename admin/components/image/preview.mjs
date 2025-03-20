@@ -80,12 +80,15 @@ export default class {
         }
 
         if (pictureSource1x) {
-            pictureSource2x  = pictureSource2x ?? pictureSource1x;
-            return `<picture>
+            pictureSource2x = pictureSource2x ?? pictureSource1x;
+            return `
+                <div class="p-3">
+                    <picture>
                         <source class="" srcset="${prefix}${pictureSource1x.name} 1x, /conf_api/confetti-cms/media/images/${pictureSource2x.name} 2x">
                         <img class="${cl}" src="${prefix}${pictureSource2x.name}" alt="${this.component.decorations.label.label}">
-                    </picture>`;
+                    </picture>
+                </div>`;
         }
-        return `<img class="${cl}" src="${prefix}${this.value.original}" alt="${this.component.decorations.label.label}">`;
+        return `<div class="p-3"><img class="${cl}" src="${prefix}${this.value.original}" alt="${this.component.decorations.label.label}"></div>`;
     }
 }

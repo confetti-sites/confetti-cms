@@ -53,12 +53,6 @@ out/
 *.js.map
 *.gz
 
-# PHP dependencies and cache
-vendor/
-
-# Temporary PHP files
-*.php~
-
 # Database files
 *.sqlite
 *.sqlite3

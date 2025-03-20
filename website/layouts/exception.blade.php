@@ -1,5 +1,6 @@
 @php
     /** @var \Exception $exception */
+    $fromBlade = str_contains($exception->getTrace()[0]['file'] ?? '', '.bladec');
     $message = $exception->getMessage();
     $paths = [];
     if (str_contains($message, ', called in') && str_contains($message, 'bladec')) {
@@ -22,6 +23,14 @@
             $path = str_replace('.', '/', $item['file']);
             $path = preg_replace('/\/var\/www\/cache\/(.*)\w{41}\/bladec/', '$1.blade.php:$2', $path);
             $paths[$i] = $path . $item['line'];
+        } elseif (!$fromBlade && isset($item['file'])) {
+            // Replace /var/resources/confetti-cms__structure with /.confetti
+            $file = str_replace('/var/resources', '/.confetti', $item['file']);
+
+            // Replace /src/ with /
+            $file = str_replace('/src/', '/', $file);
+
+            $paths[$i] = $file . ':' . $item['line'];
         } else {
             unset($paths[$i]);
         }
@@ -44,8 +53,16 @@
             background-color: #f8f8f8fa;
         }
 
+        /* Hide on mobile */
         @media (max-width: 600px) {
             .hide_on_mobile {
+                display: none;
+            }
+        }
+
+        /* Show on mobile */
+        @media (min-width: 601px) {
+            .show_on_mobile {
                 display: none;
             }
         }
@@ -72,6 +89,7 @@
             border-radius: 50%;
             mix-blend-mode: multiply;
             filter: blur(1rem);
+            z-index: -1;
         }
 
         .blob_1 {
@@ -115,20 +133,34 @@
                 }, 5000);
             });
         }
+
+        // Show stack trace
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.js-show_stack-trace').addEventListener('click', function () {
+                document.querySelectorAll('.hide_on_mobile').forEach(function (el) {
+                    el.style.display = 'block';
+                });
+                document.querySelector('.js-show_stack-trace').style.display = 'none';
+            });
+        });
     </script>
+    @include('website.includes.dev_tools')
 </head>
 <body>
 <div class="blob blob_1"></div>
 <div class="blob blob_2"></div>
 <div class="blob blob_3"></div>
-<div style="display: flex; justify-content: center; align-items: center; font-size: small;margin-top: 25%;padding: 10px;">
+<div style="display: flex; justify-content: center; align-items: center; font-size: small;margin-top: 25%;padding: 10px; z-index: 1000;">
     <div style="border-collapse: collapse;border-left-color: gray;border-left-style: solid;border-left-width: 10px;padding-left: 30px">
         <div style="font-size: xx-large; color: rgb(159, 0, 0);">{{ $message1 }}</div>
         <div style="font-size: x-large; color: rgb(159, 0, 0); cursor: pointer; max-width: 56rem;" onclick="copyToClipboard('{{ $message2 }}');">{{ $message2 }}</div>
         <div class="hide_on_mobile" style="margin-top: 20px">
             @foreach($paths as $i => $path)
-                <div class="{{ $i > 0 ? 'hide_on_mobile' : '' }}" style="font-size: x-large; color: gray; margin-top: 10px; cursor: pointer;" onclick="copyToClipboard('{{ $path }}');">{{ $path }}</div>
+                <div class="{{ $i > 0 ? 'hide_on_mobile' : '' }}" style="font-size: large; color: gray; margin-top: 10px; cursor: pointer;" onclick="copyToClipboard('{{ $path }}');">{{ $path }}</div>
             @endforeach
+        </div>
+        <div class="show_on_mobile" style="margin-top: 20px;">
+            <span class="js-show_stack-trace" style="font-size: x-large; color: gray; text-decoration: none;cursor: pointer;">Show stack trace</span>
         </div>
         <div style="margin-top: 20px;">
             <a href="/" style="font-size: x-large; color: gray; text-decoration: none;">Back to home</a>

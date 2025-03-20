@@ -32,6 +32,6 @@ export default class {
 
     toHtml() {
         // Return ✓ or ✗
-        return this.value ? '&#10003;' : '&#10007;';
+        return `<div class="p-3">` + (this.value ? '&#10003;' : '&#10007;') + `</div>`;
     }
 }

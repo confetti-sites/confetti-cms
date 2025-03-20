@@ -8,10 +8,12 @@
       // Determines the target code in the Dockerfile to run
       // - development (monitors code changes)
       // - production (optimized for speed)
-      // For testing, use 'production' and set the key to 'test'
+      // For testing, use 'production' and set the name to 'test'
       stage: 'development',
       options: {
         when_no_data_is_saved_show_fake_data: true,
+        // Enable hot reload and show development hints
+        dev_tools: false,
       },
       containers: [
         // Main view service

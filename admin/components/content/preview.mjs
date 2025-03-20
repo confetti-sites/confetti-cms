@@ -41,6 +41,6 @@ export default class {
     }
 
     toHtml() {
-        return `<span class="line-clamp-2">${this.value}</span>`;
+        return `<div class="p-3"><span class="line-clamp-2">${this.value}</span></div>`;
     }
 }

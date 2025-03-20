@@ -4,7 +4,7 @@ export class Storage {
 
         if (component) {
             // We need to save the component: When we load the list, we need to know what the component details are.
-            localStorage.setItem('/component' + id, component);
+            this.saveComponent(id, component);
         }
 
         // Don't save if the value is the same
@@ -12,6 +12,10 @@ export class Storage {
             return;
         }
         localStorage.setItem(id, value);
+    }
+
+    static saveComponent(id, component) {
+        localStorage.setItem('/component' + id, component);
     }
 
     /**
@@ -99,12 +103,23 @@ export class Storage {
                 .filter(key => specific ? key === id : (prefixQ.startsWith(key) || key.startsWith(prefixQ)))
                 .filter(key => localStorage.getItem(key) !== 'undefined')
                 .map(key => {
-                    // We want to decode, so we can save numbers and booleans
-                    let value = JSON.parse(localStorage.getItem(key));
-                    // We can't save objects to the server, so we need to convert them to strings
-                    if (typeof value === 'object') {
-                        value = JSON.stringify(value);
+                    let value = localStorage.getItem(key);
+                    if (value === 'undefined') {
+                        console.warn('Local storage item id ' + key + ' has string: "undefined". Skipping.');
+                        return null;
                     }
+                    // If the value is 'null', we want to save it as null
+                    // value = (value === 'null') ? null : value;
+
+                    // If the value is meant to be a string or null (not an object), we need to parse it
+                    if (!value.startsWith('{')){
+                        try {
+                            value = JSON.parse(value);
+                        } catch (e) {
+                            console.error('Error parsing JSON:', e);
+                        }
+                    }
+
                     return {
                         "id": key,
                         "value": value

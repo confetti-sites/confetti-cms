@@ -80,7 +80,7 @@
             }
 
             #getLabel() {
-                if (this.decorations.labelsOnOff !== undefined) {
+                if (this.decorations.labelsOnOff !== undefined && this.decorations.labelsOnOff.on) {
                     return this.data.value ? this.decorations.labelsOnOff.on : this.decorations.labelsOnOff.off;
                 }
                 return this.label;

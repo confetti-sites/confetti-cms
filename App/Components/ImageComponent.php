@@ -103,7 +103,7 @@ class ImageComponent extends ComponentStandard
         $alt = htmlspecialchars($alt);
         $width = $this->getComponent()->getDecoration('widthPx', 'widthPx');
         $ratio = $this->getComponent()->getDecoration('ratio');
-        if ($width && $ratio['width'] && $ratio['height']) {
+        if ($width && $ratio && $ratio['width'] && $ratio['height']) {
             $height = $width / $ratio['width'] * $ratio['height'];
         } else {
             $height = '';

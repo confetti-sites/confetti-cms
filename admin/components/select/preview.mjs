@@ -33,6 +33,6 @@ export default class {
             return '';
         }
 
-        return `${this.value}`;
+        return `<div class="p-3">${this.value}</div>`;
     }
 }

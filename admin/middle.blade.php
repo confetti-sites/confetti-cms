@@ -46,14 +46,18 @@
                 import {html, reactive} from 'https://esm.sh/@arrow-js/core';
 
                 const id = '{{ $id }}';
-                let state = {count: count(), confirmDelete: false, waiting: false};
+                let state = {countThis: countThis(), countAll: countAll(), confirmDelete: false, waiting: false};
                 state = reactive(state);
                 window.addEventListener('local_content_changed', () => {
-                    state.count = count();
+                    state.countThis = countThis();
+                    state.countAll = countAll();
                 });
 
-                function count() {
+                function countThis() {
                     return Storage.getLocalStorageItems('{{ $id }}').length;
+                }
+                function countAll() {
+                    return Storage.getLocalStorageItems('/model').length;
                 }
 
                 function addLoaderBtn(element) {
@@ -66,9 +70,10 @@
                     return true
                 }
 
-                function publish(e) {
+                function publish(e, all = false) {
                     addLoaderBtn(e.target);
-                    Storage.saveFromLocalStorage('{{ getServiceApi() }}', id).then((result) => {
+                    const publishFromId = all ? '/model' : id;
+                    Storage.saveFromLocalStorage('{{ getServiceApi() }}', publishFromId).then((result) => {
                         if (result) {
                             if ('{{ $id }}'.includes('~')) {
                                 Storage.redirectAway('{{ $parent }}');
@@ -80,6 +85,8 @@
                         }
                     })
                 }
+
+                let hasOtherChanges = state.countAll > 1 || (state.countAll !== state.countThis);
 
                 html`
                 <div class="flex flex-row w-full space-x-4">
@@ -93,12 +100,12 @@
                        class="basis-1/4 px-5 py-3 flex items-center justify-center text-sm font-medium leading-5 text-white bg-emerald-700 hover:bg-emerald-800 border border-transparent rounded-md">
                         Back
                     </a>
-                    <button class="${() => `{{ $canBeDeleted ? 'basis-1/2' : 'basis-3/4 ' }} _loader_btn px-5 py-3 flex items-center justify-center text-sm font-medium leading-5  border rounded-md ${state.count > 0 ? `text-white bg-emerald-700 hover:bg-emerald-800 border-transparent` : `border-gray-700 disabled}`}`}"
-                            @click="${(e) => publish(e)}"
-                            disabled="${() => state.count > 0 ? false : `disabled`}"
-                        >
-                        <span>Publish</span>
-                    </button>
+                    <div class="${() => `{{ $canBeDeleted ? 'basis-1/2' : 'basis-3/4 ' }} _loader_btn flex items-center justify-center text-sm font-medium leading-5`}" role="group">
+                        ${() => hasOtherChanges ? html`
+                            <button class="px-5 py-3 flex items-center justify-center w-full border rounded-s-lg text-white bg-emerald-700 hover:bg-emerald-800 border-transparent cursor-pointer" @click="${(e) => publish(e, true)}">Publish All</button>
+                        ` : ''}
+                        <button class="${() => `px-5 py-3 flex items-center justify-center w-full border ` + (hasOtherChanges ? `rounded-e-lg border-s-white  `: `rounded-md `) + (state.countThis > 0 ? `text-white bg-emerald-700 hover:bg-emerald-800 border-transparent cursor-pointer` : `border-gray-700 disabled`)}" @click="${(e) => publish(e)}" disabled="${() => state.countThis > 0 ? false : `disabled`}">${() => state.countThis > 0 ? (hasOtherChanges ? `Publish this` : `Publish`) : (state.countThis !== state.countAll ? `No Changes Here` : `Nothing to publish`)}</button>
+                    </div>
                 </div>
                 `(document.getElementById('actions_bottom'));
                 // When document is ready, remove the loading state
