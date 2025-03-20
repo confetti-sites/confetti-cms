@@ -13,7 +13,7 @@
                     </p>
                     <button type="button"
                             id="js-model-cta"
-                            class="w-full mt-4 border-2 border-primary bg-primary text-white px-6 py-3 rounded-lg">
+                            class="w-full mt-4 border-2 border-primary bg-primary text-white px-6 py-3 rounded-lg cursor-pointer">
                         Put me on the list
                     </button>
                 </form>

@@ -88,7 +88,17 @@ class SelectFileComponent extends ComponentStandard implements SelectModelInterf
             $file = array_key_first($this->getOptions());
         }
 
-        return $this->getOptions()[$file] ?? null;
+        try {
+            return $this->getOptions()[$file] ?? null;
+        } catch (\Error $e) {
+            // When the message starts with `Class "`, then the class is not found.
+            // For now we want to send a clear message to the developer.
+            if (str_starts_with($e->getMessage(), 'Class "')) {
+                $message = str_replace('Class "', 'Model (and corresponding component) "', $e->getMessage());
+                throw new \RuntimeException("Value found from an outdated component. $message. Please commit and push your changes to the repository and rerun the command. See: https://github.com/confetti-cms/community/discussions/17");
+            }
+            throw $e;
+        }
     }
 
     /**

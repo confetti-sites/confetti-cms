@@ -28,6 +28,6 @@ export default class {
     }
 
     toHtml() {
-        return `${this.value}`;
+        return `<span class="p-3 line-clamp-2" >${this.value}</span>`;
     }
 }

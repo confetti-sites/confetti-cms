@@ -15,6 +15,7 @@ if ($currentContentId === '') {
 
     <link rel="stylesheet" href="/resources/admin__tailwind/tailwind.output.css"/>
     <script src="/admin/assets/js/thema.js" defer></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/website/assets/favicon/favicon-32x32.png">
 </head>
 
 <body class="text-gray-700 overflow-hidden">

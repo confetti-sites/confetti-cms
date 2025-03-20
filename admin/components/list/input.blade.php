@@ -99,7 +99,7 @@
                                         </div>
                                     </td>` : ''}
                                         ${rowColumns.map((item) => html`
-                                            <td class="${() => (state.confirmDelete ? ` blur-xs` : ``) + (i++ >= 1 ? ` hidden sm:table-cell` : ``)}"
+                                            <td class="${() => (state.confirmDelete ? ` blur-xs` : ` cursor-pointer sm:cursor-auto`) + (i++ >= 1 ? ` hidden sm:table-cell` : ``)}"
                                                 @click="${() => (window.innerWidth < 640) ? window.location.href = '/admin' + row.id : ''}">
                                                 ${(item !== undefined && item.component !== null ? this.#loadMjs(item.id, item.value, item.component) : this.#noComponentFound(item, title) && '')}
                                             </td>`)}
