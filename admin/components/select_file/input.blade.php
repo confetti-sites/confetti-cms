@@ -97,7 +97,7 @@
                 }, 1);
 
                 this.data.$on('value', value => {
-                    Storage.removeLocalStorageModels(this.id);
+                    Storage.removeLocalStorageComponent(this.id);
                     if (value !== this.original) {
                         Storage.saveLocalStorageModel(this.id, value, this.dataset.component);
                     }

@@ -147,7 +147,7 @@
                         onActivate: async () => {
                             this.removeImage();
                             this.data.value = this.stored;
-                            Storage.removeLocalStorageModels(this.id);
+                            Storage.removeLocalStorageComponent(this.id);
                             window.dispatchEvent(new CustomEvent('local_content_changed'));
                         }
                     },
@@ -157,6 +157,7 @@
                         closeOnActivate: true,
                         onActivate: async () => {
                             this.removeImage();
+                            Storage.removeByPrefix('/listener' + this.id);
                             Storage.saveLocalStorageModel(this.id, this.valueFunction.remove, this.dataset.component);
                             window.dispatchEvent(new CustomEvent('local_content_changed'));
                         }
@@ -312,7 +313,7 @@
                 }
                 // Get file name from the original image
                 const fileName = value['original'].split('/').pop();
-                Storage.removeLocalStorageModels(id);
+                Storage.removeLocalStorageComponent(id);
                 if (value !== this.stored['original']) {
                     Storage.saveLocalStorageModel(id, value, this.dataset.component);
                 }

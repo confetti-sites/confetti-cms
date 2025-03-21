@@ -54,7 +54,7 @@
 
             connectedCallback() {
                 this.data.$on('value', value => {
-                    Storage.removeLocalStorageModels(this.id);
+                    Storage.removeLocalStorageComponent(this.id);
                     if (value?.share_link !== this.original?.share_link &&
                         value?.admin_url !== this.original?.admin_url &&
                         value?.embed_url !== this.original?.embed_url &&

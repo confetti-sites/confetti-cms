@@ -27,7 +27,7 @@ export class Storage {
         if (localStorage.hasOwnProperty(id)) {
             let raw = localStorage.getItem(id);
             if (raw === 'undefined') {
-                console.warn('Local storage item id ' +id+ ' has string: "undefined". Skipping.');
+                console.warn('Local storage item id ' + id + ' has string: "undefined". Skipping.');
                 return null;
             }
             return JSON.parse(raw);
@@ -70,18 +70,23 @@ export class Storage {
             });
     }
 
-    static removeLocalStorageModels(model) {
-        let prefixes = [model, '/component' + model, '/listener' + model];
+    static removeLocalStorageComponent(model) {
+        this.removeByPrefix('/component' + model);
+        this.removeByPrefix('/listener' + model);
+    }
 
-        for (let prefix of prefixes) {
-            // Remove from local storage
-            // Get all items from local storage (exact match and prefix + `/`)
-            let items = Object.keys(localStorage).filter(key => key === prefix || key.startsWith(prefix + '/'));
-            // Remove items from local storage
-            items.forEach(item => {
-                localStorage.removeItem(item);
-            });
-        }
+    /**
+     * @param {string} prefix
+     */
+    static removeByPrefix(prefix) {
+        // Remove from local storage
+        // Get all items from local storage (exact match and prefix + `/`)
+        let items = Object.keys(localStorage)
+            .filter(key => key === prefix || key.startsWith(prefix + '/') || key.startsWith(prefix + '.'));
+        // Remove items from local storage
+        items.forEach(item => {
+            localStorage.removeItem(item);
+        });
     }
 
     /**
@@ -112,7 +117,7 @@ export class Storage {
                     // value = (value === 'null') ? null : value;
 
                     // If the value is meant to be a string or null (not an object), we need to parse it
-                    if (!value.startsWith('{')){
+                    if (!value.startsWith('{')) {
                         try {
                             value = JSON.parse(value);
                         } catch (e) {
@@ -248,7 +253,7 @@ export class Storage {
             if (response.status >= 300) {
                 console.error("Error status: " + response.status);
             } else {
-                this.removeLocalStorageModels(id);
+                this.removeLocalStorageComponent(id);
                 window.dispatchEvent(new Event('local_content_changed'));
                 if (then) {
                     then();
