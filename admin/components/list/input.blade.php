@@ -162,8 +162,9 @@
                 }).catch(error => {
                     const wrapper = document.getElementById(uniqueId);
                     if (wrapper) {
-                        console.error("Can't load component in list with ID: " + id, error);
-                        wrapper.innerHTML = `<span class="p-3 line-clamp-2">Can't load component</span>`;
+                        console.error("Can't load component in list with ID: " + id + ". This can be a problem, but it can also be that no value is given/saved.", error);
+                        console.info("The text 'Can't load component' is only visible in combination with dev tools.");
+                        wrapper.innerHTML = `<span class="p-3 line-clamp-2 text-red-700 @if(!config('environment.options.dev_tools')) hidden @endif">Can't load component</span>`;
                     }
                 });
 
