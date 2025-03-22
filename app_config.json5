@@ -13,7 +13,7 @@
       options: {
         when_no_data_is_saved_show_fake_data: false,
         // Enable hot reload and show development hints
-        dev_tools: false,
+        dev_tools: true,
       },
       containers: [
         // Main view service
@@ -21,7 +21,7 @@
           // Do not change the name 'view' since it is connected to the view.Dockerfile
           name: 'view',
           hosts: [
-            'confetti-cms.com',
+            'confetti-cms.localhost',
           ],
           paths: [
             '/',
@@ -30,7 +30,7 @@
         // For all api services
         {
           hosts: [
-            'confetti-cms.com',
+            'confetti-cms.localhost',
           ],
           paths: [
             // Replace '__SERVICE__' with the name of the service.
