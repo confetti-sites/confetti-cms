@@ -13,7 +13,7 @@
       options: {
         when_no_data_is_saved_show_fake_data: false,
         // Enable hot reload and show development hints
-        dev_tools: true,
+        dev_tools: false,
       },
       containers: [
         // Main view service
