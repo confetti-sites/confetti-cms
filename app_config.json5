@@ -14,7 +14,7 @@
       // Options for local development (this is only used by the Confetti team)
       local: true,
       options: {
-        when_no_data_is_saved_show_fake_data: false,
+        when_no_data_is_saved_show_fake_data: true,
         // Enable hot reload and show development hints
         dev_tools: true,
       },
