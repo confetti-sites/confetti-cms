@@ -1,5 +1,6 @@
 {
   environments: [
+    // Local development environment
     {
       // Key serves as a name for the environment
       // Common values: 'prod', test or 'dev', but it’s flexible
@@ -44,6 +45,7 @@
         },
       ],
     },
+    // Development environment
     {
       name: 'dev',
       stage: 'development',
