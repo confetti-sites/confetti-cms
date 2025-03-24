@@ -71,6 +71,7 @@ export class Storage {
     }
 
     static removeLocalStorageComponent(model) {
+        this.removeByPrefix(model);
         this.removeByPrefix('/component' + model);
         this.removeByPrefix('/listener' + model);
     }

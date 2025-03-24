@@ -91,7 +91,7 @@
                 html`
                 <div class="flex flex-row w-full space-x-4">
                     @if($canBeDeleted)
-                    <button type="button" class="${() => `basis-1/4 px-5 flex items-center justify-center text-sm font-medium leading-5 text-white ${state.confirmDelete ? `bg-emerald-700 hover:bg-red-600` : `bg-emerald-700 hover:bg-emerald-800`} border border-transparent rounded-md`}"
+                    <button type="button" class="${() => `basis-1/4 px-5 flex items-center justify-center text-sm font-medium leading-5 text-white cursor-pointer ${state.confirmDelete ? `bg-emerald-700 hover:bg-red-600` : `bg-emerald-700 hover:bg-emerald-800`} border border-transparent rounded-md`}"
                             @click="${(e) => state.confirmDelete ? addLoaderBtn(e.target) && Storage.delete('{{ getServiceApi() }}', id, ()=> Storage.redirectAway('{{ $parent }}')) && removeLoaderBtn(e.target) : state.confirmDelete = true}">
                         <span>${() => state.confirmDelete ? `Confirm` : `Delete`}</span>
                     </button>
