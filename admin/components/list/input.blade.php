@@ -200,10 +200,10 @@
             }
 
             #removeItem(element, row) {
-                Storage.delete(this.serviceApi, row.id);
-
-                // We can't use `delete` because that would not trigger the reactive update
-                this.data.rows = this.data.rows.filter(r => r.id !== row.id);
+                Storage.delete(this.serviceApi, row.id, () => {
+                    // We can't use `delete` because that would not trigger the reactive update
+                    this.data.rows = this.data.rows.filter(r => r.id !== row.id);
+                });
             }
 
             // Before we can edit the child of a pointer, we need

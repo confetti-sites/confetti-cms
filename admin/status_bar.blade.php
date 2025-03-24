@@ -70,7 +70,7 @@
                 this.innerHTML = ''
                 this.style.opacity = '1';
                 html`
-                    <div class="${() => `fixed bottom-0 right-0 z-50 p-4 m-4 rounded-lg shadow-lg min-w-60 max-w-full ` + (this.statuses.some(status => status.state === this.state.error) ? `border-2 border-red-500`:``)}">
+                    <div class="${() => `fixed bottom-0 right-0 z-50 p-4 m-4 rounded-lg shadow-lg min-w-60 max-w-full bg-white ` + (this.statuses.some(status => status.state === this.state.error) ? `border-2 border-red-500`:``)}">
                         <ul class="max-w-md space-y-2 text-gray-500 list-inside">
                             ${() => this.statuses.map(status => html`
                                 <li class="flex items-center">
