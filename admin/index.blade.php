@@ -58,7 +58,7 @@ if ($currentContentId === '') {
             const menu = document.getElementsByClassName('js-menu')[0];
             const menuClickAway = document.getElementsByClassName('js-menu-click-away')[0];
 
-            menuToggle.addEventListener('click', () => {
+            menuToggle?.addEventListener('click', () => {
                 menu.classList.toggle('hidden');
                 menuClickAway.classList.toggle('hidden');
             });
