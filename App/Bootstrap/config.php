@@ -1,33 +1,21 @@
 <?php
 
 /**
- * Here you can define your own config function.
- * This function is used to get values from the config array.
- * You can use dot notation to get nested values.
- * For example when you have the following config array:
- * [
- *    'homepage' => [
- *       'show_title' => true,
- *    ]
- * ]
+ * This array is loaded from the `app_config.json5` file.
+ * You can access the configuration of the current environment and container.
+ * The key `environments` is now `environment` and `containers` is now `container`.
  *
- * You can get the value of 'show_title' by calling config('homepage.show_title', false);
+ * Examples:
+ * You can get the name of the current environment with `config('environment.name')`.
+ * You can get the option `dev_tools` of the current environment with `config('environment.options.dev_tools')`.
+ * You can get the name of the current container with `config('environment.container.name')`.
+ * You can get the hosts with `config('environment.container.hosts')`.
  *
- * Customize this function to suit your needs.
- * You can organize the configuration data into multiple files for better structure.
+ * Customize this function to suit your needs, but don't unset existing keys, as they might be used elsewhere.
  */
 function config(string $key, mixed $default = null): mixed
 {
-    $config = [
-        /**
-         * All these values are equal to the values in the app_config.json5 file.
-         * At least, the following keys are available:
-         * environment.name
-         * environment.stage
-         * environment.options.dev_tools
-         */
-        'environment' => $_ENV['ENV_CONFIG'],
-    ];
+    $config = $_ENV['APP_CONFIG'];
 
     /**
      * This part is where the magic happens! It fetches the value from the config array.
