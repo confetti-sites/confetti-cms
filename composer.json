@@ -3,7 +3,7 @@
     "ext-curl": "*",
     "eftec/bladeone": "^4.16",
     "colinodell/json5": "^3.0",
-    "confetti-cms/foundation": "^v1.2"
+    "confetti-cms/foundation": "^v1.3"
   },
   "autoload": {
     "psr-4": {
