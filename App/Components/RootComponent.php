@@ -20,4 +20,9 @@ abstract class RootComponent extends Map
     {
         return $this;
     }
+
+    public function __get(string $name): void
+    {
+        throw new \RuntimeException("Model ->{$name}(...) not found. Create a model with `->...('{$name}')`");
+    }
 }
