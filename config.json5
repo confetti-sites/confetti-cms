@@ -1,7 +1,6 @@
 {
   // Here you can define your own configuration (e.g., the company name)
   // You can get this value in php with `config('options.company_name')`
-  //
   options: {
     company_name: 'Your Company Name',
   },

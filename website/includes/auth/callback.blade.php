@@ -32,10 +32,10 @@
 @endif
 
 @if($error)
-    <div class="flex items-center justify-center w-full h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="flex items-center justify-center w-full h-screen bg-gray-50">
         {{$error}}
     </div>
-    <div class="flex items-center justify-center w-full h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="flex items-center justify-center w-full h-screen bg-gray-50">
         <a href="/">Go to homepage</a>
     </div>
 @endif
