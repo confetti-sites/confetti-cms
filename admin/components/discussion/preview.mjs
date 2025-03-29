@@ -29,12 +29,15 @@ export default class {
     }
 
     toHtml() {
+        let result;
         if (this.value.error) {
-            return `<span id="${this.id}">${this.value.error}</span>`;
+            result = `${this.value.error}`;
+        } else if (!this.value.discussion || !this.value.discussion.title) {
+            result = `No title`;
+        } else {
+            result = `${this.value.discussion.title}`;
         }
-        if (!this.value.discussion && !this.value.discussion.title) {
-            return `<span id="${this.id}">No title</span>`;
-        }
-        return `<span id="${this.id}">${this.value.discussion.title}</span>`;
+
+        return `<span id="${this.id}" class="p-3 line-clamp-2">${result}</span>`;
     }
 }

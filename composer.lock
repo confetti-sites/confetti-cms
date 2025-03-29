@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30a422f1bcaae20bd09e2778f6a67272",
+    "content-hash": "0303e6717c3e10948db2ca1738eb1e06",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -96,19 +96,20 @@
         },
         {
             "name": "confetti-cms/foundation",
-            "version": "v1.3.4",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/confetti-cms/foundation.git",
-                "reference": "a86b3bb6c7cababaeacb3dcf8d5dbac0373ef49d"
+                "reference": "05a71782724ebc04ceac860a9ca3e2cf36005083"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/confetti-cms/foundation/zipball/a86b3bb6c7cababaeacb3dcf8d5dbac0373ef49d",
-                "reference": "a86b3bb6c7cababaeacb3dcf8d5dbac0373ef49d",
+                "url": "https://api.github.com/repos/confetti-cms/foundation/zipball/05a71782724ebc04ceac860a9ca3e2cf36005083",
+                "reference": "05a71782724ebc04ceac860a9ca3e2cf36005083",
                 "shasum": ""
             },
             "require": {
+                "colinodell/json5": "^3.0",
                 "php": ">=8.1"
             },
             "require-dev": {
@@ -132,9 +133,9 @@
             ],
             "support": {
                 "issues": "https://github.com/confetti-cms/foundation/issues",
-                "source": "https://github.com/confetti-cms/foundation/tree/v1.3.4"
+                "source": "https://github.com/confetti-cms/foundation/tree/v1.3.5"
             },
-            "time": "2025-03-27T00:19:25+00:00"
+            "time": "2025-03-27T01:01:28+00:00"
         },
         {
             "name": "eftec/bladeone",
@@ -202,9 +203,7 @@
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {
-        "ext-curl": "*"
-    },
+    "platform": [],
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }

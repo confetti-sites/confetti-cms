@@ -20,7 +20,7 @@
                 <div class="js-menu hidden flex-col space-y-2 px-4 py-2 bg-white md:flex md:flex-row md:space-y-0 md:space-x-4 md:border-none md:py-0">
                     <a href="/" class="block md:hidden transition hover:text-primary px-4 py-2 md:py-2">Home</a>
                     <a href="/pricing" class="block relative transition hover:text-primary px-4 py-2 md:py-2">Pricing</a>
-                    <a href="/docs/installation" class="block transition hover:text-primary px-4 py-2 md:py-2">Docs</a>
+                    <a href="/docs/model" class="block transition hover:text-primary px-4 py-2 md:py-2">Docs</a>
                     @guest
                         <a href="/waiting-list" class="relative ml-auto flex h-10 w-full items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 px-4">
                             <span class="relative text-sm font-semibold text-white">
