@@ -1,5 +1,6 @@
 @php($usps = newRoot(new \model\homepage\usps))
 <div class=" md:bg-gray-50">
+    {{ $usps->text('title')->default('Why choose us?') }}
     <div class="container flex flex-col items-center justify-center py-8">
         <div class="px-4 pt-8 pb-8 md:flex md:items-center">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
