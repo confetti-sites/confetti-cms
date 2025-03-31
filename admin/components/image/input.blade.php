@@ -160,6 +160,7 @@
                             Storage.removeByPrefix('/listener' + this.id);
                             Storage.saveLocalStorageModel(this.id, this.valueFunction.remove, this.dataset.component);
                             window.dispatchEvent(new CustomEvent('local_content_changed'));
+                            new BroadcastChannel('cms').postMessage('content_published');
                         }
                     },
                     {

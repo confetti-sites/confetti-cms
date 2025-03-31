@@ -1,5 +1,5 @@
 @php($steps = newRoot(new \model\homepage\steps)->label('Steps'))
-<section class="text-gray-600 body-font">
+<section class="js-edit:{{ $steps->getId() }} text-gray-600 body-font">
     <div class="container pt-24 mx-auto flex flex-wrap">
         <div class="flex relative py-10 sm:items-center md:w-2/3">
             <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
@@ -10,7 +10,7 @@
             </div>
         </div>
         @foreach($steps->list('step')->columns(['title'])->sortable()->max(10)->get() as $i => $step)
-            <div class="flex relative py-10 sm:items-center md:w-2/3">
+            <div class="flex relative py-10 w-full sm:items-center md:w-2/3">
                 <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
                     <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
                 </div>
@@ -24,7 +24,7 @@
                             @include($icon->getView(), ['model' => $icon])
                         @endif
                     </div>
-                    <div class="grow sm:pl-6 mt-6 sm:mt-0">
+                    <div class="js-edit:{{ $step->getId() }} grow sm:pl-6 mt-6 sm:mt-0">
                         <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">{{ $step->text('title')->max(50) }}</h2>
                         <p class="leading-relaxed font-body">{{ $step->text('description')->max(400) }}</p>
                     </div>

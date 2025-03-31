@@ -164,6 +164,7 @@ export class Storage {
                     localStorage.removeItem('/component' + item.id);
                     localStorage.removeItem('/listener' + item.id);
                 });
+                new BroadcastChannel('cms').postMessage('content_published');
                 window.dispatchEvent(new Event('local_content_changed'));
                 window.dispatchEvent(new CustomEvent('state', {
                     detail: {
@@ -256,6 +257,7 @@ export class Storage {
             } else {
                 this.removeLocalStorageComponent(id);
                 window.dispatchEvent(new Event('local_content_changed'));
+                new BroadcastChannel('cms').postMessage('content_published');
                 if (then) {
                     then();
                 }

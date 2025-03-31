@@ -22,6 +22,7 @@
 
 {{--    @endguest--}}
 
+@include('website.includes.edit_mode')
 @include('website.includes.dev_tools')
 @stack('end_of_body_*')
 
