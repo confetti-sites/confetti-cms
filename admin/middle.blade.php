@@ -3,7 +3,7 @@
     $model = modelById($id)->canFake(false);
     $children = $model->getChildren();
     // If model is part of a list (has ~ in the id), it can be deleted
-    $canBeDeleted = str_contains($id, '~');
+    $isListItem = str_contains($id, '~');
     // If id ends with -, redirect to the parent without the last pointer
     $parent = $model->getParentId();
     if (str_ends_with($parent, '-')) {
@@ -53,6 +53,15 @@
                     state.countAll = countAll();
                 });
 
+                // When the parent value is never set, this item is new.
+                // Every (new) item needs to be saved.
+                // This value can be used to determine the order
+                @if($model->get() === null && $isListItem)
+                    if (localStorage.getItem('{{ $model->getId() }}') === null) {
+                        localStorage.setItem('{{ $model->getId() }}', JSON.stringify(Date.now()));
+                    }
+                @endif
+
                 function countThis() {
                     return Storage.getLocalStorageItems('{{ $id }}').length;
                 }
@@ -90,7 +99,7 @@
 
                 html`
                 <div class="flex flex-row w-full space-x-4">
-                    @if($canBeDeleted)
+                    @if($isListItem)
                     <button type="button" class="${() => `basis-1/4 px-5 flex items-center justify-center text-sm font-medium leading-5 text-white cursor-pointer ${state.confirmDelete ? `bg-emerald-700 hover:bg-red-600` : `bg-emerald-700 hover:bg-emerald-800`} border border-transparent rounded-md`}"
                             @click="${(e) => state.confirmDelete ? addLoaderBtn(e.target) && Storage.delete('{{ getServiceApi() }}', id, ()=> Storage.redirectAway('{{ $parent }}')) && removeLoaderBtn(e.target) : state.confirmDelete = true}">
                         <span>${() => state.confirmDelete ? `Confirm` : `Delete`}</span>
@@ -100,7 +109,7 @@
                        class="basis-1/4 px-5 py-3 flex items-center justify-center text-sm font-medium leading-5 text-white bg-emerald-700 hover:bg-emerald-800 border border-transparent rounded-md">
                         Back
                     </a>
-                    <div class="${() => `{{ $canBeDeleted ? 'basis-1/2' : 'basis-3/4 ' }} _loader_btn flex items-center justify-center text-sm font-medium leading-5`}" role="group">
+                    <div class="${() => `{{ $isListItem ? 'basis-1/2' : 'basis-3/4 ' }} _loader_btn flex items-center justify-center text-sm font-medium leading-5`}" role="group">
                         ${() => hasOtherChanges ? html`
                             <button class="px-5 py-3 flex items-center justify-center w-full border rounded-s-lg text-white bg-emerald-700 hover:bg-emerald-800 border-transparent cursor-pointer" @click="${(e) => publish(e, true)}">Publish All</button>
                         ` : ''}

@@ -445,7 +445,7 @@ class ListComponent
 
             $resultRows[] = [
                 'id'   => $row->getId(),
-                '.'    => $row->getValue(),
+                '.'    => $row->get(),
                 'data' => $resultData,
             ];
         }

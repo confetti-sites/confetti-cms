@@ -44,4 +44,4 @@ COPY --chown=www-data:www-data . .
 # Check composer.lock for `composer install`
 # Check composer.json for include files
 # Check vendor/composer for `composer dump-autoload`
-CMD ["sh", "-c", "ls composer.* vendor/composer | entr -r timeout 5s composer install"]
+CMD ["sh", "-c", "ls composer.* vendor/composer | entr -r timeout 30s composer install"]

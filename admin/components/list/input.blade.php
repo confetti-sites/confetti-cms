@@ -181,7 +181,6 @@
             #redirectToNew() {
                 this.#savePointers(this.id);
                 let newId = this.id + Storage.newId();
-                localStorage.setItem(newId, JSON.stringify(Date.now()));
                 // Open in new tab if ctrl or cmd key is pressed
                 if (event.ctrlKey || event.metaKey) {
                     window.open('/admin' + newId, '_blank');
