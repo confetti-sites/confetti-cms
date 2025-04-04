@@ -55,7 +55,7 @@
 
                 // When the parent value is never set, this item is new.
                 // Every (new) item needs to be saved.
-                // This value can be used to determine the order
+                // This value can be used to determine the order.
                 @if($model->get() === null && $isListItem)
                     if (localStorage.getItem('{{ $model->getId() }}') === null) {
                         localStorage.setItem('{{ $model->getId() }}', JSON.stringify(Date.now()));

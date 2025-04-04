@@ -96,7 +96,7 @@
         },
         {
             "name": "confetti-cms/foundation",
-            "version": "v1.3.7",
+              "version": "v1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/confetti-cms/foundation.git",
