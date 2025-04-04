@@ -3,6 +3,14 @@ $currentContentId = rtrim(str_replace('/admin', '', request()->uri()), '/');
 if ($currentContentId === '') {
     $currentContentId = '/model';
 }
+// If the url ends with a pointer, redirect to the parent
+// `/model/footer/template-` is not a valid admin url
+if (str_ends_with(request()->uri(), '-')) {
+    $currentContentId = substr($currentContentId, 0, strrpos($currentContentId, '/'));
+    // Redirect to the parent with php
+    header('Location: /admin' . $currentContentId);
+    exit();
+}
 @endphp
 <!DOCTYPE html>
 <html lang="en">

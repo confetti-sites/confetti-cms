@@ -32,7 +32,6 @@
     const email = part1 + part2 + part3;
     document.querySelectorAll('.js-contact-e').forEach(el => {
         el.textContent = email.replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(dec));
-        el.href = 'mailto:' + email.replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(dec));
     });
 </script>
 </body>

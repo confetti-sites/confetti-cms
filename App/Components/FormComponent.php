@@ -6,11 +6,11 @@ namespace App\Components;
 
 use Confetti\Foundation\Helpers\ComponentStandard;
 
-class TallyComponent extends ComponentStandard
+class FormComponent extends ComponentStandard
 {
     public function type(): string
     {
-        return 'tally';
+        return 'form';
     }
 
     public function get(bool $useDefault = false): ?array
@@ -60,7 +60,7 @@ class TallyComponent extends ComponentStandard
      */
     public function getViewAdminInput(): string
     {
-        return 'admin.components.tally.input';
+        return 'admin.components.form.input';
     }
 
     /**
@@ -68,7 +68,7 @@ class TallyComponent extends ComponentStandard
      */
     public static function getViewAdminPreview(): string
     {
-        return '/admin/components/tally/preview.mjs';
+        return '/admin/components/form/preview.mjs';
     }
 
     // Label is used as a title for the admin panel
