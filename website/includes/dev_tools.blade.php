@@ -1,4 +1,4 @@
-@if(config('environment.options.dev_tools'))
+@if(\App\Helpers::devTools())
     @pushonce('end_of_body_dev_tools')
         <dev-tools></dev-tools>
         <script type="module">

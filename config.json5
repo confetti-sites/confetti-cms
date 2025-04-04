@@ -21,6 +21,7 @@
       options: {
         when_no_data_is_saved_show_fake_data: true,
         // Enable hot reload and show development hints
+        // When enabled and the user is logged in, the dev tools will be shown
         dev_tools: true,
       },
       containers: [
@@ -56,7 +57,7 @@
       stage: 'development',
       options: {
         when_no_data_is_saved_show_fake_data: false,
-        dev_tools: false,
+        dev_tools: true,
       },
       containers: [
         {

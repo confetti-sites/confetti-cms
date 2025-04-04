@@ -1,3 +1,4 @@
+
 @php($compare = newRoot(new \model\homepage\compare)->label('Compare'))
 @php($cases = $compare->list('case')->sortable()->min(1)->max(4)->get())
 <div class="relative mb-12">
@@ -7,7 +8,7 @@
     <div class="bg-gray-50 flex items-center justify-center">
         <div class="relative w-full">
             <div class="relative">
-                <button type="button" class="text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->text('title')->min(1)->max(50) }}</button>
+                <button type="button" class="js-edit:{{ $compare->getId() }} text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->text('title')->min(1)->max(50) }}</button>
                 <homepage-compare>
                     <!-- skeleton loader -->
                     <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
@@ -52,7 +53,7 @@
                 @foreach($cases as $tapNr => $case)
                     <div class="${() => 'grid grid-cols-1 md:grid-cols-2 ' + (this.state.tab === {{ $tapNr }} ? 'block' : 'hidden')}">
                         @foreach($case->list('column')->sortable()->columns(['title'])->min(2)->max(2)->get() as $column)
-                            <div class="my-4 xl:m-6 mt-0 relative space-x-4 space-y-4">
+                            <div class="js-edit:{{ $column->getId() }} my-4 xl:m-6 mt-0 relative space-x-4 space-y-4">
                                 <div class="flex justify-center mx-8 md:mx-14 lg:mx-24  my-4 lg:my-8 p-4 bg-blue-300 text-xl rounded-lg">
                                     <h3>{{ $column->text('title')->min(1)->max(50) }}</h3>
                                 </div>

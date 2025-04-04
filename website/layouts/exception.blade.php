@@ -168,4 +168,5 @@
     </div>
     <div id="copy_message" style="margin-top: 20px; opacity: 0; font-size: x-large; color: gray;">Copied to clipboard</div>
 </div>
+@stack('end_of_body_*')
 </body>

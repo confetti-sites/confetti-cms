@@ -1,4 +1,4 @@
-<header class="z-10 py-4 shadow-md dark:bg-gray-800">
+<header class="z-10 py-4 dark:bg-gray-800">
     <div class="container flex items-center justify-between h-full px-3 mx-auto">
         <!-- Mobile hamburger -->
         <button type="button" id="menu-toggle" class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-hidden focus:ring-3" aria-label="Menu">
