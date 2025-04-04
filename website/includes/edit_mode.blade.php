@@ -1,6 +1,10 @@
 @pushonce('end_of_body_edit_mode')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+
+            /**
+             * Add edit buttons to all elements with class starting with "js-edit:"
+             */
             document.querySelectorAll('[class^="js-edit:"]').forEach(el => {
                 const id = el.classList[0].split(':')[1];
                 const button = document.createElement('a');
@@ -9,15 +13,24 @@
                 button.style.display = 'none';
                 el.insertBefore(button, el.firstChild);
 
-                // When local storage changes, update the button visibility
+                // Show the button when Shift is pressed
                 document.addEventListener('keydown', function (event) {
                     if (event.shiftKey) {
-                        button.style.display = button.style.display === 'none' ? 'block' : 'none';
+                        button.style.display = 'block';
+                    }
+                });
+
+                // Hide the button when Shift is released
+                document.addEventListener('keyup', function (event) {
+                    if (event.key === 'Shift') {
+                        button.style.display = 'none';
                     }
                 });
             });
 
-            // Create a channel and listen for content changes in the admin
+            /**
+             * Create a channel and listen for content changes in the admin
+             */
             new BroadcastChannel('cms').addEventListener('message', (event) => {
                 if (event.data === 'content_published') {
                     location.reload();
