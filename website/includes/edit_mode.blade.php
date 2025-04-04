@@ -3,7 +3,7 @@
         document.addEventListener('DOMContentLoaded', function () {
 
             /**
-             * Add edit buttons to all elements with class starting with "js-edit:"
+             * Add edit buttons when pressed Shift
              */
             document.querySelectorAll('[class^="js-edit:"]').forEach(el => {
                 const id = el.classList[0].split(':')[1];
