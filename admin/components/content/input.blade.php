@@ -60,7 +60,6 @@
         import {Storage} from '/admin/assets/js/admin_service.mjs';
 
         // General toolbar is set in the onReady event
-        let service = undefined;
         const defaultInlineToolbar = [
             'bold',
             'underline',
@@ -111,6 +110,7 @@
             }
 
             renderedCallback() {
+                let service = undefined;
                 /**
                  * These are the settings for the editor.js
                  */
@@ -121,7 +121,7 @@
                     holder: '_' + this.id_slug,
                     placeholder: this.decorations.placeholder.placeholder,
                     originalData: this.original,
-                    data: localStorage.hasOwnProperty('{{ $model->getId() }}') ? JSON.parse(localStorage.getItem(this.id)) : this.original,
+                    data: localStorage.hasOwnProperty(this.id) ? JSON.parse(localStorage.getItem(this.id)) : this.original,
                     // E.g. {"label":{"label":"Title"},"default":{"default":"Confetti CMS"}};
                     decorations: this.decorations,
                     defaultData: this.default_data,

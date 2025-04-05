@@ -1,5 +1,4 @@
 @extends('website.layouts.main')
-@php($pricing = newRoot(new \model\pricing))
 @section('head_title', 'Pricing')
 @section('content')
     <!-- Start pricing -->
@@ -9,7 +8,7 @@
             <div class="absolute mt-[400px] lg:mt-[500px] -left-4 lg:left-[500px] w-64 h-64 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 -z-10"></div>
             <div class="absolute mt-[600px] lg:mt-[700px] left-20 md:left-[300px] lg:left-[600px] w-64 h-64 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 -z-10"></div>
             <div class="relative -mx-4 flex flex-wrap">
-                <div class="js-edit:{{ $pricing->getId() }} w-full px-4">
+                <div class="w-full px-4">
                     <div class="mx-auto max-w-[510px] text-center">
                         <h2 class="text-blue-500 mb-2 block text-lg font-semibold">Confetti comes with hosting</h2>
                         <div class="mb-4 text-3xl font-bold text-4xl md:text-[40px]">Only pay for hosting</div>
@@ -23,32 +22,49 @@
                 <div class="w-full md:w-1/2 px-4 md:pt-8">
                     <div class="border-blue-500 relative overflow-hidden rounded-xl border border-opacity-20 bg-white p-8">
                         <h2 class="text-blue-500 mb-4 block text-lg font-semibold">
-                            {{ $pricing->text('one_website')->default('One website') }}
+                            Learning, developing and testing
                         </h2>
-                        <div class="mb-5 text-[42px] font-bold">{{ $pricing->text('one_website_price')->default('Free') }}</div>
-                        <p class="text-body-color text-base font-body font-bold">
-                            @include('website.includes.blocks.index', ['model' => $pricing->content('one_website_description')])
+                        <div class="mb-5 text-[42px] font-bold">Free</div>
+                        <p
+                                class="text-body-color text-base font-body font-bold"
+                        >
+                            Confetti CMS is free to use for tinkering your next idea.
                         </p>
-                        <a href="/waiting-list" class="bg-primary border-primary block w-full rounded-md border mt-8 p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90">
-                            Get started
-                        </a>
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 px-4 md:pt-8">
-                    <div class="relative h-full rounded-xl border border-blue-500 border-opacity-20 bg-white p-8">
-                        <h2 class="text-blue-500 mb-4 block text-lg font-semibold">
-                            {{ $pricing->text('agency_program')->default('Agency Program') }}
-                        </h2>
-                        <div class="mb-5 text-[30px] font-bold">
-                            {{ $pricing->text('agency_program_price')->default('Cheaper than AWS') }}
+                <div class="w-full md:w-1/2 px-4 mb-10 pt-8">
+                    <div class="absolute text-center z-10 rotate-6 skew-y-6 right-0 py-2 px-4 bg-blue-500 items-center leading-none rounded-full flex inline-flex text-white shadow-lg">
+                        <span class="flex rounded-full border border-opacity-20 border-white uppercase px-2 py-1 text-sm font-bold mr-3">Beta</span>
+                        <div class="font-semibold mr-2 text-left flex-col">
+                            <div>Since Confetti is in beta</div>
+                            <div>all plans are currently free</div>
                         </div>
-                        <p class="text-body-color text-base">
-                            @include('website.includes.blocks.index', ['model' => $pricing->content('agency_program_description')])
+                    </div>
+                    <div class="relative h-full rounded-xl border border-blue-500 border-opacity-20 bg-white mb-16 p-8">
+                        <h2 class="text-blue-500 mb-4 block text-lg font-semibold">
+                            Personal & small business
+                        </h2>
+                        <div class="mb-5 text-[42px] font-bold">
+                            €10
+                            <span class="text-body-color text-base font-medium"> / month</span>
+                        </div>
+                        <p class="text-body-color mb-2 pb-2 text-base font-body font-bold">
+                            Perfect for a personal website or a small business.
                         </p>
-
-                        <a href="{{ $pricing->form('form')->get()['share_link'] ?? null }}" class="bg-primary border-primary block w-full rounded-md border mt-8 p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90">
-                            Join the agency program
-                        </a>
+                        <div class="absolute -bottom-16 -right-2 md:-right-4 py-5 px-4 md:px-5 border-blue-500 rounded-xl border border-opacity-20 bg-white">
+                            <h2 class="text-blue-500 mb-4 block text-lg font-semibold">
+                                High traffic website
+                            </h2>
+                            <div class="text-lg font-bold">
+                                + €42 <span class="text-body-color text-base font-medium">/ month</span>
+                                <div class="text-body-color text-base font-medium">
+                                    <div class="flex-col text-base font-body">
+                                        <div>for every</div>
+                                        <div>additional resource</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,6 +81,9 @@
                     <li class="text-body-color mb-1 ">Test environments</li>
                     <li class="text-body-color mb-1 ">Secured with Auth0</li>
                 </ul>
+                <a href="/waiting-list" class="bg-primary border-primary block w-full lg:w-1/2 rounded-md border mt-8 p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90">
+                    Get started
+                </a>
             </div>
         </div>
     </section>

@@ -31,6 +31,7 @@ export default class LimContent {
      * @param {Data|null} value
      */
     set storageData(value) {
+        console.log('configuration', this.editor.configuration);
         // if value is same as original value, remove it from local storage
         if (value === this.editor.configuration.originalData) {
             localStorage.removeItem(this.editor.configuration.id);
