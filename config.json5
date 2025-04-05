@@ -1,3 +1,13 @@
+ /*******************************************************************************\
+|                                                                                |
+|   Notice:                                                                      |
+|                                                                                |
+|   Only when you participate in the Agency Program, you can change this file.   |
+|                                                                                |
+ \*******************************************************************************/
+
+
+
 {
   // Here you can define your own configuration (e.g., the company name)
   // You can get this value in php with `config('options.company_name')`

@@ -9,7 +9,7 @@
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">
+                <a href="{{ $footer->text('link_1')->default('https://confetti-cms.com/docs/philosophy') }}" class="mr-4 hover:underline md:mr-6">
                     {{ $footer->text('text_link_1')->default('About') }}
                 </a>
             </li>

@@ -52,7 +52,7 @@
     @if($current !== null)
         <!-- Article -->
         <div class="min-w-0 max-w-3xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0">
-            <article class="text-gray-700">
+            <article class="js-edit:{{ $current->getId() }} text-gray-700">
                 <div class="mb-9 space-y-1">
                     <h1 class="text-3xl font-semibold text-gray-800 mb-2">{{ $current->content->getTitle() }}</h1>
                     @if ($current->banner->get())
@@ -77,9 +77,20 @@
             </article>
 
             @guest
-                <a href="/waiting-list" class="relative ml-auto flex h-10 w-full mt-20 items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 px-4">
-                    <span class="relative text-sm font-semibold text-white">Stay updated by joining the waitlist</span>
-                </a>
+                @if (rand(0, 1) === 0)
+                    <!-- Display the waitlist link -->
+                    <a href="/waiting-list" class="relative ml-auto flex h-10 w-full mt-20 items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 px-4">
+                        <span class="relative text-sm font-semibold text-white">Let's Join the Waitlist</span>
+                    </a>
+                @else
+                    <!-- Display the newsletter div -->
+                    @include('website.includes.newsletter')
+                @endif
+            @else
+                @if (rand(0, 3) === 0)
+                    <!-- Display the newsletter -->
+                    @include('website.includes.newsletter')
+                @endif
             @endguest
         </div>
         <!-- Right menu -->

@@ -10,7 +10,7 @@
             <div class="mt-4 text-gray-800">
                 <form onsubmit="return false;" method="post">
                     <p id="model-description" class="text-gray-600 font-body">
-                        In the next step, we’ll request access to your email address. This is needed to send you an invitation. We’ll only email you regarding your invitation.
+                        In the next step, we’ll request access to your email address. This is needed to send you an invitation. We’ll only email you regarding your invitation and your account.
                     </p>
                     <button type="button"
                             id="js-model-cta"
