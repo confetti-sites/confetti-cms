@@ -25,7 +25,7 @@
                         <h2 class="text-blue-500 mb-4 block text-lg font-semibold">
                             {{ $pricing->text('one_website')->default('One website') }}
                         </h2>
-                        <div class="mb-5 text-[42px] font-bold">{{ $pricing->text('one_website_price')->default('Free') }}</div>
+                        <div class="mb-4 text-4xl sm:text-5xl md:text-4xl lg:text-4xl font-bold">{{ $pricing->text('one_website_price')->default('Free') }}</div>
                         <p class="text-body-color text-base font-body font-bold">
                             @include('website.includes.blocks.index', ['model' => $pricing->content('one_website_description')])
                         </p>
@@ -39,7 +39,7 @@
                         <h2 class="text-blue-500 mb-4 block text-lg font-semibold">
                             {{ $pricing->text('agency_program')->default('Agency Program') }}
                         </h2>
-                        <div class="mb-5 text-[30px] font-bold">
+                        <div class="mb-4 text-4xl sm:text-5xl md:text-4xl lg:text-4xl font-bold">
                             {{ $pricing->text('agency_program_price')->default('Cheaper than AWS') }}
                         </div>
                         <p class="text-body-color text-base">

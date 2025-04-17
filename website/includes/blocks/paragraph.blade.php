@@ -1,1 +1,1 @@
-<p class="pt-3 font-body">{!! $block['data']['text'] !!}</p>
+<p class="pt-3 font-body text-pretty">{!! $block['data']['text'] !!}</p>

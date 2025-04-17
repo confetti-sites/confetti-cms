@@ -30,8 +30,12 @@ export class DevTools {
                     this.subscribeFileChanges(callbackLocalFileChanged, callbackRemoteFileProcessed, errorCallback);
                 }, 5000);
             } else {
-                errorCallback('Your browser is not connected to a watcher. Start the watcher by running `conf watch` in the terminal.');
+                errorCallback('Your browser is not connected to a watcher. Start the watcher by running `conf watch` in the terminal and/or refresh the page.');
                 console.error('EventSource failed. Your page may be reloaded or the watcher may have been stopped.', error);
+                eventSource.close();
+                setTimeout(() => {
+                    this.subscribeFileChanges(callbackLocalFileChanged, callbackRemoteFileProcessed, errorCallback);
+                }, 60000);
             }
         }
 

@@ -5,7 +5,7 @@
     <div class="text-blue-500 mb-4 block text-lg font-semibold">
         {{ $model->text('description')->max(200) }}
     </div>
-    <div class="mb-5 text-[30px] font-bold">
+    <div class="mb-4 text-[30px] font-bold">
         {{ $model->newsletter->getTitle() }}
     </div>
     <div class="mt-4">

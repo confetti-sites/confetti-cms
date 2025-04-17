@@ -54,7 +54,7 @@
 
             connectedCallback() {
                 this.data.$on('value', value => {
-                    Storage.removeLocalStorageComponent(this.id);
+                        Storage.removeLocalStorageComponent(this.id);
                     if (value?.share_link !== this.original?.share_link &&
                         value?.admin_url !== this.original?.admin_url &&
                         value?.embed_url !== this.original?.embed_url &&
@@ -63,13 +63,14 @@
                         Storage.saveLocalStorageModel(this.id, value, this.dataset.component);
                     }
                     window.dispatchEvent(new CustomEvent('local_content_changed'));
+                    this.#reloadForm();
                 });
 
                 html`
                     <label class="block text-bold text-xl mt-8 mb-4">${this.label}</label>
                     <div class="w-full md:flex md:gap-4">
                         <div class="${() => `w-full ` + (this.isValid() ? `md:w-1/3` : ``)}">
-                            <input class="${() => `appearance-none pr-5 pl-3 py-3 w-full bg-gray-50 border-2 outline-hidden text-gray-900 rounded-lg block ` + (this.data.value === this.original ? `border-gray-200` : `border-emerald-300`)}"
+                            <input class="${() => `appearance-none pr-5 pl-3 py-3 w-full bg-gray-50 border-2 outline-hidden text-gray-900 rounded-lg block ` + (this.#isChanged() ? `border-emerald-200` : `border-gray-300`)}"
                                    name="${this.id}"
                                    value="${() => this.data.value?.share_link ?? ''}"
                                    placeholder="https://tally.so/r/..."
@@ -196,16 +197,13 @@
                             let jsonData = JSON.parse(match[1]); // Converteer de JSON-string naar een object
                             let title = jsonData.props?.pageProps?.name; // Haal de naam eruit
 
+                            this.data.error = null;
                             this.data.value = {
                                 share_link: shareUrl,
                                 embed_url: embedUrl,
                                 admin_url: adminUrl,
                                 title: title,
                             }
-                            this.data.error = null;
-
-                            // Reload Tally
-                            this.querySelector('iframe').src = embedUrl;
                         } else {
                             console.error("NEXT_DATA not found in the form page.");
                             this.data.error = 'Can\'t fetch the title of the form. Please try again later. (The developer can check the console for more information.)';
@@ -217,6 +215,10 @@
                     });
 
                 return true;
+            }
+
+            #reloadForm() {
+                this.querySelector('iframe').src = this.data.value?.embed_url;
             }
 
             /**
@@ -236,6 +238,18 @@
                 shareUrl = shareUrl.replace(/\/(summary|share|edit)$/, '');
 
                 this.validateAndInit(shareUrl);
+            }
+
+            /**
+             * Check if the share link, admin url, embed url or title has changed
+             * @returns {boolean}
+             */
+            #isChanged() {
+                return this.data.value?.share_link !== this.original?.share_link ||
+                    this.data.value?.admin_url !== this.original?.admin_url ||
+                    this.data.value?.embed_url !== this.original?.embed_url ||
+                    this.data.value?.title !== this.original?.title;
+
             }
         });
     </script>
