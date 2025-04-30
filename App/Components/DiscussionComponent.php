@@ -50,11 +50,11 @@ class DiscussionComponent extends ComponentStandard
         return '<discussion>' . $content . '</discussion>';
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         $value = $this->get();
         if (empty($value['discussion']) || empty($value['discussion']['title'])) {
-            return 'Title missing';
+            return null;
         }
         return $value['discussion']['title'];
     }

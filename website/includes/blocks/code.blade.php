@@ -1,1 +1,1 @@
-{!! trim($block['data']['code']) !!}
+<p>{!! trim($block['data']['code']) !!}</p>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>@yield('head_title')</title>
+    <meta name="description" content="@yield('head_title') @yield('head_description')">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/website__tailwind/tailwind.output.css"/>
     <link rel="stylesheet" href="/website/assets/css/fonts.css"/>

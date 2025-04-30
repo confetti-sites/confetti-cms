@@ -24,8 +24,6 @@ class BoolComponent extends ComponentStandard
             return $value === 1;
         }
 
-
-
         $default = $this->getComponent()->getDecoration('default', 'default');
         if ($default !== null) {
             return $default;

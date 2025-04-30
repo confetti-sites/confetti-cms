@@ -10,7 +10,7 @@
 @endphp
 @extends('website.layouts.main')
 @if($current !== null)
-    @section('head_title', $current->content->getTitle())
+    @section('head_title', $current->content->getTitle() ?? 'Confetti CMS - Installation')
 @else
     @section('head_title', 'Confetti CMS - Documentation')
 @endif
@@ -52,12 +52,20 @@
     @if($current !== null)
         <!-- Article -->
         <div class="min-w-0 max-w-3xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0">
-            <article class="js-edit:{{ $current->getId() }} text-gray-700">
+            <article class="js-edit:{{ $current->getId() }} text-gray-800">
                 <div class="mb-9 space-y-1">
-                    <h1 class="text-3xl font-semibold text-gray-800 mb-2">{{ $current->content->getTitle() }}</h1>
+                    @if ($current->content->get())
+                        <h1 class="text-3xl font-semibold text-gray-800 mb-2">{{ $current->content->getTitle() }}</h1>
+                    @endif
                     @if ($current->banner->get())
                         {!! $current->image('banner')->widthPx(900)->getPicture(class: 'mt-4 mb-4', alt: 'Example of of result of the ' . $current->content->getTitle() . ' Component') !!}
                     @endif
+
+                    @php($target = $current->selectFile('template')->match(['/website/includes/docs/*.blade.php']))
+                    @if($target->getView())
+                        @include($target->getView(), ['model' => $target])
+                    @endif
+
                     <div class="mt-4 mb-4 text-gray-800 font-body">{!! $current->discussion('content')->label('GitHub Discussion')->help('The URL to the GitHub Discussion')->getHtml() !!}</div>
                     @if(count($current->relatedLinks()->get()) > 0)
                         <div class="mb-4 py-8 text-gray-800 font-body">
@@ -93,25 +101,28 @@
                 @endif
             @endguest
         </div>
-        <!-- Right menu -->
-        <div class="hidden lg:relative lg:block lg:flex-none ml-6 w-40">
-            <div class="sticky top-[4.5rem] ml-2 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-4">
-                <nav class="text-base lg:text-sm">
-                    @if(count($currentCategory->pages()->get()) > 1)
-                        @if($currentCategory->title != '')
-                            <h2 class="pb-2 text-lg font-body text-gray-700">{{ $currentCategory->title }}</h2>
+
+        @if(count($currentCategory->pages()->get()) > 1 || $current->bool('show_sidebar')->label('Show sidebar')->default(true)->help('Show empty right sidebar if there are no pages in the current category')->get())
+            <!-- Right menu -->
+            <div class="hidden lg:relative lg:block lg:flex-none ml-6 w-40">
+                <div class="sticky top-[4.5rem] ml-2 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-4">
+                    <nav class="text-base lg:text-sm">
+                        @if(count($currentCategory->pages()->get()) > 1)
+                            @if($currentCategory->title != '')
+                                <h2 class="pb-2 text-lg font-body text-gray-800">{{ $currentCategory->title }}</h2>
+                            @endif
+                            <ul class="space-y-3 text-lg font-body">
+                                @foreach($currentCategory->pages()->get() as $page)
+                                    <li class="ml-2">
+                                        <a href="/docs/{{ $page->alias }}" class="text-blue-500">{{ $page->content->getTitle() }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         @endif
-                        <ul class="space-y-3 text-lg font-body">
-                            @foreach($currentCategory->pages()->get() as $page)
-                                <li class="ml-2">
-                                    <a href="/docs/{{ $page->alias }}" class="text-blue-500">{{ $page->content->getTitle() }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </nav>
+                    </nav>
+                </div>
             </div>
-        </div>
+        @endif
     @else
         <!-- 404/Start page -->
         <div class="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16">
