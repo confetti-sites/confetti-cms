@@ -43,7 +43,7 @@ class DiscussionComponent extends ComponentStandard
     {
         $value = $this->get();
         if (empty($value['discussion']) || empty($value['discussion']['body'])) {
-            return 'Content missing';
+            return '';
         }
         $content = $value['discussion']['body'];
         $content = preg_replace('/<hr\>.*/s', '', $content);

@@ -291,6 +291,27 @@ export class Storage {
     }
 
     /**
+     * @returns {boolean}
+     */
+    static hasRedirectUrl() {
+        return !! new URLSearchParams(window.location.search).get('redirect_url');
+    }
+
+    /**
+     * @return {boolean}
+     */
+    static handleRedirectUrl() {
+        // if redirect_url is set, redirect to that url
+        const redirectUrl = new URLSearchParams(window.location.search).get('redirect_url');
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * @returns {string}
      */
     static newId() {
