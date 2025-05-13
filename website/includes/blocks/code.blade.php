@@ -6,10 +6,10 @@
             @auth
             const username = '@username';
             @else
-            const username = 'your_username';
+            const username = 'your_repo';
             @endauth
             document.querySelectorAll('.js-replace-username').forEach(el => {
-                el.innerHTML = el.innerHTML.replaceAll('__your_username__', username);
+                el.innerHTML = el.innerHTML.replaceAll('__your_repo__', username);
             });
         });
     </script>

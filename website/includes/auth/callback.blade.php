@@ -5,6 +5,7 @@
     @php($error = 'Error: The code parameter is not set. Please try again.')
 @else
     @php
+        $hour = 60 * 60;
         $code = request()->parameter('code');
         if ($code === null) {
             throw new \RuntimeException('Code is null');
@@ -18,13 +19,14 @@
 
         $accessToken = $contents['auth']['access_token'];
         setcookie('access_token', $accessToken, [
-            'expires' => time()+60*60*10,
+            // Never expire around the same time (so the user wille see the login page at the beginning of the day)
+            'expires' => time()+($hour*24*6)+($hour*12),
             'path' => '/',
         ]);
         $redirectAfterLogin = request()->cookie('redirect_after_login') ?? '/';
         // Clear cookie
         setcookie('redirect_after_login', '', [
-            'expires' => time()+60*60,
+            'expires' => time()+$hour,
             'path' => '/',
         ]);
         header('Location: ' . $redirectAfterLogin);

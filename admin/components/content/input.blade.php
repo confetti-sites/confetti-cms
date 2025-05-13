@@ -64,6 +64,7 @@
             'bold',
             'underline',
             'italic',
+            'link',
         ];
 
         customElements.define('content-component', class extends HTMLElement {
