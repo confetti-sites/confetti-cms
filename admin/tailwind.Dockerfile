@@ -16,4 +16,3 @@ CMD /bin/tailwindcss \
 -o /var/resources/admin__tailwind/tailwind.output.css \
 --watch \
 --verbose
-

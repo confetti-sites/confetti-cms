@@ -9,11 +9,13 @@ RUN mv tailwindcss-linux-arm64-musl /bin/tailwindcss
 
 LABEL trigger_restart_1h="true"
 LABEL for_development_only="true"
+#
+#CMD /bin/tailwindcss \
+#-i /src/website/assets/css/tailwind.css \
+#-c /src/website/tailwind.config.js \
+#-o /var/resources/website__tailwind/tailwind.output.css \
+#--watch \
+#--verbose
 
-CMD /bin/tailwindcss \
--i /src/website/assets/css/tailwind.css \
--c /src/website/tailwind.config.js \
--o /var/resources/website__tailwind/tailwind.output.css \
---watch \
---verbose
-
+# just keep conatiner alive
+CMD tail -f /dev/null
