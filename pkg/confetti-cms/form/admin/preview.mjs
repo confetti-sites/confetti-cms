@@ -17,12 +17,12 @@ export default class {
      * @param component {object}
      * For example:
      * {
-     *   "decorations": {                     |
-     *     "label": {                         |
-     *      ^^^^^                             | The name of the decoration method
-     *        "label": "Choose the label"     |
-     *         ^^^^^                          | The name of the parameter
-     *                  ^^^^^^^^^^^^^^^^^^^^  | The value given to the parameter
+     *   "decorations": {                |
+     *     "label": {                    |
+     *      ^^^^^                        | The name of the decoration method
+     *        "label": "The Newsletter"  |
+     *         ^^^^^                     | The name of the parameter
+     *                  ^^^^^^^^^^^^^^^  | The value given to the parameter
      *     }
      *   },
      *   "key": "/model/view/features/select_file_basic/value-",
