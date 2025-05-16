@@ -1,0 +1,8 @@
+{
+    "name": "confetti-cms/list",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\List\\": ""
+        }
+    }
+}
