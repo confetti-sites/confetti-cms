@@ -106,6 +106,3 @@ class FormComponent extends ComponentStandard
         return $this;
     }
 }
-
-
-
