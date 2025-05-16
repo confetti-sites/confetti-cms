@@ -1,0 +1,8 @@
+{
+    "name": "confetti-cms/select-file",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\SelectFile\\": ""
+        }
+    }
+}
