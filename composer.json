@@ -1,0 +1,8 @@
+{
+    "name": "confetti-cms/bool",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\Bool\\": ""
+        }
+    }
+}
