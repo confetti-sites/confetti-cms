@@ -26,7 +26,7 @@ export default class {
      *     }
      *   },
      *   "key": "/model/view/features/select_file_basic/value-",
-     *   "source": {"directory": "view/features", "file": "form_basic.blade.php", "from": 5, "line": 2, "to": 28},
+     *   "source": {"directory": "view/features", "file": "form_basic.blade.php", "from": 4, "line": 2, "to": 28},
      * }
      */
     constructor(id, value, component) {
