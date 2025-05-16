@@ -1,0 +1,8 @@
+{
+    "name": "confetti-cms/hidden",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\Hidden\\": ""
+        }
+    }
+}
