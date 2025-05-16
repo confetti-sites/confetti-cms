@@ -1,11 +1,30 @@
 {
   "require": {
     "eftec/bladeone": "^4.16",
-    "confetti-cms/foundation": "^v1.3"
+    "confetti-cms/foundation": "^v1.3",
+    "confetti-cms/bool": "*",
+    "confetti-cms/content": "*",
+    "confetti-cms/discussion": "*",
+    "confetti-cms/form": "*",
+    "confetti-cms/hidden": "*",
+    "confetti-cms/image": "*",
+    "confetti-cms/list": "*",
+    "confetti-cms/select": "*",
+    "confetti-cms/select-file": "*",
+    "confetti-cms/text": "*"
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "pkg/*/*",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
   "autoload": {
     "psr-4": {
-      "Confetti\\Parser\\": "/var/resources/confetti-cms__parser/Confetti",
+      "ConfettiCms\\Parser\\": "/var/resources/confetti-cms__parser/ConfettiCms",
       "model\\": "/var/resources/confetti-cms__structure/model",
       "query\\": "/var/resources/confetti-cms__structure/query",
       "App\\": "/src/App/"

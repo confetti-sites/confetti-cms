@@ -1,4 +1,4 @@
-@php use Confetti\Parser\Components\Map; @endphp
+@php use ConfettiCms\Parser\Components\Map; @endphp
 @php([$currentContentId] = variables($variables))
 
 @php /** @var string $currentContentId */ @endphp

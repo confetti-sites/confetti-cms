@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Components;
 
-use Confetti\Parser\Components\Map;
+use ConfettiCms\Parser\Components\Map;
 
 abstract class RootComponent extends Map
 {

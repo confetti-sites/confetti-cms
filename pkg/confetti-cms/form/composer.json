@@ -1,0 +1,8 @@
+{
+    "name": "confetti-cms/form",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\Form\\": ""
+        }
+    }
+}

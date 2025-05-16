@@ -9,7 +9,7 @@ require_once __DIR__ . '/../../vendor/confetti-cms/foundation/fileloader.php';
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-$kernel = new \Confetti\Foundation\Kernel();
+$kernel = new \ConfettiCms\Foundation\Kernel();
 /** @noinspection PhpUnhandledExceptionInspection */
 $kernel->phpIniSettings();
 $kernel->setEnvironmentSettings();

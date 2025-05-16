@@ -10,7 +10,7 @@
         if ($code === null) {
             throw new \RuntimeException('Code is null');
         }
-        $response = (new \Confetti\Foundation\Helpers\Client())->get('confetti-cms__auth/callback?code=' . $code);
+        $response = (new \ConfettiCms\Foundation\Helpers\Client())->get('confetti-cms__auth/callback?code=' . $code);
         try {
             $contents = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $e) {

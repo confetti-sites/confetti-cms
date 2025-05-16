@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Bootstrap;
 
 use Exception;
-use Confetti\Foundation\Render\BladeOne;
+use ConfettiCms\Foundation\Render\BladeOne;
 use App\Http\Routes\Admin;
 use App\Http\Routes\Website;
 
