@@ -13,7 +13,7 @@ export default class {
      *   "decorations": {                     |
      *     "label": {                         |
      *      ^^^^^                             | The name of the decoration method
-     *        "label": "Choose your template" |
+     *        "label": "Enable this feature"  |
      *         ^^^^^                          | The name of the parameter
      *                  ^^^^^^^^^^^^^^^^^^^^  | The value given to the parameter
      *     }
