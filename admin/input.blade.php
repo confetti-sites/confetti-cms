@@ -1,5 +1,5 @@
-@php /** @var \ConfettiComponents\bool\BoolComponent $model */ @endphp
-        <!--suppress HtmlUnknownTag -->
+@php /** @var \ConfettiCms\Bool\BoolComponent $model */ @endphp
+<!--suppress HtmlUnknownTag -->
 <bool-component
         data-id="{{ $model->getId() }}"
         data-label="{{ $model->getComponent()->getLabel() }}"
