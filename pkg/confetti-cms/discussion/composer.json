@@ -1,8 +1,0 @@
-{
-    "name": "confetti-cms/discussion",
-    "autoload": {
-        "psr-4": {
-            "ConfettiCms\\Discussion\\": ""
-        }
-    }
-}
