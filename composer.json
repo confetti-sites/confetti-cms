@@ -34,11 +34,11 @@
   "prefer-stable": true,
   "scripts": {
     "pkg:use": [
-      "sh -c 'git subtree add --prefix=\"pkg/$1\" https://github.com/$1.git main --squash || git subtree pull --prefix=\"pkg/$1\" https://github.com/$1.git main;' -",
+      "sh -c 'git subtree add --prefix=\"pkg/$1\" git@github.com:$1.git main --squash || git subtree pull --prefix=\"pkg/$1\" git@github.com:$1.git main;' -",
       "sh -c 'composer require $1 --no-update --ignore-platform-reqs' -"
     ],
     "pkg:push": [
-      "sh -c 'git subtree push --prefix=\"pkg/$1\" https://github.com/$1.git main;' -",
+      "sh -c 'git subtree push --prefix=\"pkg/$1\" git@github.com:$1.git main;' -"
     ]
   },
   "scripts-descriptions": {
