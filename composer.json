@@ -34,6 +34,7 @@
   "scripts": {
     "pkg:use": [
       "sh -c 'git subtree add --prefix=\"pkg/$1\" https://github.com/$1.git main --squash || git subtree pull --prefix=\"pkg/$1\" https://github.com/$1.git main;' -"
+      "@composer require $1@*"
     ]
   },
   "scripts-descriptions": {
