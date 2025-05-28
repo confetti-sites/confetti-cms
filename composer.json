@@ -33,9 +33,7 @@
   "prefer-stable": true,
   "scripts": {
     "pkg:use": [
-      "if [ -d pkg/$1 ]; then rm -rf pkg/$1; fi",
-      "git subtree add --prefix=pkg/$1 $1 main --squash || git subtree pull --prefix=pkg/$1 $1 main --squash",
-      "@composer require $1"
+      "sh -c 'VENDOR_REPO=$1 && REPO_URL=https://github.com/$VENDOR_REPO.git && DIR=pkg/$VENDOR_REPO && [ -d $DIR ] && rm -rf $DIR || true && git subtree add --prefix=$DIR $REPO_URL main --squash || git subtree pull --prefix=$DIR $REPO_URL main --squash && @composer require $VENDOR_REPO' -"
     ]
   },
   "scripts-descriptions": {
