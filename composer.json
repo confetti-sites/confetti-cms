@@ -1,43 +1,8 @@
 {
-  "require": {
-    "eftec/bladeone": "^4.16",
-    "confetti-cms/foundation": "^v1.3",
-    "confetti-cms/content": "*",
-    "confetti-cms/discussion": "*",
-    "confetti-cms/form": "*",
-    "confetti-cms/hidden": "*",
-    "confetti-cms/image": "*",
-    "confetti-cms/list": "*",
-    "confetti-cms/select": "*",
-    "confetti-cms/select-file": "*",
-    "confetti-cms/text": "*"
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "pkg/*/*",
-      "options": {
-        "symlink": true
-      }
+    "name": "confetti-cms/bool",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\Bool\\": ""
+        }
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "ConfettiCms\\Parser\\": "/var/resources/confetti-cms__parser/ConfettiCms",
-      "model\\": "/var/resources/confetti-cms__structure/model",
-      "query\\": "/var/resources/confetti-cms__structure/query",
-      "App\\": "/src/App/"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "scripts": {
-    "pkg:use": [
-      "sh -c 'git subtree add --prefix=\"pkg/$1\" https://github.com/$1.git main --squash || git subtree pull --prefix=\"pkg/$1\" https://github.com/$1.git main;' -",
-      "sh -c 'composer require $1 --no-update --ignore-platform-reqs' -"
-    ]
-  },
-  "scripts-descriptions": {
-    "pkg:use": "Install a package from a pkg repostiory. For example: `composer pkg:use confetti-cms/bool`"
-  }
 }
