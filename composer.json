@@ -33,7 +33,7 @@
   "prefer-stable": true,
   "scripts": {
     "pkg:use": [
-      "sh -c 'git subtree add --prefix=\"pkg/$1\" https://github.com/$1.git main --squash || git subtree pull --prefix=\"pkg/$1\" https://github.com/$1.git main;' - @no_additional_args",
+      "sh -c 'git subtree add --prefix=\"pkg/$1\" https://github.com/$1.git main --squash || git subtree pull --prefix=\"pkg/$1\" https://github.com/$1.git main;' -",
       "@composer require @additional_args"
     ]
   },
