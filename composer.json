@@ -33,7 +33,7 @@
   "prefer-stable": true,
   "scripts": {
     "pkg:use": [
-      "rm -rf 'pkg/$1' && git subtree add --prefix='pkg/$1' https://github.com/$1.git main --squash && composer require"
+      "sh -c 'rm -rf \"pkg/$1\" && git subtree add --prefix=\"pkg/$1\" https://github.com/$1.git main --squash && composer require $1' -"
     ]
   },
   "scripts-descriptions": {
