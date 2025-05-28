@@ -50,6 +50,9 @@ class DiscussionComponent extends ComponentStandard
         return '<discussion>' . $content . '</discussion>';
     }
 
+    /**
+     * Get the title of the GitHub discussion.
+     */
     public function getTitle(): ?string
     {
         $value = $this->get();
