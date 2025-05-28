@@ -33,7 +33,9 @@
   "prefer-stable": true,
   "scripts": {
     "pkg:use": [
-      "sh -c 'VENDOR_REPO=$1 && REPO_URL=https://github.com/$VENDOR_REPO.git && DIR=pkg/$VENDOR_REPO && [ -d $DIR ] && rm -rf $DIR || true && git subtree add --prefix=$DIR $REPO_URL main --squash || git subtree pull --prefix=$DIR $REPO_URL main --squash && @composer require $VENDOR_REPO' -"
+      "git stash @no_additional_args",
+      "sh -c 'VENDOR_REPO=$1 && REPO_URL=https://github.com/$VENDOR_REPO.git && DIR=pkg/$VENDOR_REPO && [ -d $DIR ] && rm -rf $DIR || true && git subtree add --prefix=$DIR $REPO_URL main --squash || git subtree pull --prefix=$DIR $REPO_URL main --squash && composer require $VENDOR_REPO' - || git stash pop",
+      "git stash pop"
     ]
   },
   "scripts-descriptions": {
