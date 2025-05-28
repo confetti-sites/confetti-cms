@@ -2,7 +2,6 @@
   "require": {
     "eftec/bladeone": "^4.16",
     "confetti-cms/foundation": "^v1.3",
-    "confetti-cms/bool": "*",
     "confetti-cms/content": "*",
     "confetti-cms/discussion": "*",
     "confetti-cms/form": "*",
@@ -31,5 +30,15 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "scripts": {
+    "pkg:use": [
+      "if [ -d pkg/$1 ]; then rm -rf pkg/$1; fi",
+      "git subtree add --prefix=pkg/$1 $1 main --squash || git subtree pull --prefix=pkg/$1 $1 main --squash",
+      "@composer require $1"
+    ]
+  },
+  "scripts-descriptions": {
+    "pkg:use": "Install a package from a pkg repostiory. For example: `composer pkg:use confetti-cms/bool`"
+  }
 }
