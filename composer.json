@@ -1,5 +1,5 @@
 {
-    "name": "confetti-cms/Image",
+    "name": "confetti-cms/image",
     "autoload": {
         "psr-4": {
             "ConfettiCms\\Image\\": ""
