@@ -13,13 +13,13 @@ export default class {
      *   "decorations": {                     |
      *     "label": {                         |
      *      ^^^^^                             | The name of the decoration method
-     *        "label": "Choose your template" |
+     *        "label": "Enable this feature"  |
      *         ^^^^^                          | The name of the parameter
      *                  ^^^^^^^^^^^^^^^^^^^^  | The value given to the parameter
      *     }
      *   },
      *   "key": "/model/view/features/select_file_basic/value-",
-     *   "source": {"directory": "view/features", "file": "select_file_basic.blade.php", "from": 5, "line": 2, "to": 28},
+     *   "source": {"directory": "view/homepage", "file": "header.blade.php", "from": 5, "line": 3, "to": 28},
      * }
      */
     constructor(id, value, component) {
