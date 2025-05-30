@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac70a7d786c371f863ba8c0535ed775f",
+    "content-hash": "a4285007aa96b567b8d61532ebfff855",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -155,6 +155,25 @@
                 "source": "https://github.com/confetti-cms/foundation/tree/v1.5.0"
             },
             "time": "2025-05-16T21:13:29+00:00"
+        },
+        {
+            "name": "confetti-cms/image",
+            "version": "dev-main2",
+            "dist": {
+                "type": "path",
+                "url": "pkg/confetti-cms/image",
+                "reference": "edaa7d7617c61c65a6de925bfe01222953c57bc8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConfettiCms\\Image\\": ""
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "eftec/bladeone",
