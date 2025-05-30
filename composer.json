@@ -1,49 +1,8 @@
 {
-  "require": {
-    "eftec/bladeone": "^4.16",
-    "confetti-cms/foundation": "^v1.3"
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "pkg/*/*",
-      "options": {
-        "symlink": true
-      }
+    "name": "confetti-cms/bool",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\Bool\\": ""
+        }
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "ConfettiCms\\Parser\\": "/var/resources/confetti-cms__parser/ConfettiCms",
-      "model\\": "/var/resources/confetti-cms__structure/model",
-      "query\\": "/var/resources/confetti-cms__structure/query",
-      "App\\": "/src/App/"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "scripts": {
-    "pkg:pull": [
-      "sh -c 'echo \"\\n...Checking for modifications...\"' -",
-      "sh -c 'git diff-index --quiet HEAD -- || (echo \"\\nYou project has modifications, please commit and push or stash them first.\n\" && exit 1)' -",
-      "sh -c '[ -d \"pkg/$1\" ] && true || (echo \"\\n...Trying to restore directory...\\n\" && git checkout $(git --no-pager log -1 --format=\"%H\" -- pkg/$1)^ -- pkg/$1 && git commit -am \"Restore package $1\");' -",
-      "sh -c '[ -d \"pkg/$1\" ] && true || (echo \"\\n...Not created in the past, add new package...\\n\" && git subtree add --prefix=\"pkg/$1\" git@github.com:$1.git main);' -",
-      "sh -c 'echo \"\\n...Pull latest changes...\\n\"' -",
-      "sh -c 'git subtree pull --prefix=\"pkg/$1\" git@github.com:$1.git main' -",
-      "sh -c 'echo \"\\n...Updating composer.json and add the package to the autoloader...\\n\"' -",
-      "sh -c 'composer require $1 \"*\" --ignore-platform-reqs' -",
-      "sh -c 'git commit -am \"Added package $1\" || true' -",
-      "sh -c 'echo \"\\n...The package $1 is now installed 🎁\\n\"' -",
-      "sh -c 'echo \"The package $1 is fully integrated into your repository as if you wrote it yourself.\"' -",
-      "sh -c 'echo \"You can make changes directly in your repository, and the commits will be saved to your own history.\"' -",
-      "sh -c 'echo \"It’s perfectly fine to maintain a customized version of the package within your main project.\"' -",
-      "sh -c 'echo \"If you have sufficient permissions, you can push your changes to the central package repository using: `composer pkg:push $1`.\"' -"
-    ],
-    "pkg:push": [
-      "sh -c 'git subtree push --prefix=\"pkg/$1\" git@github.com:$1.git main;' -"
-    ]
-  },
-  "scripts-descriptions": {
-    "pkg:use": "Install a package from a pkg repository. For example: `composer pkg:use confetti-cms/bool`"
-  }
 }
