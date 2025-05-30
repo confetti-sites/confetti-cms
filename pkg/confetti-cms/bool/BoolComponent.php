@@ -59,7 +59,7 @@ class BoolComponent extends ComponentStandard
         return $this;
     }
 
-    // Labels on/off are used to show the title dynamically in the admin panel
+    // Labels on/off are used for a boolean field
     public function labelsOnOff(string $on, string $off): self
     {
         $this->setDecoration(__FUNCTION__, get_defined_vars());
