@@ -27,8 +27,8 @@
     "pkg:pull": [
       "sh -c 'echo \"\\n...Checking for modifications...\\n\"' -",
       "sh -c 'git diff-index --quiet HEAD -- || (echo \"You project has modifications, please commit and push or stash them first.\n\" && exit 1)' -",
-      "sh -c '[ ! -d \"pkg/$1\" ] && echo \"\\n...Trying to restore directory...\\n\" && git checkout $(git --no-pager log -1 --format=\"%H\" -- pkg/$1 && git commit -am \"Restore package $1\" );' -",
-      "sh -c '[ ! -d \"pkg/$1\" ] && echo \"\\n...Not created in the past, add new package...\\n\" && git subtree add --prefix=\"pkg/$1\" git@github.com:$1.git main;' -",
+      "sh -c '[ -d \"pkg/$1\" ] && true || echo \"\\n...Trying to restore directory...\\n\" && git checkout $(git --no-pager log -1 --format=\"%H\" -- pkg/$1 && git commit -am \"Restore package $1\" );' -",
+      "sh -c '[ -d \"pkg/$1\" ] && true || echo \"\\n...Not created in the past, add new package...\\n\" && git subtree add --prefix=\"pkg/$1\" git@github.com:$1.git main;' -",
       "sh -c 'echo \"\\n...Pull latest changes...\\n\"' -",
       "sh -c 'git subtree pull --prefix=\"pkg/$1\" git@github.com:$1.git main' -",
       "sh -c 'echo \"\\n...Updating composer.json and add the package to the autoloader...\\n\"' -",
