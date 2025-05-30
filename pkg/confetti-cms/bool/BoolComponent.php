@@ -85,6 +85,3 @@ class BoolComponent extends ComponentStandard
         return (bool)random_int(0, 1);
     }
 }
-
-
-
