@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58f5607096f34f3dd9f5c8b26a414a2b",
+    "content-hash": "ac70a7d786c371f863ba8c0535ed775f",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -219,9 +219,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "confetti-cms/bool": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},

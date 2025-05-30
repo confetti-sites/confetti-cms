@@ -2,7 +2,7 @@
   "require": {
     "eftec/bladeone": "^4.16",
     "confetti-cms/foundation": "^v1.3",
-    "confetti-cms/bool": "dev-main2"
+    "confetti-cms/bool": "*"
   },
   "repositories": [
     {
@@ -27,7 +27,7 @@
     "pkg:pull": [
       "sh -c 'git diff-index --quiet HEAD -- || (echo \"\nYou project has modifications, please commit and push or stash them first.\n\" && exit 1)' -",
       "sh -c 'git subtree merge --prefix=\"pkg/$1\" git@github.com:$1.git main || git checkout $(git --no-pager log -1 --format=\"%H\" -- pkg/$1/)^ -- pkg/$1 && git commit -am \"Restore package $1\" || git subtree merge --prefix=\"pkg/$1\" git@github.com:$1.git main || git subtree pull --prefix=\"pkg/$1\" git@github.com:$1.git main;' -",
-      "sh -c 'composer require $1 --ignore-platform-reqs' -",
+      "sh -c 'composer require $1 \"*\" --ignore-platform-reqs' -",
       "sh -c 'git commit -am \"Added package $1\" || true' -"
     ],
     "pkg:push": [
