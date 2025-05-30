@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2058b17283b5f09db17c2d62c30c54d3",
+    "content-hash": "bdfb9b99df7bac4e55144618a7bd1141",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -95,101 +95,6 @@
             "time": "2024-02-09T13:06:12+00:00"
         },
         {
-            "name": "confetti-cms/Content",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/content",
-                "reference": "46022053cc8f20a57b69b3c6e978a7b7b7681f38"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Content\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/Image",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/image",
-                "reference": "76270ee314dbd2b8fd8e897d47ef85837cd226a0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Image\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/bool",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/bool",
-                "reference": "42309c00b33f6a9bf707b786cee592d1036e1a6c"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Bool\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/discussion",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/discussion",
-                "reference": "a2c4a965d00b057a2a2c3ef8ff0ba508765b65fb"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Discussion\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/form",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/form",
-                "reference": "26d434707705d884dd7314cce293bf9500d077f2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Form\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
             "name": "confetti-cms/foundation",
             "version": "v1.5.0",
             "source": {
@@ -231,101 +136,6 @@
                 "source": "https://github.com/confetti-cms/foundation/tree/v1.5.0"
             },
             "time": "2025-05-16T21:13:29+00:00"
-        },
-        {
-            "name": "confetti-cms/hidden",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/hidden",
-                "reference": "55aac8cfa63780a28552e45a1ffc6d622db8bacc"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Hidden\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/list",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/list",
-                "reference": "496c049fe93a5afeb5589df6b050ffe62c8a002e"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\List\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/select",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/select",
-                "reference": "0036abc4ee004bcf26a2686f84ddcd9633a26882"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Select\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/select-file",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/select_file",
-                "reference": "2ecf19bc47151cbaef14de29aeb2f0281d38cda8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\SelectFile\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/text",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/text",
-                "reference": "e8af4fab4d4ae213c231679ef52594df2b51b90c"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\Text\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
         },
         {
             "name": "eftec/bladeone",
@@ -390,10 +200,10 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
