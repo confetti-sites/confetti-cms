@@ -1,7 +1,8 @@
 {
   "require": {
     "eftec/bladeone": "^4.16",
-    "confetti-cms/foundation": "^v1.3"
+    "confetti-cms/foundation": "^v1.3",
+    "confetti-cms/bool": "dev-main2"
   },
   "repositories": [
     {
