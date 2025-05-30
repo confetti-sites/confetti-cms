@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdfb9b99df7bac4e55144618a7bd1141",
+    "content-hash": "ac70a7d786c371f863ba8c0535ed775f",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -93,6 +93,25 @@
                 }
             ],
             "time": "2024-02-09T13:06:12+00:00"
+        },
+        {
+            "name": "confetti-cms/bool",
+            "version": "dev-main2",
+            "dist": {
+                "type": "path",
+                "url": "pkg/confetti-cms/bool",
+                "reference": "42309c00b33f6a9bf707b786cee592d1036e1a6c"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConfettiCms\\Bool\\": ""
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "confetti-cms/foundation",
