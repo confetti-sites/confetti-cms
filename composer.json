@@ -1,39 +1,8 @@
 {
-  "require": {
-    "eftec/bladeone": "^4.16",
-    "confetti-cms/foundation": "^v1.3"
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "pkg/*/*",
-      "options": {
-        "symlink": true
-      }
+    "name": "confetti-cms/bool",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\Bool\\": ""
+        }
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "ConfettiCms\\Parser\\": "/var/resources/confetti-cms__parser/ConfettiCms",
-      "model\\": "/var/resources/confetti-cms__structure/model",
-      "query\\": "/var/resources/confetti-cms__structure/query",
-      "App\\": "/src/App/"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "scripts": {
-    "pkg:pull": [
-      "sh -c 'git diff-index --quiet HEAD -- || (echo \"\nYou project has modifications, please commit and push or stash them first.\n\" && exit 1)' -",
-      "sh -c 'git subtree merge --prefix=\"pkg/$1\" git@github.com:$1.git main || git checkout $(git --no-pager log -1 --format=\"%H\" -- pkg/$1/)^ -- pkg/$1 && git commit -am \"Restore package $1\" || git subtree merge --prefix=\"pkg/$1\" git@github.com:$1.git main || git subtree pull --prefix=\"pkg/$1\" git@github.com:$1.git main;' -",
-      "sh -c 'composer require $1 --ignore-platform-reqs' -",
-      "sh -c 'git commit -am \"Added package $1\" || true' -"
-    ],
-    "pkg:push": [
-      "sh -c 'git subtree push --prefix=\"pkg/$1\" git@github.com:$1.git main;' -"
-    ]
-  },
-  "scripts-descriptions": {
-    "pkg:use": "Install a package from a pkg repository. For example: `composer pkg:use confetti-cms/bool`"
-  }
 }
