@@ -1,0 +1,8 @@
+{
+    "name": "confetti-cms/test-pkg",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\TestPkg\\": ""
+        }
+    }
+}
