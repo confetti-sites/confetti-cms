@@ -1,0 +1,8 @@
+{
+    "name": "confetti-cms/text",
+    "autoload": {
+        "psr-4": {
+            "ConfettiCms\\Text\\": ""
+        }
+    }
+}
