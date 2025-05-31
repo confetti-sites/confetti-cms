@@ -7,6 +7,13 @@ import (
 
 var EnvProvider = os.LookupEnv
 
+func env(key, defaultValue string) string {
+	if value, ok := os.LookupEnv(key); ok {
+		return value
+	}
+	return defaultValue
+}
+
 // EnvString fetches the value of the environment variable named by the key.
 // It panics if the variable is not found.
 func EnvString(search string) string {

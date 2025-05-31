@@ -7,12 +7,8 @@ import (
 
 // Path contains a list of all paths you can use in your application.
 var Path = struct {
-	//	Separator, Base, App, Service, Bootstrap, Config, Database, Public,
-
-	//	Resource, SharedResource, SharedResourceCurrentService, Lang, Views string
 	Base, ResultStorage, Storage string
 }{
-	//    Separator: string(os.PathSeparator),
 	/*
 		|--------------------------------------------------------------------------
 		| Base Path
@@ -23,12 +19,6 @@ var Path = struct {
 		|
 	*/
 	Base: basePath(),
-	//	App:                          filepath.Join(basePath(), "app"),
-	//	Service:                      env.String("APP_SERVICE"),
-	//	Bootstrap:                    filepath.Join(basePath(), "bootstrap"),
-	//	Config:                       filepath.Join(basePath(), "app"),
-	//	Database:                     filepath.Join(basePath(), "database"),
-	//	Public:                       filepath.Join(basePath(), "public"),
 	Storage:       env("STORAGE_PATH", "/var/storage"),
 	ResultStorage: filepath.Join(basePath(), "test_result"),
 	//	Resource:                     filepath.Join(basePath(), "resources"),
@@ -39,11 +29,4 @@ var Path = struct {
 func basePath() string {
 	root, _ := os.Getwd()
 	return root
-}
-
-func env(key, defaultValue string) string {
-	if value, ok := os.LookupEnv(key); ok {
-		return value
-	}
-	return defaultValue
 }
