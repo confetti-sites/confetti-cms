@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdd9d11bf8c0945c5719dac318a34159",
+    "content-hash": "e76c33edb69a8249c07d2d62211ba4c7",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -212,6 +212,25 @@
                 "source": "https://github.com/confetti-cms/foundation/tree/v1.5.0"
             },
             "time": "2025-05-16T21:13:29+00:00"
+        },
+        {
+            "name": "confetti-cms/hidden",
+            "version": "dev-main2",
+            "dist": {
+                "type": "path",
+                "url": "pkg/confetti-cms/hidden",
+                "reference": "55aac8cfa63780a28552e45a1ffc6d622db8bacc"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConfettiCms\\Hidden\\": ""
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "confetti-cms/image",
