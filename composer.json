@@ -6,7 +6,8 @@
     "confetti-cms/image": "*",
     "confetti-cms/content": "*",
     "confetti-cms/discussion": "*",
-    "confetti-cms/form": "*"
+    "confetti-cms/form": "*",
+    "confetti-cms/text": "*"
   },
   "repositories": [
     {
