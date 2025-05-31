@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e118b1eed8ba21dcaeb65f87023a46e7",
+    "content-hash": "fbc1071b6a753e369a9a51ddb88b19ba",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -114,6 +114,25 @@
             }
         },
         {
+            "name": "confetti-cms/content",
+            "version": "dev-main2",
+            "dist": {
+                "type": "path",
+                "url": "pkg/confetti-cms/content",
+                "reference": "ffc9e796ec8b02910829583b37f7965781facc24"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConfettiCms\\Content\\": ""
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "confetti-cms/foundation",
             "version": "v1.5.0",
             "source": {
@@ -168,25 +187,6 @@
             "autoload": {
                 "psr-4": {
                     "ConfettiCms\\Image\\": ""
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "confetti-cms/test-pkg",
-            "version": "dev-main2",
-            "dist": {
-                "type": "path",
-                "url": "pkg/confetti-cms/test-pkg",
-                "reference": "0cd8dabcef8752f0b7b5f6c535820a41d6799778"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ConfettiCms\\TestPkg\\": ""
                 }
             },
             "transport-options": {
