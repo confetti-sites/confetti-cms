@@ -4,7 +4,8 @@
     "confetti-cms/foundation": "^v1.3",
     "confetti-cms/bool": "*",
     "confetti-cms/image": "*",
-    "confetti-cms/content": "*"
+    "confetti-cms/content": "*",
+    "confetti-cms/discussion": "*"
   },
   "repositories": [
     {

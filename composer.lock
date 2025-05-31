@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbc1071b6a753e369a9a51ddb88b19ba",
+    "content-hash": "c8088f2950d462a617cf59b2d776aea2",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -125,6 +125,25 @@
             "autoload": {
                 "psr-4": {
                     "ConfettiCms\\Content\\": ""
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "confetti-cms/discussion",
+            "version": "dev-main2",
+            "dist": {
+                "type": "path",
+                "url": "pkg/confetti-cms/discussion",
+                "reference": "a2c4a965d00b057a2a2c3ef8ff0ba508765b65fb"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConfettiCms\\Discussion\\": ""
                 }
             },
             "transport-options": {
