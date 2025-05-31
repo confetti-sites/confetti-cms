@@ -5,7 +5,8 @@
     "confetti-cms/bool": "*",
     "confetti-cms/image": "*",
     "confetti-cms/content": "*",
-    "confetti-cms/discussion": "*"
+    "confetti-cms/discussion": "*",
+    "confetti-cms/form": "*"
   },
   "repositories": [
     {

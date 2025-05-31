@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8088f2950d462a617cf59b2d776aea2",
+    "content-hash": "a5f1c05e47c8977adf9f34fef45f26a9",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -144,6 +144,25 @@
             "autoload": {
                 "psr-4": {
                     "ConfettiCms\\Discussion\\": ""
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "confetti-cms/form",
+            "version": "dev-main2",
+            "dist": {
+                "type": "path",
+                "url": "pkg/confetti-cms/form",
+                "reference": "26d434707705d884dd7314cce293bf9500d077f2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConfettiCms\\Form\\": ""
                 }
             },
             "transport-options": {
