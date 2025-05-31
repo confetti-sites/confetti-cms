@@ -17,16 +17,16 @@ export default class {
      * @param component {object}
      * For example:
      * {
-     *   "decorations": {                     |
-     *     "label": {                         |
-     *      ^^^^^                             | The name of the decoration method
-     *        "label": "Choose the label"     |
-     *         ^^^^^                          | The name of the parameter
-     *                  ^^^^^^^^^^^^^^^^^^^^  | The value given to the parameter
+     *   "decorations": {                |
+     *     "label": {                    |
+     *      ^^^^^                        | The name of the decoration method
+     *        "label": "The Newsletter"  |
+     *         ^^^^^                     | The name of the parameter
+     *                  ^^^^^^^^^^^^^^^  | The value given to the parameter
      *     }
      *   },
      *   "key": "/model/view/features/select_file_basic/value-",
-     *   "source": {"directory": "view/features", "file": "select_file_basic.blade.php", "from": 5, "line": 2, "to": 28},
+     *   "source": {"directory": "view/features", "file": "form_basic.blade.php", "from": 4, "line": 2, "to": 28},
      * }
      */
     constructor(id, value, component) {
