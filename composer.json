@@ -54,6 +54,7 @@
     ]
   },
   "scripts-descriptions": {
-    "pkg:use": "Install a package from a pkg repository. For example: `composer pkg:use confetti-cms/bool`"
+    "pkg:pull": "Install a package from a pkg repository. For example: `composer pkg:use confetti-cms/bool`",
+    "pkg:push": "Push changes to a package repository. For example: `composer pkg:push confetti-cms/bool`"
   }
 }
