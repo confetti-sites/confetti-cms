@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ConfettiCms\Image;
+namespace ConfettiCms\Content;
 
 use ConfettiCms\Foundation\Helpers\ComponentStandard;
 
