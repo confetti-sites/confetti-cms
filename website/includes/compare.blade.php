@@ -70,7 +70,7 @@
                                         <!-- Let tailwind trigger: md:text-base lg:text-lg xl:text-xl w-full hidden lg:inline-block xl:inline-block text-black lg:inline-block -->
                                         @if(!$step->example->isEmpty())
                                             <div class="pb-3 text-center text-gray-500 font-body">
-                                                @include('website.includes.blocks.index', ['model' => $step->content('example')])
+                                                @include('pkg.confetti-cms.content.website.index', ['model' => $step->content('example')])
                                             </div>
                                         @endif
                                     </div>

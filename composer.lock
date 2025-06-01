@@ -96,7 +96,7 @@
         },
         {
             "name": "confetti-cms/bool",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/bool",
@@ -115,7 +115,7 @@
         },
         {
             "name": "confetti-cms/content",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/content",
@@ -134,7 +134,7 @@
         },
         {
             "name": "confetti-cms/discussion",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/discussion",
@@ -153,7 +153,7 @@
         },
         {
             "name": "confetti-cms/form",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/form",
@@ -172,16 +172,16 @@
         },
         {
             "name": "confetti-cms/foundation",
-            "version": "v1.5.0",
+            "version": "v1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/confetti-cms/foundation.git",
-                "reference": "04eab5c24f534102ec385dc7e7bc1e43a7ceb683"
+                "reference": "0d3150f584b268e7bd05bd35c155233a8bf61193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/confetti-cms/foundation/zipball/04eab5c24f534102ec385dc7e7bc1e43a7ceb683",
-                "reference": "04eab5c24f534102ec385dc7e7bc1e43a7ceb683",
+                "url": "https://api.github.com/repos/confetti-cms/foundation/zipball/0d3150f584b268e7bd05bd35c155233a8bf61193",
+                "reference": "0d3150f584b268e7bd05bd35c155233a8bf61193",
                 "shasum": ""
             },
             "require": {
@@ -209,13 +209,13 @@
             ],
             "support": {
                 "issues": "https://github.com/confetti-cms/foundation/issues",
-                "source": "https://github.com/confetti-cms/foundation/tree/v1.5.0"
+                "source": "https://github.com/confetti-cms/foundation/tree/v1.6.3"
             },
-            "time": "2025-05-16T21:13:29+00:00"
+            "time": "2025-06-01T20:45:13+00:00"
         },
         {
             "name": "confetti-cms/hidden",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/hidden",
@@ -234,7 +234,7 @@
         },
         {
             "name": "confetti-cms/image",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/image",
@@ -253,7 +253,7 @@
         },
         {
             "name": "confetti-cms/list",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/list",
@@ -272,7 +272,7 @@
         },
         {
             "name": "confetti-cms/select",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/select",
@@ -291,7 +291,7 @@
         },
         {
             "name": "confetti-cms/select-file",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/select-file",
@@ -310,7 +310,7 @@
         },
         {
             "name": "confetti-cms/text",
-            "version": "dev-main2",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/text",

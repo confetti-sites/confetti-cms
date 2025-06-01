@@ -9,7 +9,7 @@
                             {{ $usp->text('title')->max(50)->bar(['b', 'i', 'u']) }}
                         </h3>
                         <p class="mt-1 text-base text-gray-500 dark:text-white font-body">
-                            @include('website.includes.blocks.index', ['model' => $usp->content('content')])
+                            @include('pkg.confetti-cms.content.website.index', ['model' => $usp->content('content')])
                         </p>
                     </div>
                 @endforeach

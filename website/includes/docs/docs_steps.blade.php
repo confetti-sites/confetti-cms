@@ -1,7 +1,7 @@
 @php($current = extendModel($model))
 
 <h1 class="text-3xl font-semibold text-gray-800 mb-2">{{ $current->text('title')->max(50) }}</h1>
-<div class="mt-4 mb-4 text-gray-800 font-body">@include('website.includes.blocks.index', ['model' => $current->content('description')])</div>
+<div class="mt-4 mb-4 text-gray-800 font-body">@include('pkg.confetti-cms.content.website.index', ['model' => $current->content('description')])</div>
 
 @php
     $taps = [];
@@ -11,10 +11,10 @@
         foreach ($os->list('step')->columns(['title_step'])->sortable()->max(10)->get() as $iStep => $step) {
             $taps[$iOs]['steps'][$iStep]['id'] = $step->getId();
             $taps[$iOs]['steps'][$iStep]['title'] = $step->text('title')->max(50)->get();
-            $taps[$iOs]['steps'][$iStep]['first_description'] = $this->runChild('website.includes.blocks.index', ['model' => $step->content('first_description')]);
+            $taps[$iOs]['steps'][$iStep]['first_description'] = $this->runChild('pkg.confetti-cms.content.website.index', ['model' => $step->content('first_description')]);
             $taps[$iOs]['steps'][$iStep]['title_step'] = $step->text('title_step')->max(50)->get();
-            $taps[$iOs]['steps'][$iStep]['example'] = $this->runChild('website.includes.blocks.index', ['model' => $step->content('example')]);
-            $taps[$iOs]['steps'][$iStep]['second_description'] = $this->runChild('website.includes.blocks.index', ['model' => $step->content('second_description')]);
+            $taps[$iOs]['steps'][$iStep]['example'] = $this->runChild('pkg.confetti-cms.content.website.index', ['model' => $step->content('example')]);
+            $taps[$iOs]['steps'][$iStep]['second_description'] = $this->runChild('pkg.confetti-cms.content.website.index', ['model' => $step->content('second_description')]);
         }
     }
 @endphp
@@ -22,7 +22,7 @@
 <!-- For SEO and AI -->
 <div class="hidden">
     <h1>{{ $current->text('title')->max(50) }}</h1>
-    <div class="mt-4 mb-4 text-gray-800 font-body">@include('website.includes.blocks.index', ['model' => $current->content('description')])</div>
+    <div class="mt-4 mb-4 text-gray-800 font-body">@include('pkg.confetti-cms.content.website.index', ['model' => $current->content('description')])</div>
     @foreach ($taps as $os)
         <h2>{{ $os['title'] }}</h2>
         @foreach ($os['steps'] ?? [] as $iStep => $step)
@@ -39,7 +39,7 @@
 @php($current = extendModel($model))
 <docs-installation-steps data-tabs="{{ json_encode($taps) }}"></docs-installation-steps>
 
-<div class="mt-4 mb-4 text-gray-800 font-body">@include('website.includes.blocks.index', ['model' => $current->content('description_after_tabs')])</div>
+<div class="mt-4 mb-4 text-gray-800 font-body">@include('pkg.confetti-cms.content.website.index', ['model' => $current->content('description_after_tabs')])</div>
 
 @pushonce('end_of_body_docs_os_tab')
     <script type="module">

@@ -1,3 +1,3 @@
 @foreach($model->get()['blocks'] ?? [] as $block)
-    @include('website.includes.blocks.' . $block['type'], ['block' => $block])
+    @include('pkg.confetti-cms.content.website.' . $block['type'], ['block' => $block])
 @endforeach

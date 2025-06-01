@@ -127,7 +127,7 @@
         <!-- 404/Start page -->
         <div class="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16">
             <h1 class="text-3xl font-semibold text-gray-800">{{ $docs->text('start_page_title')->label('Start page title')->get() }}</h1>
-            <div class="mt-4 discussion text-gray-800">@include('website.includes.blocks.index', ['model' => $docs->content('start_page_content')->label('Start page content')])</div>
+            <div class="mt-4 discussion text-gray-800">@include('pkg.confetti-cms.content.website.index', ['model' => $docs->content('start_page_content')->label('Start page content')])</div>
         </div>
     @endif
 </div>

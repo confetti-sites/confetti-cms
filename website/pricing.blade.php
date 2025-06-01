@@ -27,7 +27,7 @@
                         </h2>
                         <div class="mb-4 text-4xl sm:text-5xl md:text-4xl lg:text-4xl font-bold">{{ $pricing->text('one_website_price')->default('Free') }}</div>
                         <p class="text-body-color text-base font-body font-bold">
-                            @include('website.includes.blocks.index', ['model' => $pricing->content('one_website_description')])
+                            @include('pkg.confetti-cms.content.website.index', ['model' => $pricing->content('one_website_description')])
                         </p>
                         <a href="/waiting-list" class="bg-primary border-primary block w-full rounded-md border mt-8 p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90">
                             Get started
@@ -43,7 +43,7 @@
                             {{ $pricing->text('agency_program_price')->default('Cheaper than AWS') }}
                         </div>
                         <p class="text-body-color text-base">
-                            @include('website.includes.blocks.index', ['model' => $pricing->content('agency_program_description')])
+                            @include('pkg.confetti-cms.content.website.index', ['model' => $pricing->content('agency_program_description')])
                         </p>
 
                         <a href="{{ $pricing->form('form')->get()['share_link'] ?? null }}" target="_blank" class="bg-primary border-primary block w-full rounded-md border mt-8 p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90">
