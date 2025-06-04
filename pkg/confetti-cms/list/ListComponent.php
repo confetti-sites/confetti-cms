@@ -53,14 +53,18 @@ class ListComponent
         throw new \RuntimeException('This method `getComponent` should be overridden in the child class.');
     }
 
+    // Returns the full path from the root to a blade file.
+    // This represents the input field in the admin panel.
     public function getViewAdminInput(): string
     {
-        return 'admin.components.list.input';
+        return  __DIR__ . '/admin/input.blade.php';
     }
 
-    public function getViewAdminPreview(): string
+    // Returns the full path from the root to a preview file.
+    // This represents the preview of the input field in the admin panel.
+    public static function getViewAdminPreview(): string
     {
-        return '/admin/components/list/preview.mjs';
+        return __DIR__ . '/admin/preview.mjs';
     }
 
     /**

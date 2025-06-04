@@ -46,14 +46,18 @@ class SelectComponent extends ComponentStandard
         return $options[$key]['id'];
     }
 
+    // Returns the full path from the root to a blade file.
+    // This represents the input field in the admin panel.
     public function getViewAdminInput(): string
     {
-        return 'admin.components.select.input';
+        return  __DIR__ . '/admin/input.blade.php';
     }
 
+    // Returns the full path from the root to a preview file.
+    // This represents the preview of the input field in the admin panel.
     public static function getViewAdminPreview(): string
     {
-        return '/admin/components/select/preview.mjs';
+        return __DIR__ . '/admin/preview.mjs';
     }
 
     /**

@@ -7,7 +7,6 @@
     "confetti-cms/content": "*",
     "confetti-cms/discussion": "*",
     "confetti-cms/form": "*",
-    "confetti-cms/text": "*",
     "confetti-cms/select-file": "*",
     "confetti-cms/select": "*",
     "confetti-cms/list": "*",

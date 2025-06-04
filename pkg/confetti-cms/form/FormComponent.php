@@ -55,20 +55,18 @@ class FormComponent extends ComponentStandard
         <script>let d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector(\'script[src="\'+w+\'"]\')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>';
     }
 
-    /**
-     * The return value is a full path from the root to a blade file.
-     */
+    // Returns the full path from the root to a blade file.
+    // This represents the input field in the admin panel.
     public function getViewAdminInput(): string
     {
-        return 'admin.components.form.input';
+        return  __DIR__ . '/admin/input.blade.php';
     }
 
-    /**
-     * The return value is a full path from the root to a mjs file.
-     */
+    // Returns the full path from the root to a preview file.
+    // This represents the preview of the input field in the admin panel.
     public static function getViewAdminPreview(): string
     {
-        return '/admin/components/form/preview.mjs';
+        return __DIR__ . '/admin/preview.mjs';
     }
 
     // Label is used as a title for the admin panel

@@ -101,20 +101,18 @@ class SelectFileComponent extends ComponentStandard implements SelectModelInterf
         }
     }
 
-    /**
-     * The return value is a full path from the root to a blade file.
-     */
+    // Returns the full path from the root to a blade file.
+    // This represents the input field in the admin panel.
     public function getViewAdminInput(): string
     {
-        return 'admin.components.select_file.input';
+        return  __DIR__ . '/admin/input.blade.php';
     }
 
-    /**
-     * The return value is a full path from the root to a mjs file.
-     */
+    // Returns the full path from the root to a preview file.
+    // This represents the preview of the input field in the admin panel.
     public static function getViewAdminPreview(): string
     {
-        return '/admin/components/select_file/preview.mjs';
+        return __DIR__ . '/admin/preview.mjs';
     }
 
     // Label is used as a title for the admin panel
