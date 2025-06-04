@@ -10,7 +10,8 @@
     "confetti-cms/select-file": "*",
     "confetti-cms/select": "*",
     "confetti-cms/list": "*",
-    "confetti-cms/hidden": "*"
+    "confetti-cms/hidden": "*",
+    "confetti-cms/text": "*"
   },
   "repositories": [
     {

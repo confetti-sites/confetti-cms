@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81fac219843fbf6ba1ebc9faa62beb76",
+    "content-hash": "4823107848a33293277cf694126e6e17",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -301,6 +301,25 @@
             "autoload": {
                 "psr-4": {
                     "ConfettiCms\\SelectFile\\": ""
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "confetti-cms/text",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "pkg/confetti-cms/text",
+                "reference": "e8af4fab4d4ae213c231679ef52594df2b51b90c"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConfettiCms\\Text\\": ""
                 }
             },
             "transport-options": {
