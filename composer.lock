@@ -96,7 +96,7 @@
         },
         {
             "name": "confetti-cms/bool",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/bool",
@@ -115,7 +115,7 @@
         },
         {
             "name": "confetti-cms/content",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/content",
@@ -134,7 +134,7 @@
         },
         {
             "name": "confetti-cms/discussion",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/discussion",
@@ -153,7 +153,7 @@
         },
         {
             "name": "confetti-cms/form",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/form",
@@ -215,7 +215,7 @@
         },
         {
             "name": "confetti-cms/hidden",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/hidden",
@@ -234,7 +234,7 @@
         },
         {
             "name": "confetti-cms/image",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/image",
@@ -253,7 +253,7 @@
         },
         {
             "name": "confetti-cms/list",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/list",
@@ -272,7 +272,7 @@
         },
         {
             "name": "confetti-cms/select",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/select",
@@ -291,7 +291,7 @@
         },
         {
             "name": "confetti-cms/select-file",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/select-file",
@@ -310,7 +310,7 @@
         },
         {
             "name": "confetti-cms/text",
-            "version": "dev-main",
+            "version": "dev-testpull",
             "dist": {
                 "type": "path",
                 "url": "pkg/confetti-cms/text",
