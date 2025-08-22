@@ -133,7 +133,7 @@
 </div>
 
 @pushonce('style_docs')
-    <link rel="stylesheet" href="/website/assets/css/github-light.css"/>
+    <link rel="stylesheet" href="/website/public/css/github-light.css"/>
 @endpushonce
 @pushonce('end_of_body_docs')
     <script defer>

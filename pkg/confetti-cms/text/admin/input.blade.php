@@ -21,7 +21,7 @@
         import Underline from '/admin/components/content/tools/underline.mjs';
         import Bold from '/admin/components/content/tools/bold.mjs';
         import Italic from '/admin/components/content/tools/italic.mjs';
-        import {Storage} from '/admin/assets/js/admin_service.mjs';
+        import {Storage} from '/admin/public/js/admin_service.mjs';
 
         /**
          * These are the settings for the editor.js

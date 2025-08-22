@@ -4,7 +4,7 @@
         <script type="module">
             // With this script, the page will reload when a file is changed
             // We use /website because the website also needs this
-            import {DevTools} from "/website/assets/js/dev_tools.mjs";
+            import {DevTools} from "/website/public/js/dev_tools.mjs";
             import {html, reactive} from 'https://esm.sh/@arrow-js/core';
 
             customElements.define('dev-tools', class extends HTMLElement {

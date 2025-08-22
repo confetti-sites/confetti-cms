@@ -57,7 +57,7 @@
         import Underline from '/admin/components/content/tools/underline.mjs';
         import Bold from '/admin/components/content/tools/bold.mjs';
         import Italic from '/admin/components/content/tools/italic.mjs';
-        import {Storage} from '/admin/assets/js/admin_service.mjs';
+        import {Storage} from '/admin/public/js/admin_service.mjs';
 
         // General toolbar is set in the onReady event
         const defaultInlineToolbar = [

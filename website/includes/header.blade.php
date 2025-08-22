@@ -4,7 +4,7 @@
             <!-- Logo Container -->
             <div id="logo" class="flex items-center p-2">
                 <a href="/" aria-label="logo" class="flex items-center space-x-4">
-                    <img src="/website/assets/confetti_cms_logo.png" class="h-10" alt="">
+                    <img src="/website/public/confetti_cms_logo.png" class="h-10" alt="">
                     <span class="text-xl" id="brand-title">Confetti CMS</span>
                 </a>
             </div>

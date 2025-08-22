@@ -9,12 +9,12 @@
 ></discussion-component>
 
 @pushonce('style_discussion_component')
-    <link rel="stylesheet" href="/website/assets/css/github-light.css"/>
+    <link rel="stylesheet" href="/website/public/css/github-light.css"/>
 @endpushonce
 @pushonce('end_of_body_discussion_component')
     <script type="module">
-        import {Toolbar} from '/admin/assets/js/editor.mjs';
-        import {Storage} from '/admin/assets/js/admin_service.mjs';
+        import {Toolbar} from '/admin/public/js/editor.mjs';
+        import {Storage} from '/admin/public/js/admin_service.mjs';
         import {IconUndo} from 'https://esm.sh/@codexteam/icons';
         import {html, reactive} from 'https://esm.sh/@arrow-js/core';
 

@@ -50,7 +50,7 @@
 
 @pushonce('end_of_body_left_menu')
     <script type="module">
-        import {Storage} from '/admin/assets/js/admin_service.mjs';
+        import {Storage} from '/admin/public/js/admin_service.mjs';
 
         function updateBadges() {
             document.querySelectorAll('._left_menu_badge').forEach((el) => {

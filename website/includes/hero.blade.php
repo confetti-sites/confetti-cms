@@ -35,7 +35,7 @@
 
 @pushonce('end_of_body_hero')
     <script type="module" defer>
-        import {TextDemo} from '/website/assets/mjs/homepage.mjs';
+        import {TextDemo} from '/website/public/mjs/homepage.mjs';
 
         customElements.define('text-demo', TextDemo);
     </script>

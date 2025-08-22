@@ -1,5 +1,5 @@
 // noinspection JSUnusedGlobalSymbols
-import {Toolbar} from "/admin/assets/js/editor.mjs";
+import {Toolbar} from "/admin/public/js/editor.mjs";
 /** @see https://github.com/editor-js/paragraph/blob/master/src/index.js */
 import Paragraph from 'https://esm.sh/@editorjs/paragraph@^2';
 /** @see https://github.com/codex-team/icons */

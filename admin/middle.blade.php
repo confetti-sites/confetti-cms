@@ -42,7 +42,7 @@
         <div class="mt-16 mb-16 loader _loading-hide"
              id="actions_bottom">
             <script type="module">
-                import {Storage} from '/admin/assets/js/admin_service.mjs';
+                import {Storage} from '/admin/public/js/admin_service.mjs';
                 import {html, reactive} from 'https://esm.sh/@arrow-js/core';
 
                 const id = '{{ $id }}';

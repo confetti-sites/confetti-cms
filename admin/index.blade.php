@@ -22,8 +22,8 @@ if (str_ends_with(request()->uri(), '-')) {
     <title>Admin</title>
 
     <link rel="stylesheet" href="/resources/admin__tailwind/tailwind.output.css"/>
-    <script src="/admin/assets/js/thema.js" defer></script>
-    <link rel="icon" type="image/png" sizes="32x32" href="/website/assets/favicon/favicon-32x32.png">
+    <script src="/admin/public/js/thema.js" defer></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/website/public/favicon/favicon-32x32.png">
 </head>
 
 <body class="text-gray-700 overflow-hidden">
@@ -77,7 +77,7 @@ if (str_ends_with(request()->uri(), '-')) {
         <script type="module" defer>
             // With this script, the page will reload when a file is changed
             // We use /website because the website also needs this
-            import {DevTools} from "/website/assets/js/dev_tools.mjs";
+            import {DevTools} from "/website/public/js/dev_tools.mjs";
 
             DevTools.subscribeFileChanges(
                 (event) => {

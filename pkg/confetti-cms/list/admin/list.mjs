@@ -1,4 +1,4 @@
-import {Storage} from '/admin/assets/js/admin_service.mjs';
+import {Storage} from '/admin/public/js/admin_service.mjs';
 
 export default class LimList {
     constructor(id, columns, originalRows) {

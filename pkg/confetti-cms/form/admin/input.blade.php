@@ -11,8 +11,8 @@
 
 @pushonce('end_of_body_tally_component')
     <script type="module">
-        import {Toolbar} from '/admin/assets/js/editor.mjs';
-        import {Storage} from '/admin/assets/js/admin_service.mjs';
+        import {Toolbar} from '/admin/public/js/editor.mjs';
+        import {Storage} from '/admin/public/js/admin_service.mjs';
         import {IconUndo, IconMarker, IconTableWithHeadings} from 'https://esm.sh/@codexteam/icons';
         import {html, reactive} from 'https://esm.sh/@arrow-js/core';
 
