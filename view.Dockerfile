@@ -17,6 +17,8 @@ WORKDIR /src
 
 COPY --chown=www-data:www-data . .
 
+RUN ln -s /src/.confetti /var/resources
+
 RUN composer install
 
 CMD ["php-fpm"]
@@ -44,5 +46,5 @@ COPY --chown=www-data:www-data . .
 # Check composer.lock for `composer install`
 # Check composer.json for include files
 # Check vendor/composer for `composer dump-autoload`
-# Timeout is used to kill the process after 30 seconds (you can change this if composer.json is large)
-CMD ["sh", "-c", "ls composer.* vendor/composer | entr -r timeout 30s composer install"]
+# Timeout is used to kill the process after 300 seconds (you can change this if composer.json is large)
+CMD ["sh", "-c", "ls composer.* vendor/composer | entr -r timeout 300s composer install"]
