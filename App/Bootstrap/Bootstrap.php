@@ -33,11 +33,6 @@ class Bootstrap
         $driver               = new BladeOne($this->repository, $this->cacheDir, BladeOne::MODE_DEBUG);
         $driver->includeScope = false;
 
-        // Define the current view directory
-        if (!defined('__REPOSITORY_PATH__')) {
-            define('__REPOSITORY_PATH__', $this->repository);
-        }
-
         $path = str_replace('.', '/', $view);
         if (!file_exists("$this->repository/$path.blade.php")) {
             throw new Exception(

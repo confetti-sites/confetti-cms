@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4823107848a33293277cf694126e6e17",
+    "content-hash": "90fd07ab229b6d91e3980103f000658a",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -172,17 +172,11 @@
         },
         {
             "name": "confetti-cms/foundation",
-            "version": "v1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/confetti-cms/foundation.git",
-                "reference": "09b01c2fd24073716427529aa828737ee79d690f"
-            },
+            "version": "dev-main",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/confetti-cms/foundation/zipball/09b01c2fd24073716427529aa828737ee79d690f",
-                "reference": "09b01c2fd24073716427529aa828737ee79d690f",
-                "shasum": ""
+                "type": "path",
+                "url": "pkg/confetti-cms/foundation",
+                "reference": "c14740741459633000c7dba603bfdd9084a66c9b"
             },
             "require": {
                 "colinodell/json5": "^3.0",
@@ -194,24 +188,22 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "ConfettiCms\\Foundation\\": "Src"
+                    "ConfettiCms\\Foundation\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "description": "This is a package for the foundation of the Confetti CMS. For example, it contains the abstract ORM classes.",
             "homepage": "https://confetti-cms.com",
             "keywords": [
+                "Blade",
+                "CMS",
                 "Confetti",
-                "blade",
-                "cms",
-                "php",
-                "website"
+                "PHP",
+                "Website"
             ],
-            "support": {
-                "issues": "https://github.com/confetti-cms/foundation/issues",
-                "source": "https://github.com/confetti-cms/foundation/tree/v1.7.0"
-            },
-            "time": "2025-06-02T22:29:00+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "confetti-cms/hidden",

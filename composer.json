@@ -1,7 +1,7 @@
 {
   "require": {
     "eftec/bladeone": "^4.16",
-    "confetti-cms/foundation": "^v1.3",
+    "confetti-cms/foundation": "*",
     "confetti-cms/bool": "*",
     "confetti-cms/image": "*",
     "confetti-cms/content": "*",

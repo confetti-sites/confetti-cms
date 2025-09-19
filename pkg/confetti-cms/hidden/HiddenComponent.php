@@ -30,14 +30,14 @@ class HiddenComponent extends ComponentStandard
     // This represents the input field in the admin panel.
     public function getViewAdminInput(): string
     {
-        return  __DIR__ . '/admin/input.blade.php';
+        return  __DIR__ . '/input.blade.php';
     }
 
     // Returns the full path from the root to a preview file.
     // This represents the preview of the input field in the admin panel.
     public static function getViewAdminPreview(): string
     {
-        return __DIR__ . '/admin/preview.mjs';
+        return __DIR__ . '/public/preview.mjs';
     }
 
     /**

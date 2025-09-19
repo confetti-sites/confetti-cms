@@ -20,7 +20,7 @@
 @pushonce('end_of_body_list_component')
     <script type="module">
         import {Storage} from '/admin/public/js/admin_service.mjs';
-        import LimList from '/admin/components/list/list.mjs';
+        import LimList from '/pkg/confetti-cms/list/public/list.mjs';
         import {html, reactive} from 'https://esm.sh/@arrow-js/core';
         import {IconMenu as IconDrag} from 'https://esm.sh/@codexteam/icons';
 

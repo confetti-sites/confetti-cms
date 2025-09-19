@@ -1,0 +1,7 @@
+.idea
+# Because this is a library, we don't need a lock file
+composer.lock
+.DS_Store
+/vendor
+/.phpunit.result.cache
+/tests/Feature/cache

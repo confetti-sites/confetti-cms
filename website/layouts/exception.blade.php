@@ -100,7 +100,7 @@
             height: 18rem;
             background-color: rgb(0, 255, 0);
             opacity: 0.7;
-            animation: blob 5s infinite;
+            animation: blob 5s;
         }
 
         .blob_2 {
@@ -110,7 +110,7 @@
             height: 18rem;
             background-color: rgb(255, 0, 0);
             opacity: 0;
-            animation: blob 6s infinite 2s;
+            animation: blob 6s 2s;
         }
 
         .blob_3 {
@@ -120,7 +120,7 @@
             height: 18rem;
             background-color: rgb(0, 0, 255);
             opacity: 0;
-            animation: blob 7s infinite 4s;
+            animation: blob 7s 4s;
         }
     </style>
     <script>

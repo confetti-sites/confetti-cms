@@ -75,12 +75,12 @@ class TextComponent extends ComponentStandard
 
     public function getViewAdminInput(): string
     {
-        return 'admin.components.text.input';
+        return  __DIR__ . '/input.blade.php';
     }
 
     public static function getViewAdminPreview(): string
     {
-        return '/admin/components/text/preview.mjs';
+        return __DIR__ . '/public/preview.mjs';
     }
 
     // Default will be used if no value is saved
@@ -129,8 +129,8 @@ class TextComponent extends ComponentStandard
      *       r: RedCircle,
      *      }
      *    ```
-     * 3. Copy and modify `/admin/components/content/tools/italic.mjs` to `/admin/components/content/tools/red-circle.mjs`
-     * 4. Import the new tool in preview.mjs `import Italic from /admin/components/content/tools/italic.mjs`
+     * 3. Copy and modify `/pkg/confetti-cms/content/public/toolbar/italic.mjs` to `/pkg/confetti-cms/content/public/toolbar/red-circle.mjs`
+     * 4. Import the new tool in preview.mjs `import Italic from /pkg/confetti-cms/content/public/toolbar/red-circle.mjs`
      */
     public function bar(array $tools): self
     {
