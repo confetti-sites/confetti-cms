@@ -5,8 +5,10 @@
       scheme: "images",
       expose_path: "/var/storage",
       action: "read",
-      umbrella_repository: "*",
-      target: "*",
+      source_organization: "*",
+      source_repository: "*",
+      container_name: "*",
+      target: "*"
     },
   ],
 }
