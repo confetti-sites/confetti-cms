@@ -1,7 +1,7 @@
 {
   "sync_granted": [
     {
-      description: "Other 2 containers in this repo should have read access to the stored images.",
+      description: "Other containers in this repo should have read access to the stored images.",
       scheme: "images",
       expose_path: "/var/storage",
       action: "read",
