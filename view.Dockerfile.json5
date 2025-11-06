@@ -4,9 +4,10 @@
       description: "Sync images so we can serve them with the web server",
       scheme: "images",
       action: "read",
-      path: "/var/storage/images/public",
+      destination_path: "/var/storage/images/public",
       source_organization: "confetti-cms",
-      source_repository: "image"
+      source_repository: "image",
+      container_name: "*",
     },
   ],
 }

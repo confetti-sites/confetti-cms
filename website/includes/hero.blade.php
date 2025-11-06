@@ -1,7 +1,7 @@
 <div class="lg:container lg:mx-auto md:flex md:items-center md:justify-center bg-white mt-4 lg:mb-10">
     <div class="container mb-8 flex flex-col items-center justify-center md:w-1/2">
         <h1 class="mt-4 ml-4 text-5xl text-gray-900 xl:text-center text-pretty">
-            <span>The quickest way</span> <span class="xl:block">to create your own CMS</span>
+            <span>For</span> <span class="xl:block">custom made websites</span>
         </h1>
         <div class="flex items-center">
             <div class="mt-8">
@@ -35,6 +35,7 @@
 
 @pushonce('end_of_body_hero')
     <script type="module" defer>
+        @php/** @see /website/public/mjs/homepage.mjs */@endphp
         import {TextDemo} from '/website/public/mjs/homepage.mjs';
 
         customElements.define('text-demo', TextDemo);
