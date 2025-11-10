@@ -1,0 +1,256 @@
+{
+
+  "sync_requested": [
+    {
+      description: "Get the output of this container from the orchestrator (timeline)",
+      scheme: "hive",
+      destination_path: "/var/timeline",
+      source_organization: "confetti-cms",
+      source_repository: "orchestrator",
+    },
+  ],
+  "sync_granted": [
+    {
+      description: "Expose the timeline data to the monitor container",
+      expose_path: "/var/timeline",
+      scheme: "hive",
+      readonly: true,
+      source_organization: "confetti-cms",
+      source_repository: "monitor",
+      // umbrella_organization: this organization
+      // umbrella_repository: this repository
+      container_name: "*",
+      target: "*",
+    },
+    ],
+
+
+  "sync_requested1": [
+    {
+      description: "Get the output of this container from the orchestrator (timeline)",
+      scheme: "hive",
+      destination_path: "/var/timeline",
+    },
+  ],
+  "sync_granted1": [
+    {
+      description: "Expose the timeline data to the monitor container",
+      expose_path: "/var/timeline",
+      scheme: "hive",
+      readonly: true,
+      source_organization: "confetti-cms",
+      source_repository: "monitor_all",
+//      umbrella_organization: this organization
+//      umbrella_repository: this repository
+      container_name: "*",
+      target: "*",
+    },
+  ],
+
+
+  "sync_requested2": [
+    {
+      description: "Request access to the timeline data from the orchestrator",
+      scheme: "hive",
+      destination_path: "/var/storage/timeline",
+      container_name: "*",
+      target: "*",
+    },
+  ],
+
+  "sync_granted3": [
+    {
+      description: "Expose the timeline data to the umbrella containers (project repositories)",
+      expose_path: "/var/storage/timeline/source_organization=__SOURCE_ORGANIZATION__/source_repository=__SOURCE_REPOSITORY__/umbrella_organization=*/umbrella_repository=*",
+      host: "*",
+      scheme: "hive",
+      readonly: true,
+      source_organization: "confetti-cms",
+      source_repository: "monitor",
+      umbrella_organization: "*",
+      umbrella_repository: "*",
+      container_name: "*",
+      target: "*",
+    },
+  ],
+
+
+//
+//
+//
+//
+//  "sync_granted": [
+//    {
+//      description: "Expose the timeline data of every container to every other container individually",
+//      // /var/storage/timeline/umbrella_organization=*/umbrella_repository=*/container_name=*/target=*
+//      expose_path: "/var/storage/timeline",
+//      scheme: "hive",
+//      readonly: true,
+//      source_organization: "confetti-cms",
+//      source_repository: "monitor",
+//      umbrella_organization: "!*",
+//      umbrella_repository: "!*",
+//      container_name: "!*",
+//      target: "!*",
+//    },
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// `/var/resources/timeline/container-name=view/data.parquet`
+// `/var/resources/timeline/container-name=view%2Fnginx/data.parquet`
+// `/var/resources/timeline/container-name=admin%2Ftailwind/data.parquet`
+// `/var/resources/timeline/container-name=vendor%2Fconfetti-cms%2Fimage%2Fcontainer/data.parquet`
+
+
+// +
+//    "locator://confetti-sites-confetti-cms_local_vendor-confetti-cms-monitor_8609-development-cmd?environment_name=local&environment_stage=development&target=cmd&umbrella_organization=confetti-sites&umbrella_repository=confetti-cms&container_name=vendor/confetti-cms/image/container",
+
+// is equivalent to:
+
+//    {
+//      scheme: "sync",
+//      user: "confetti-sites-confetti-cms_local_vendor-confetti-cms-monitor_8609-development-cmd",
+//      host: "confetti-cms__orchestrator",
+//      path: "timeline.read",
+//        environment_name: "local",
+//        environment_stage: "development",
+//        target: "cmd",
+//        umbrella_organization: "confetti-sites",
+//        umbrella_repository: "confetti-cms",
+//        container_name: "*",
+//    },
+
+// This will sync to:
+// `/var/resources/container-name=view/data.parquet`
+// `/var/resources/container-name=view%2Fnginx/data.parquet`
+// `/var/resources/container-name=admin%2Ftailwind/data.parquet`
+// `/var/resources/container-name=vendor%2Fconfetti-cms%2Fimage%2Fcontainer/data.parquet`
+
+
+
+
+
+
+//    {
+//      path: "images.read",
+//      query: {
+//        container_name: "vendor/confetti-cms/image/container"
+//      }
+//    },
+//    // This will sync in the container to:
+//    // `/var/resources/images/header.png`
+//
+//
+//    // in shared-resources to sync local dev
+//    {
+//      path: ".read",
+//      query: {
+//        container_name: "confetti-cms/parser",
+//      }
+//    },
+//    {
+//      path: ".read",
+//      query: {
+//        container_name: "confetti-cms/db",
+//      }
+//    },
+//
+//
+//
+//    "locator://confetti-sites-confetti-cms_local_vendor-confetti-cms-image-container_8609-development-cmd?environment_name=local&environment_stage=development&target=cmd&umbrella_organization=confetti-sites&umbrella_repository=confetti-cms&container_name=vendor/confetti-cms/image/container",
+//    // is equivalent to:
+//    "confetti-cms__orchestrator/timeline.read?env_name=__env_name__&umbrella_organization=confetti-sites&umbrella_repository=confetti-cms",
+//    // will be converted to:
+//    "sync_requested://confetti-sites-confetti-cms_local_admin-tailwind_b3bf-development-cmd@confetti-cms__orchestrator/timeline.read?env_name=__env_name__&umbrella_organization=confetti-sites&umbrella_repository=confetti-cms"
+//
+//    // will be parsed as:
+//
+//    {
+//      scheme: "bind",
+//      user: "confetti-sites-confetti-cms_local_admin-tailwind_b3bf-development-cmd",
+//      host: "confetti-cms__orchestrator",
+//      path: "timeline.read",
+//      query: {
+//        env_name: "__env_name__",
+//        umbrella_organization: "confetti-sites",
+//        umbrella_repository: "confetti-cms"
+//      }
+//    }
+//  ]
+//}
+
+
+//{
+//  "sync_granted": [
+//    /**
+//     * All other containers (and their pkg containers) in this repo should have read access to the stored images.
+//     */
+//    {
+//      scheme: "images",
+//      path: "/var/storage",
+//      readonly: true,
+//      grant_when: {
+//        environment_name: "__current_environment_name__",
+//        environment_stage: "__current_environment_stage__",
+//        source_organization: "*",
+//        source_repository: "*",
+//        umbrella_organization: "__current_umbrella_organization__",
+//        umbrella_repository: "*",
+//        container_name: "*",
+//        target: "__current_target__",
+//      },
+//    },
+//  ],
+//}
+
+
+
+
+
+/*
+"com.docker.compose.project": "confetti-sites-confetti-cms_local_afd9",
+"config.environment.container.name": "admin/tailwind",
+"config.environment.name": "local",
+"config.environment.stage": "development",
+"for_development_only": "true",
+"locator": "confetti-sites/confetti-cms/admin/tailwind?environment_name=local&environment_stage=development&target=cmd&umbrella_organization=confetti-sites&umbrella_repository=confetti-cms",
+"network_name": "confetti-sites-confetti-cms_local_afd9",
+"source_organization": "confetti-sites",
+"source_repository": "confetti-cms",
+"target": "cmd",
+"traefik.enable": "true",
+"traefik.http.routers.confetti-sites-confetti-cms_local_admin-tailwind_b3bf-development-cmd.entrypoints": "api",
+"traefik.http.routers.confetti-sites-confetti-cms_local_admin-tailwind_b3bf-development-cmd.rule": "(Host(`confetti-cms.localhost`)) && (Path(`/conf_api/admin/tailwind`) || Pathprefix(`/conf_api/admin/tailwind/`))",
+"traefik.http.services.confetti-sites-confetti-cms_local_admin-tailwind_b3bf-development-cmd.loadbalancer.server.port": "80",
+"trigger_restart_1h": "true",
+"umbrella_organization": "confetti-sites",
+"umbrella_repository": "confetti-cms"
+
+
+
