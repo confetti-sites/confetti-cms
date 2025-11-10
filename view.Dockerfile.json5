@@ -1,12 +1,13 @@
 {
+  description: "The view container uses Nginx, PHP, and Blade to serve responses and assets.",
   sync_granted: [
     {
       /**
-       * The Parser is an internal Confetti package. Do not remove this grant.
+       * The Parser is an internal Confetti package. Do not remove this.
        */
+      description: "The parser requires access to the entire repository in order to parse components.",
       scheme: "source",
       readonly: true,
-      description: "The parser requires access to the entire repository in order to parse components.",
       expose_path: "/src",
       source_organization: "confetti-cms",
       source_repository: "parser",
