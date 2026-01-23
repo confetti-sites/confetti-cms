@@ -9,6 +9,15 @@
       source_organization: "confetti-sites",
       source_repository: "confetti-cms",
       container_name: "view",
-    }
+    },
+    {
+      description: "Test to get other files",
+      scheme: "source",
+      readonly: true,
+      destination_path: "/var/website/test",
+      source_organization: "confetti-sites",
+      source_repository: "confetti-cms",
+      container_name: "view",
+    },
   ],
 }
