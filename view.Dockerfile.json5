@@ -12,6 +12,15 @@
       source_organization: "confetti-cms",
       source_repository: "parser",
       container_name: "*"
+    },
+    {
+      description: "Test to expose website to the admin tailwind container.",
+      scheme: "source",
+      readonly: true,
+      expose_path: "/src/website",
+      source_organization: "confetti-sites",
+      source_repository: "confetti-cms",
+      container_name: "*"
     }
   ],
   sync_requested: [
