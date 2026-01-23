@@ -1,4 +1,5 @@
 {
+  // The container_name of this container is `view`
   description: "The view container uses Nginx, PHP, and Blade to serve responses and assets.",
   sync_granted: [
     {
@@ -13,15 +14,6 @@
       source_repository: "parser",
       container_name: "*"
     },
-    {
-      description: "Test to expose website to the admin tailwind container.",
-      scheme: "source",
-      readonly: true,
-      expose_path: "/src/website",
-      source_organization: "confetti-sites",
-      source_repository: "confetti-cms",
-      container_name: "*"
-    }
   ],
   sync_requested: [
     {
@@ -32,6 +24,16 @@
       source_organization: "confetti-cms",
       source_repository: "image",
       container_name: "*",
-    }
+    },
+    {
+      description: "Sync compiled assets (like tailwind css files) so we can serve them with the web server",
+      scheme: "assets",
+      readonly: true,
+      destination_path: "/var/assets",
+      container_name: "*",
+    },
   ]
 }
+
+
+// !!! @todo readonly

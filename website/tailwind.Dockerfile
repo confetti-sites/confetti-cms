@@ -13,6 +13,6 @@ LABEL for_development_only="true"
 CMD /bin/tailwindcss \
 -i /src/website/public/css/tailwind.css \
 -c /src/website/tailwind.config.js \
--o /var/resources/website__tailwind/tailwind.output.css \
+-o /var/resources/tailwind.output.css \
 --watch \
 --verbose
