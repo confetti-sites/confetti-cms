@@ -1,5 +1,5 @@
 {
-  // The container_name of this container is `admin/tailwind`
+  // The container_name of this container is `admin/tailwind`.
   description: "The Tailwind container compiles Tailwind CSS for the admin panel.",
   "sync_granted": [
     {

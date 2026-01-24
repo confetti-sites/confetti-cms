@@ -1,5 +1,5 @@
 {
-  // The container_name of this container is `website/tailwind`
+  // The container_name of this container is `website/tailwind`.
   description: "The Tailwind container compiles Tailwind CSS for the website.",
   "sync_granted": [
     {

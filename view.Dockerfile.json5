@@ -1,12 +1,10 @@
 {
-  // The container_name of this container is `view`
+  // The container_name of this container is `view`.
   description: "The view container uses Nginx, PHP, and Blade to serve responses and assets.",
   sync_granted: [
     {
-      /**
-       * The Parser is an internal Confetti package. Do not remove this.
-       */
-      description: "The parser requires access to the entire repository in order to parse components.",
+      // The Parser is an internal Confetti package to automatically create ORM classes.
+      description: "The Confetti Parser requires access to the entire repository in order to parse components.",
       scheme: "source",
       readonly: true,
       expose_path: "/src",
@@ -28,12 +26,8 @@
     {
       description: "Sync compiled assets (like tailwind css files) so we can serve them with the web server",
       scheme: "assets",
-      readonly: true,
       destination_path: "/var/assets",
       container_name: "*",
     },
   ]
 }
-
-
-// !!! @todo readonly

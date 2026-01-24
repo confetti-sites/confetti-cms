@@ -1,5 +1,5 @@
 {
-  // The container_name of this container is `vendor/confetti-cms/image/container`
+  // The container_name of this container is `vendor/confetti-cms/image/container`.
   description: "This package allows you to upload and edit images in the dashboard.",
   "sync_granted": [
     {
