@@ -4,7 +4,7 @@
   sync_granted: [
     {
       // The Parser is an internal Confetti package to automatically create ORM classes.
-      description: "The Confetti Parser requires access to the entire repository in order to parse components.",
+      description: "The Confetti Parser requires access to the repository in order to parse components.",
       scheme: "source",
       readonly: true,
       expose_path: "/src",

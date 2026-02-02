@@ -88,6 +88,12 @@ class Kernel
         // `->evaluatePath('/var/www...` to `->evaluatePath('/var/www/cache/admin.index.blade.php')`
         ini_set('zend.exception_string_param_max_len', '200');
         ini_set('error_reporting', E_ALL);
+
+        set_exception_handler(function ($exception) {
+            $output = "[EXCEPTION] " . $exception->getMessage() . " in " . $exception->getFile() . " on line " . $exception->getLine() . "\n";
+            fwrite(STDOUT, $output);
+        });
+
         set_error_handler(/**
          * @throws \ErrorException
          */ function ($severity, $message, $filename, $line) {
@@ -95,6 +101,10 @@ class Kernel
             if (0 === error_reporting()) {
                 return false;
             }
+
+
+            $output = "[ERROR] $message in $filename on line $line\n";
+            fwrite(STDOUT, $output);
 
             throw new ErrorException($message, 0, $severity, $filename, $line);
         });

@@ -3,7 +3,7 @@
   description: "This package allows you to upload and edit images in the dashboard.",
   "sync_granted": [
     {
-      description: "Other containers in this repo should have read access to the stored images.",
+      description: "Other containers in this (umbrella) organization should have read access to the stored images.",
       scheme: "images",
       expose_path: "/var/storage",
       readonly: true,
