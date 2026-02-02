@@ -36,7 +36,7 @@
         destination_path: "/var/resources/generated_by_db",
         source_organization: "*",
         source_repository: "*",
-        container_name: "db",
+        container_name: "confetti-cms/db",
     },
     {
         description: "Get generated classes by the parser",
@@ -45,7 +45,7 @@
         destination_path: "/var/resources/generated_by_parser",
         source_organization: "*",
         source_repository: "*",
-        container_name: "parser",
+        container_name: "confetti-cms/parser",
     }
   ]
 }
