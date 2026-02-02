@@ -15,7 +15,7 @@
   ],
   sync_requested: [
     {
-      description: "Sync images so we can serve them with the web server",
+      description: "Get images so we can serve them with the web server",
       scheme: "images",
       readonly: true,
       destination_path: "/var/storage/images/public",
@@ -24,10 +24,28 @@
       container_name: "*",
     },
     {
-      description: "Sync compiled assets (like tailwind css files) so we can serve them with the web server",
+      description: "Get compiled assets (like tailwind css files) so we can serve them with the web server",
       scheme: "assets",
       destination_path: "/var/assets",
       container_name: "*",
     },
+    {
+        description: "Get generated classes by the parser",
+        scheme: "model",
+        readonly: true,
+        destination_path: "/var/resources/generated_by_db",
+        source_organization: "*",
+        source_repository: "*",
+        container_name: "db",
+    },
+    {
+        description: "Get generated classes by the parser",
+        scheme: "model",
+        readonly: true,
+        destination_path: "/var/resources/generated_by_parser",
+        source_organization: "*",
+        source_repository: "*",
+        container_name: "parser",
+    }
   ]
 }
