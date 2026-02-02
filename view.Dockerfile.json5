@@ -34,8 +34,8 @@
         scheme: "model",
         readonly: true,
         destination_path: "/var/resources/generated_by_db",
-        source_organization: "*",
-        source_repository: "*",
+        source_organization: "confetti-cms",
+        source_repository: "db",
         container_name: "confetti-cms/db",
     },
     {
@@ -43,8 +43,8 @@
         scheme: "model",
         readonly: true,
         destination_path: "/var/resources/generated_by_parser",
-        source_organization: "*",
-        source_repository: "*",
+        source_organization: "confetti-cms",
+        source_repository: "parser",
         container_name: "confetti-cms/parser",
     }
   ]
