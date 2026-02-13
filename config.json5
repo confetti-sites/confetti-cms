@@ -35,7 +35,7 @@
         dev_tools: true,
       },
       containers: [
-        // Main view service
+        // Main view container
         {
           // Do not change the name 'view' since it is connected to the view.Dockerfile
           name: 'view',
@@ -46,16 +46,16 @@
             '/',
           ],
         },
-        // For all api services
+        // For all api containers
         {
           hosts: [
             'confetti-cms.localhost',
           ],
           paths: [
-            // Replace '__SERVICE__' with the name of the service.
-            // The place of the Dockerfile generates the service name.
-            // For /website/tailwind.Dockerfile, the service name will be 'website-tailwind'.
-            // The service 'website-tailwind' will be available at '/conf_api/website-tailwind'.
+            // '__SERVICE__' will be replaced with the name of the container.
+            // The place of the Dockerfile generates the container name.
+            // For /website/tailwind.Dockerfile, the container name will be 'website-tailwind'.
+            // The container 'website-tailwind' will be available at '/conf_api/website-tailwind'.
             '/conf_api/__SERVICE__',
           ],
         },
