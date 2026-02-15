@@ -53,7 +53,8 @@ class RawService implements RenderInterface
             return false;
         }
 
-        // If the URI does not contain '/public/', the use is not allowed to access a raw file
+        // If no prefix is set, the user can only access files that contain '/public/' in the URI.
+        // This is to prevent access to sensitive files in the repository
         if ($this->pathPrefix === null && !str_contains($uri, '/public/')) {
             throw new RawFileDeniedException('You are not allowed to access file without public in the path.');
         }

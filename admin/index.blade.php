@@ -21,7 +21,7 @@ if (str_ends_with(request()->uri(), '-')) {
 
     <title>Admin</title>
 
-    <link rel="stylesheet" href="/resources/admin__tailwind/tailwind.output.css"/>
+    <link rel="stylesheet" href="/assets/container_name=admin%2Ftailwind/tailwind.output.css"/>
     <script src="/admin/public/js/thema.js" defer></script>
     <link rel="icon" type="image/png" sizes="32x32" href="/website/public/favicon/favicon-32x32.png">
 </head>

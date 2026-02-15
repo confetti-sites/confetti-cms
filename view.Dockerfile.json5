@@ -18,7 +18,7 @@
       description: "Get images so we can serve them with the web server",
       scheme: "images",
       readonly: true,
-      destination_path: "/var/storage/images/public/**",
+      destination_path: "/var/public/**",
       source_organization: "confetti-cms",
       source_repository: "image",
       container_name: "*",
@@ -27,7 +27,7 @@
       description: "Get compiled assets (like tailwind css files) so we can serve them with the web server",
       scheme: "assets",
       readonly: true,
-      destination_path: "/var/assets/**", // When using **, the assets will be stored in /var/assets/the_container_name
+      destination_path: "/var/public/**", // When using **, the assets will be stored in /var/public/the_container_name
       container_name: "*",
     },
     {

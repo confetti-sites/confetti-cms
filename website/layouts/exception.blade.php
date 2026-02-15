@@ -24,8 +24,8 @@
             $path = preg_replace('/\/var\/www\/cache\/(.*)\w{41}\/bladec/', '$1.blade.php:$2', $path);
             $paths[$i] = $path . $item['line'];
         } elseif (!$fromBlade && isset($item['file'])) {
-            // Replace /var/resources/confetti-cms__structure with /.confetti
-            $file = str_replace('/var/resources', '/.confetti', $item['file']);
+//             Replace /var/resources/confetti-cms__structure with /.confetti
+//            $file = str_replace('/var/resources', '/.confetti', $item['file']);
 
             // Replace /src/ with /
             $file = str_replace('/src/', '/', $file);
@@ -43,7 +43,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="/resources/website__tailwind/tailwind.output.css"/>
+    <link rel="stylesheet" href="/assets/container_name=website%2Ftailwind/tailwind.output.css"/>
     <title>Error: {{ $message1 }}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>{{ $emoji }}</text></svg>">
     <style>

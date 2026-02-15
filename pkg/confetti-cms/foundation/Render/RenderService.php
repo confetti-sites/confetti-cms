@@ -9,7 +9,7 @@ class RenderService
     public const ROOT_PATH = '/src';
     public const REPOSITORY_PATH = '/src';
     public const CONFIG_FILE_PATH = '/src/config.json5';
-    public const SHARED_RESOURCES = '/var/resources';
+    public const ASSETS = '/var/assets';
     private const CACHE_DIR = '/var/www/cache';
     /**
      * @var RenderInterface[]
@@ -20,7 +20,7 @@ class RenderService
     )
     {
         $this->services = [
-            new RawService(self::SHARED_RESOURCES, 'resources'),
+            new RawService(self::ASSETS, 'assets'),
             new RawService(self::REPOSITORY_PATH),
             new BladeOneService(self::REPOSITORY_PATH, self::CACHE_DIR),
         ];
