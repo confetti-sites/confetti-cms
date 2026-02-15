@@ -24,6 +24,7 @@
             $path = preg_replace('/\/var\/www\/cache\/(.*)\w{41}\/bladec/', '$1.blade.php:$2', $path);
             $paths[$i] = $path . $item['line'];
         } elseif (!$fromBlade && isset($item['file'])) {
+            $file = $item['file'];
 //             Replace /var/resources/confetti-cms__structure with /.confetti
 //            $file = str_replace('/var/resources', '/.confetti', $item['file']);
 
