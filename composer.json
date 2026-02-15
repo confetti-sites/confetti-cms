@@ -25,7 +25,7 @@
   "autoload": {
     "psr-4": {
       "ConfettiCms\\Parser\\": ".confetti/parser",
-      "model\\": ".confetti/de/model",
+      "model\\": ".confetti/db/model",
       "query\\": ".confetti/db/query",
       "App\\": "/src/App/"
     }
