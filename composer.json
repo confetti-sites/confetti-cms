@@ -24,9 +24,9 @@
   ],
   "autoload": {
     "psr-4": {
-      "ConfettiCms\\Parser\\": ".confetti/confetti-cms__parser/ConfettiCms",
-      "model\\": ".confetti/confetti-cms__db/model",
-      "query\\": ".confetti/confetti-cms__db/query",
+      "ConfettiCms\\Parser\\": ".confetti/parser",
+      "model\\": ".confetti/de/model",
+      "query\\": ".confetti/db/query",
       "App\\": "/src/App/"
     }
   },
