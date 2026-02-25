@@ -13,7 +13,7 @@ LABEL for_development_only="true"
 WORKDIR /src
 
 # Move /src/admin/tailwind.config.js to /src/tailwind.config.js, so we can see the pkg files
-COPY /src/admin/tailwind.config.js /src/tailwind.config.js
+RUN mv /src/admin/tailwind.config.js /src/tailwind.config.js
 
 CMD /bin/tailwindcss \
 -i /src/admin/public/css/tailwind.css \
