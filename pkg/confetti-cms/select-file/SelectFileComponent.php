@@ -112,7 +112,7 @@ class SelectFileComponent extends ComponentStandard implements SelectModelInterf
     // This represents the preview of the input field in the admin panel.
     public static function getViewAdminPreview(): string
     {
-        return __DIR__ . '/public/preview.mjs';
+        return getPkgDir() . '/public/preview.mjs';
     }
 
     // Label is used as a title for the admin panel

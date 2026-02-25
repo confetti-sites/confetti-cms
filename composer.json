@@ -28,7 +28,10 @@
       "model\\": ".confetti/db/model",
       "query\\": ".confetti/db/query",
       "App\\": "/src/App/"
-    }
+    },
+    "files": [
+      ".confetti/db/model.php"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true

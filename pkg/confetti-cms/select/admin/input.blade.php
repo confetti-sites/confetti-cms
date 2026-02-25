@@ -1,4 +1,4 @@
-@php /** @var cms\select\SelectComponent $model */ @endphp
+@php /** @var \ConfettiCms\select\SelectComponent $model */ @endphp
         <!--suppress HtmlUnknownTag, HtmlUnknownAttribute, JSUnresolvedReference -->
 <select-component
         data-component="{{ json_encode($model->getComponent()) }}"

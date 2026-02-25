@@ -80,7 +80,7 @@ class TextComponent extends ComponentStandard
 
     public static function getViewAdminPreview(): string
     {
-        return __DIR__ . '/public/preview.mjs';
+        return getPkgDir() . '/public/preview.mjs';
     }
 
     // Default will be used if no value is saved

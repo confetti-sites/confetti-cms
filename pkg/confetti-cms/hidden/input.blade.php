@@ -1,4 +1,4 @@
-@php /** @var cms\hidden\HiddenComponent $model */ @endphp
+@php /** @var \ConfettiCms\Hidden\HiddenComponent $model */ @endphp
         <!--suppress HtmlUnknownTag -->
 <hidden-component
         data-id="{{ $model->getId() }}"

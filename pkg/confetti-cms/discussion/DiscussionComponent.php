@@ -82,7 +82,7 @@ class DiscussionComponent extends ComponentStandard
     // This represents the preview of the input field in the admin panel.
     public static function getViewAdminPreview(): string
     {
-        return __DIR__ . '/public/preview.mjs';
+        return getPkgDir() . '/public/preview.mjs';
     }
 
     // Help is used as a description for the admin panel

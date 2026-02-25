@@ -14,7 +14,7 @@
     </div>
     <text-demo class="bg-gray-50 md:bg-white px-2 pb-2 md:w-1/2 md:mr-10">
         <!-- skeleton loader -->
-        <div class="font-body overflow-x-hidden py-8 md:pt-12 pd:mb-4">
+        <div class="font-body overflow-x-hidden py-4 md:pt-8 pd:mb-4">
             <div class="flex justify-center ">
                 <pre><div class="text-sm md:text-base lg:text-lg xl:text-xl"><div class="flex">
                     <span><span class="text-blue-500">&lt;h1&gt;</span><span class="text-black">@{{ $header-&gt;text(</span><span class="text-green-700">'title'</span><span class="text-black">)&nbsp;</span></span><span><span class="text-black">}}</span><span class="text-blue-500">&lt;/h1&gt;</span></span></div></div></pre>

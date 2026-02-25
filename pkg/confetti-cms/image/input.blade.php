@@ -1,4 +1,4 @@
-@php /** @var components\image\ImageComponent $model */ @endphp
+@php /** @var \ConfettiCms\image\ImageComponent $model */ @endphp
         <!--suppress HtmlUnknownTag, HtmlUnknownAttribute -->
 <image-component
         data-id="{{ $model->getId() }}"

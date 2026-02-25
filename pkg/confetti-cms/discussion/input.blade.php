@@ -1,4 +1,4 @@
-@php /** @var cms\discussion\DiscussionComponent $model */ @endphp
+@php /** @var \ConfettiCms\Discussion\DiscussionComponent $model */ @endphp
         <!--suppress HtmlUnknownTag -->
 <discussion-component
         data-id="{{ $model->getId() }}"

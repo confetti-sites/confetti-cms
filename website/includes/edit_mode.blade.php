@@ -1,7 +1,6 @@
 @pushonce('end_of_body_edit_mode')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
             /**
              * Add edit buttons when pressed Shift
              */
