@@ -79,10 +79,9 @@
                     return true
                 }
 
-                function publish(e, all = false) {
+                function publish(e) {
                     addLoaderBtn(e.target);
-                    const publishFromId = all ? '/model' : id;
-                    Storage.saveFromLocalStorage('{{ getServiceApi() }}', publishFromId).then((result) => {
+                    Storage.saveFromLocalStorage('{{ getServiceApi() }}', '/model').then((result) => {
                         if (result) {
                             if (Storage.hasRedirectUrl())
                                 Storage.handleRedirectUrl();
@@ -97,8 +96,6 @@
                     })
                 }
 
-                let hasOtherChanges = state.countAll > 1 || (state.countAll !== state.countThis);
-
                 html`
                 <div class="flex flex-row w-full space-x-4">
                     @if($isListItem)
@@ -112,10 +109,7 @@
                         Back
                     </a>
                     <div class="${() => `{{ $isListItem ? 'basis-1/2' : 'basis-3/4 ' }} _loader_btn flex items-center justify-center text-sm font-medium leading-5`}" role="group">
-                        ${() => hasOtherChanges ? html`
-                            <button class="px-5 py-3 flex items-center justify-center w-full border rounded-s-lg text-white bg-emerald-700 hover:bg-emerald-800 border-transparent cursor-pointer" @click="${(e) => publish(e, true)}">Publish All</button>
-                        ` : ''}
-                        <button class="${() => `px-5 py-3 flex items-center justify-center w-full border ` + (hasOtherChanges ? `rounded-e-lg border-s-white  `: `rounded-md `) + (state.countThis > 0 ? `text-white bg-emerald-700 hover:bg-emerald-800 border-transparent cursor-pointer` : `border-gray-700 disabled`)}" @click="${(e) => publish(e)}" disabled="${() => state.countThis > 0 ? false : `disabled`}">${() => state.countThis > 0 ? (hasOtherChanges ? `Publish this` : `Publish`) : (state.countThis !== state.countAll ? `No Changes Here` : `Nothing to publish`)}</button>
+                        <button class="${() => `px-5 py-3 flex items-center justify-center w-full border rounded-md ` + (state.countThis > 0 ? `text-white bg-emerald-700 hover:bg-emerald-800 border-transparent cursor-pointer` : `border-gray-700 disabled`)}" @click="${(e) => publish(e)}" disabled="${() => state.countThis > 0 ? false : `disabled`}">${() => state.countThis > 0 ? `Publish` : `Nothing to publish`}</button>
                     </div>
                 </div>
                 `(document.getElementById('actions_bottom'));
