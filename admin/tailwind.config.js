@@ -1,11 +1,11 @@
 module.exports = {
     content: [
-        './**/*.blade.php',
-        './**/*.mjs',
-        './**/*.html',
-        '../pkg/**/*.blade.php',
-        '../pkg/**/*.mjs',
-        '../pkg/**/*.html',
+        './public/**/*.blade.php',
+        './public/**/*.mjs',
+        './public/**/*.html',
+        '../vendor/confetti-cms/*.blade.php',
+        '../vendor/confetti-cms/*.mjs',
+        '../vendor/confetti-cms/*.html',
     ],
     darkMode: 'class',
     theme: {

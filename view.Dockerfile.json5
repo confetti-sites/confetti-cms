@@ -14,9 +14,16 @@
     },
     {
       description: "The admin tailwind container needs access to the pkg directory in order to get the html content of the packages.",
-      scheme: "source",
+      scheme: "pkg",
       readonly: true,
       expose_path: "/src/pkg",
+      container_name: "admin/tailwind",
+    },
+    {
+      description: "The admin tailwind container needs access to the pkg directory in order to get the html content of the packages.",
+      scheme: "vendor",
+      readonly: true,
+      expose_path: "/src/vendor",
       container_name: "admin/tailwind",
     },
   ],
