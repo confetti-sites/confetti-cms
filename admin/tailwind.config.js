@@ -3,6 +3,9 @@ module.exports = {
         './**/*.blade.php',
         './**/*.mjs',
         './**/*.html',
+        '/var/pkg/**/*.blade.php',
+        '/var/pkg/**/*.mjs',
+        '/var/pkg/**/*.html',
     ],
     darkMode: 'class',
     theme: {

@@ -11,4 +11,13 @@
       target: "all_up",
     },
   ],
+  "sync_requested": [
+    {
+      description: "The Tailwind container needs the html files in the pkg directory in order to compile the Tailwind CSS for the admin panel.",
+      scheme: "source",
+      readonly: true,
+      destination_path: "/var/pkg",
+      container_name: "view",
+    }
+  ],
 }

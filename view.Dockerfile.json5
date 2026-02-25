@@ -12,6 +12,13 @@
       source_repository: "parser",
       container_name: "*"
     },
+    {
+      description: "The admin tailwind container needs access to the pkg directory in order to get the html content of the packages.",
+      scheme: "source",
+      readonly: true,
+      expose_path: "/src/pkg",
+      container_name: "admin/tailwind",
+    },
   ],
   sync_requested: [
     {
