@@ -10,9 +10,12 @@ RUN mv tailwindcss-linux-arm64-musl /bin/tailwindcss
 LABEL trigger_restart_1h="true"
 LABEL for_development_only="true"
 
+# Move /src/admin/tailwind.config.js to /src/tailwind.config.js, so we can see the pkg files
+COPY ./tailwind.config.js /src/tailwind.config.js
+
 CMD /bin/tailwindcss \
 -i /src/admin/public/css/tailwind.css \
--c /src/admin/tailwind.config.js \
+-c /src/tailwind.config.js \
 -o /var/resources/tailwind.output.css \
 --watch \
 --verbose
