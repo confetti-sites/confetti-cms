@@ -27,7 +27,7 @@
       "ConfettiCms\\Parser\\": ".confetti/parser",
       "model\\": ".confetti/db/model",
       "query\\": ".confetti/db/query",
-      "App\\": "/src/App/"
+      "App\\": "/var/src/App/"
     },
     "files": [
       ".confetti/db/model.php"
