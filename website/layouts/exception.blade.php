@@ -28,8 +28,8 @@
 //             Replace /var/resources/confetti-cms__structure with /.confetti
 //            $file = str_replace('/var/resources', '/.confetti', $item['file']);
 
-            // Replace /var/src/ with /
-            $file = str_replace('/var/src/', '/', $file);
+            // Replace /src/ with /
+            $file = str_replace('/src/', '/', $file);
 
             $paths[$i] = $file . ':' . $item['line'];
         } else {

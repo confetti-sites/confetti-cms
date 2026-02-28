@@ -4,7 +4,7 @@ LABEL for_development_only="false"
 ENV TZ=UTC
 ENV GOFLAGS="-buildvcs=false"
 
-WORKDIR /var/src
+WORKDIR /src
 
 RUN go install github.com/cespare/reflex@latest
 

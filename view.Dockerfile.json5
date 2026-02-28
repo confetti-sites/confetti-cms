@@ -20,7 +20,7 @@
       container_name: "admin/tailwind",
     },
     {
-      description: "The admin tailwind container needs access to the vendor directory in order to get the html content of the packages.",
+      description: "The admin tailwind container needs access to the pkg directory in order to get the html content of the packages.",
       scheme: "vendor",
       readonly: true,
       expose_path: "/var/src/vendor",
@@ -32,7 +32,7 @@
       description: "Get images so we can serve them with the web server",
       scheme: "images",
       readonly: true,
-      destination_path: "/var/assets/**", // When using **, the images will be stored in /var/assets/container_name=.../
+      destination_path: "/var/assets/**",
       source_organization: "confetti-cms",
       source_repository: "image",
       container_name: "*",
@@ -41,7 +41,7 @@
       description: "Get compiled assets (like tailwind css files) so we can serve them with the web server",
       scheme: "assets",
       readonly: true,
-      destination_path: "/var/assets/**",
+      destination_path: "/var/assets/**", // When using **, the assets will be stored in /var/assets/the_container_name
       container_name: "*",
     },
     {

@@ -172,12 +172,12 @@ function getPkgDir(): string
 {
     // Get directory of the caller
     $location = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0];
-    // The directory contains of `/var/src/pkg/org/repo/.../.php` or `/var/src/vendor/org/repo/.../.php`
+    // The directory contains of `/src/pkg/org/repo/.../.php` or `/src/vendor/org/repo/.../.php`
     // only get the org/repo/... part
     $dir = dirname($location['file']);
 
-    if (!str_starts_with($dir, '/var/src/pkg/') && !str_starts_with($dir, '/var/src/vendor/')) {
-        throw new \RuntimeException('Error: up8esrgf. This is not a package. `/var/src/pkg/` or `/var/src/vendor/` expected but got: ' . $dir);
+    if (!str_starts_with($dir, '/src/pkg/') && !str_starts_with($dir, '/src/vendor/')) {
+        throw new \RuntimeException('Error: up8esrgf. This is not a package. `/src/pkg/` or `/src/vendor/` expected but got: ' . $dir);
     }
 
     $parts = explode('/', $dir);
