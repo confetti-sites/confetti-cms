@@ -16,14 +16,14 @@
       description: "The Tailwind container needs the html files in the pkg directory in order to compile the Tailwind CSS for the admin panel.",
       scheme: "pkg",
       readonly: true,
-      destination_path: "/var/src/pkg",
+      destination_path: "/src/pkg",
       container_name: "view",
     },
     {
       description: "The Tailwind container needs the html files in the pkg directory in order to compile the Tailwind CSS for the admin panel.",
       scheme: "vendor",
       readonly: true,
-      destination_path: "/var/src/vendor",
+      destination_path: "/src/vendor",
       container_name: "view",
     }
   ],
