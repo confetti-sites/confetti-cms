@@ -6,9 +6,9 @@ namespace ConfettiCms\Foundation\Render;
 
 class RenderService
 {
-    public const ROOT_PATH = '/src';
-    public const REPOSITORY_PATH = '/src';
-    public const CONFIG_FILE_PATH = '/src/config.json5';
+    public const ROOT_PATH = '/var/src';
+    public const REPOSITORY_PATH = '/var/src';
+    public const CONFIG_FILE_PATH = '/var/src/config.json5';
     public const ASSETS = '/var/assets';
     private const CACHE_DIR = '/var/www/cache';
     /**

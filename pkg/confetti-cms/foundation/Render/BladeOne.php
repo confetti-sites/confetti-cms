@@ -65,9 +65,9 @@ class BladeOne extends \eftec\bladeone\BladeOne
      */
     public function runChild($view, $variables = []): string
     {
-        // Trim /src from the beginning of the view name
+        // Trim /var/src from the beginning of the view name
         // BladeOne already prefixes the view with the template path
-        if (str_starts_with($view, '/src/')) {
+        if (str_starts_with($view, '/var/src/')) {
             $view = substr($view, 4);
         }
         return parent::runChild($view, $variables);

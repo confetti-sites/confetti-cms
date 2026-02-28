@@ -13,11 +13,11 @@ RUN chown -R www-data:www-data /var/www/cache
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 RUN chmod +x /usr/local/bin/composer
 
-WORKDIR /src
+WORKDIR /var/src
 
 COPY --chown=www-data:www-data . .
 
-RUN ln -s /src/.confetti /var/resources
+RUN ln -s /var/src/.confetti /var/resources
 
 RUN composer install
 
@@ -39,7 +39,7 @@ RUN chown -R www-data:www-data /var/www/cache
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN chmod +x /usr/local/bin/composer
 
-WORKDIR /src
+WORKDIR /var/src
 
 COPY --chown=www-data:www-data . .
 
