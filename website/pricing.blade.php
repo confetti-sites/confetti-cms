@@ -85,7 +85,7 @@
                     Are You Open to Partnering With Us?
                 </h3>
                 <p class="text-gray-500 font-body">
-                    Yes, we would be delighted to partner with you. Whether your company needs assistance with technical challenges or wants to collaborate on building the fundament of new components, we’re here to help.
+                    Yes, we would be delighted to partner with you. Whether your company needs assistance with technical challenges or wants to collaborate on building the fundament of new components, we’re here to help. Join the agency program so we can get in touch.
                 </p>
             </div>
             <div class="mb-4">
@@ -93,10 +93,10 @@
                     <svg class="shrink-0 mr-2 w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
                     </svg>
-                    Can I reuse code over multiple websites?
+                    How can I reuse code over multiple websites?
                 </h3>
                 <p class="text-gray-500 font-body">
-                    You can clone micro repositories anywhere in your project. Similar to Git Submodules, but better. Or use Composer to include packages from Packagist.
+                    When you build a website for a client, you often reuse code from a previous project. Confetti has therefore created a package manager that makes it easy to share code and keep it in sync. Like Git submodules, but better.
                 </p>
             </div>
         </div>

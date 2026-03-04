@@ -3,6 +3,7 @@ module.exports = {
         './public/**/*.blade.php',
         './public/**/*.mjs',
         './public/**/*.html',
+        '../pkg/**/*.blade.php',
         '../vendor/confetti-cms/*.blade.php',
         '../vendor/confetti-cms/*.mjs',
         '../vendor/confetti-cms/*.html',

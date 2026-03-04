@@ -56,17 +56,6 @@ export class TextDemo extends HTMLElement {
                     <pre><div class="text-sm md:text-base lg:text-lg xl:text-xl"><div class="${() => this.state.count > 0 ? 'flex flex-col' : 'flex'}">${() => html`
                         <span><span class="text-blue-500">&lt;h1&gt;</span><span class="text-black">&lcub;&lcub; $header->text(</span><span class="text-green-700">'${this.state.alias}'</span><span class="text-black">)&nbsp;</span></span>${this.state.decorationContent + this.standardSuffix}`}</div></div></pre>
                 </div>
-                <div class="flex mt-2 justify-center">
-                    <button @click="${() => this.#toggleRequired()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.required ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
-                        ->required()
-                    </button>
-                    <button @click="${() => this.#toggleDefault()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.default ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
-                        ->default()
-                    </button>
-                    <button @click="${() => this.#toggleBar()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.bar ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
-                        ->bar()
-                    </button>
-                </div>
             </div>
             <div class="mt-4 md:mt-1 mx-4 md:mx-auto md:w-2/3 min-h-32">
                 <div class="text-bold text-xl mt-2 mb-4 mx-2 h-4">
@@ -87,6 +76,22 @@ export class TextDemo extends HTMLElement {
                         </div>` : ''}
                 </div>
                 <p class="mx-2 mt-2 text-sm text-red-600 _error">${() => this.state.error}</p>
+                <div class="font-body overflow-x-hidden py-8 md:pt-12 pd:mb-4">
+                    <div class="text-sm md:text-base lg:text-lg xl:text-xl">
+                        <div class="flex justify-center"><span class="text-black">Try it out yourself:</span></div>
+                    </div>
+                    <div class="flex mt-2 justify-center">
+                        <button @click="${() => this.#toggleRequired()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.required ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
+                            ->required()
+                        </button>
+                        <button @click="${() => this.#toggleDefault()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.default ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
+                            ->default()
+                        </button>
+                        <button @click="${() => this.#toggleBar()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.bar ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
+                            ->bar()
+                        </button>
+                    </div>
+                </div>
             </div>
         `(this);
     }
