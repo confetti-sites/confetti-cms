@@ -47,7 +47,7 @@
                         </p>
 
                         <a href="{{ $pricing->form('form')->get()['share_link'] ?? null }}" target="_blank" class="bg-primary border-primary block w-full rounded-md border mt-8 p-4 text-center text-base font-semibold text-white transition hover:bg-opacity-90">
-                            Join the agency program
+                            Contact us
                         </a>
                     </div>
                 </div>
