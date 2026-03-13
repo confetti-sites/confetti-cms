@@ -17,9 +17,10 @@
 @php($target = newRoot(new \model\footer)->selectFile('template')->match(['/website/includes/footers/*.blade.php'])->required()->default('/website/includes/footers/footer_small.blade.php'))
 @include($target->getView(), ['model' => $target])
 
-@auth()
-@include('website.includes.edit_mode')
-@endauth
+{{-- Admin users can see the edit buttons when they are logged in, so they can easily edit the content of the page. --}}
+{{--@auth()--}}
+{{--@include('website.includes.edit_mode')--}}
+{{--@endauth--}}
 @include('website.includes.dev_tools')
 @stack('end_of_body_*')
 

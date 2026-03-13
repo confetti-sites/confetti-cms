@@ -155,9 +155,10 @@ export class TextDemo extends HTMLElement {
         if (this.state.default) {
             const prefix = `<span class="text-black-500">`;
             const suffix = `</span>`;
-            const methodPrefix = `->default('`; // black
-            const methodSuffix = `')`; // black
-            const value = 'Confetti CMS'; // green
+            const methodPrefix = `->default(`; // black
+            const methodSuffix = `)`; // black
+            const value = `Confetti CMS`; // green
+            const valueInput = `'Confetti CMS'`; // green
             this.state.defaultContent = '';
             let i = 0;
             const interval = setInterval(() => {
@@ -166,13 +167,14 @@ export class TextDemo extends HTMLElement {
                 if (iValue <= 0) {
                     iValue = 0;
                 }
+                let iValueInput = i - methodPrefix.length + 1;
                 this.state.value = value.substring(0, iValue);
                 let iSuffix = i - methodPrefix.length - value.length;
                 if (iSuffix <= 0) {
                     iSuffix = 0;
                 }
 
-                this.state.defaultContent = `<span class="pl-4">` + prefix + methodPrefix.substring(0, iMethod) + suffix + `<span class="text-green-700">${value.substring(0, iValue)}</span>` + prefix + methodSuffix.substring(0, iSuffix) + suffix + `</span>`;
+                this.state.defaultContent = `<span class="pl-4">` + prefix + methodPrefix.substring(0, iMethod) + suffix + `<span class="text-green-700">${valueInput.substring(0, iValueInput)}</span>` + prefix + methodSuffix.substring(0, iSuffix) + suffix + `</span>`;
                 i++;
                 if (i > (methodPrefix + value + methodSuffix).length || !this.state.default) {
                     clearInterval(interval);
@@ -195,8 +197,8 @@ export class TextDemo extends HTMLElement {
         if (this.state.bar) {
             const prefix = `<span class="text-black-500">`;
             const suffix = `</span>`;
-            const methodPrefix = `->bar('`; // black
-            const methodSuffix = `')`; // black
+            const methodPrefix = `->bar(`; // black
+            const methodSuffix = `)`; // black
             const methodValue = '[\'b\', \'i\', \'u\']'; // green
             this.state.barContent = '';
             let i = 0;
