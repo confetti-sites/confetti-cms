@@ -6,7 +6,7 @@ ENV GOFLAGS="-buildvcs=false"
 
 WORKDIR /src
 
-RUN go install github.com/cespare/reflex@latest
+RUN go install github.com/cespare/reflex@v0.3.1
 
 COPY go.mod go.sum ./
 RUN go mod download
