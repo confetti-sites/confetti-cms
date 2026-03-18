@@ -13,9 +13,11 @@ LABEL for_development_only="true"
 RUN echo "Watching for changes in /src/admin/public/css/tailwind.css and /src/admin/tailwind.config.js"
 
 CMD /bin/tailwindcss \
--i /src/admin/public/css/tailwind.css \
--c /src/admin/tailwind.config.js \
--o /var/resources/tailwind.output.css \
+-input /src/admin/public/css/tailwind.css \
+--config /src/admin/tailwind.config.js \
+--output /var/resources/tailwind.output.css \
+--cwd /src \
 --watch \
 --verbose
+
 

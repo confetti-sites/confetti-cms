@@ -11,8 +11,9 @@ LABEL trigger_restart_1h="true"
 LABEL for_development_only="true"
 
 CMD /bin/tailwindcss \
--i /src/website/public/css/tailwind.css \
--c /src/website/tailwind.config.js \
--o /var/resources/tailwind.output.css \
+-input /src/website/public/css/tailwind.css \
+--config /src/website/tailwind.config.js \
+--output /var/resources/tailwind.output.css \
+--cwd /src \
 --watch \
 --verbose
