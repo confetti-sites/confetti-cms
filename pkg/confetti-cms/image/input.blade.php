@@ -10,7 +10,7 @@
 ></image-component>
 
 @pushonce('style_cropper')
-    <link rel="stylesheet" href="/admin/components/image/cropper.css">
+    <link rel="stylesheet" href="/admin/pkg/confetti-cms/image/public/cropper.css">
 @endpushonce
 @pushonce('end_of_body_image_component')
     <script type="module">

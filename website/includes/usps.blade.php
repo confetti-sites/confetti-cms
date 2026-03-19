@@ -9,7 +9,7 @@
                             {{ $usp->text('title')->max(50)->bar(['b', 'i', 'u']) }}
                         </h3>
                         <p class="mt-1 text-base text-gray-500 dark:text-white font-body">
-                            {{ $usp->text('content')->max(50)->bar(['b', 'i', 'u']) }}
+                            {!! $usp->text('content')->max(50)->bar(['b', 'i', 'u']) !!}
                         </p>
                     </div>
                 @endforeach

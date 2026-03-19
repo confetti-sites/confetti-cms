@@ -263,13 +263,13 @@ abstract class ComponentStandard
 
     /**
      * The return value is a full path from the root to a blade file.
-     * E.g. `/admin/components/color/input.blade.php`
+     * E.g. `/admin/pkg/confetti-cms/color/input.blade.php`
      */
     abstract public function getViewAdminInput(): string;
 
     /**
      * The return value is a full path from the root to a preview file.
-     *  E.g. `/admin/components/color/preview.mjs`
+     *  E.g. `/admin/pkg/confetti-cms/color/preview.mjs`
      */
     abstract public static function getViewAdminPreview(): string;
 

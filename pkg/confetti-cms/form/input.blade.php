@@ -175,7 +175,7 @@
                 let adminUrl = shareUrl.replace('https://tally.so/r/', 'https://tally.so/forms/');
                 // Convert share url to a embed url so we don't got cors errors
                 let embedUrl = shareUrl.replace('https://tally.so/r/', 'https://tally.so/embed/');
-                let byPassCors = this.serviceApi + '/confetti-cms/content/bypass_cors?url=' + encodeURIComponent(embedUrl);
+                let byPassCors = this.serviceApi + '/confetti-cms/db/bypass_cors?url=' + encodeURIComponent(embedUrl);
 
                 // Check if the url is valid
                 fetch(byPassCors)
@@ -194,8 +194,8 @@
 
                         let match = responseBody.match(/<script id="__NEXT_DATA__" type="application\/json">(.+?)<\/script>/s);
                         if (match && match[1]) {
-                            let jsonData = JSON.parse(match[1]); // Converteer de JSON-string naar een object
-                            let title = jsonData.props?.pageProps?.name; // Haal de naam eruit
+                            let jsonData = JSON.parse(match[1]); // Convert the JSON-string to an object
+                            let title = jsonData.props?.pageProps?.name; // Remove the name
 
                             this.data.error = null;
                             this.data.value = {
