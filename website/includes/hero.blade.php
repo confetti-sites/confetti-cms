@@ -14,28 +14,37 @@
     </div>
     <text-demo class="bg-gray-50 md:bg-white px-2 pb-2 md:w-1/2 md:mr-10">
         <!-- skeleton loader -->
-        <div class="font-body overflow-x-hidden py-4 md:pt-8">
+        <div class="font-body overflow-x-hidden py-8 md:pt-12">
             <div class="flex justify-center ">
-                <pre>
-                    <span class="text-sm md:text-base lg:text-lg xl:text-xl">
-                    <span class="flex">
-                        <span>
-                            <span class="text-blue-500">&lt;h1&gt;</span>
-                            <span class="text-black">@{{ $header-&gt;text(</span><span class="text-green-700">'title'</span><span class="text-black">)&nbsp;</span></span><span><span class="text-black">}}</span><span class="text-blue-500">&lt;/h1&gt;</span></span>
-                        </span>
-                    </span>
-                </pre>
-            </div>
-            <div class="flex mt-2 justify-center">
-                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">-&gt;required()</button>
-                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">-&gt;default()</button>
-                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">-&gt;bar()</button>
+                <div class="text-sm md:text-base lg:text-lg xl:text-xl">
+                    <div class="flex">
+                        <span class="text-blue-500">&lt;h1&gt;</span>
+                        <span class="text-black">@{{ $header-&gt;text(</span><span class="text-green-700">'title'</span><span class="text-black">)</span>
+                        <span class="text-black">}}</span><span class="text-blue-500">&lt;/h1&gt;</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="mt-4 md:mt-1 mx-4 md:mx-auto md:w-2/3 min-h-32">
-            <div class="text-bold text-xl mt-2 mb-4 mx-2 h-4">Title</div>
+            <div class="text-bold text-xl mt-2 mb-4 mx-2 h-4"></div>
             <div class="px-5 py-3 mx-2 text-gray-700 border-2 border-gray-400 rounded-lg bg-white font-body">&nbsp;</div>
-            <p class="mx-2 mt-2 text-sm text-red-600 _error"><!----></p>
+            <p class="h-0 mx-2 mt-2 text-sm text-red-600 _error"></p>
+            <div class="font-body overflow-x-hidden py-8 md:pt-12">
+                <div class="text-sm md:text-base lg:text-lg xl:text-xl">
+                    <div class="flex justify-center"><span class="text-black">Try it out yourself:</span></div>
+                </div>
+                <div class="flex mt-2 justify-center">
+                    <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                        -&gt;required()
+                    </button>
+                    <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                        -&gt;default()
+                    </button>
+                    <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                        -&gt;bar()
+                    </button>
+                </div>
+            </div>
         </div>
     </text-demo>
 </div>
