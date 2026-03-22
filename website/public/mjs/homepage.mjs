@@ -1,7 +1,6 @@
-import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+import {html, reactive} from 'https://esm.sh/@arrow-js/core@v1.0.0';
 
 export class TextDemo extends HTMLElement {
-    standardSuffix = `<span><span class="text-black">&rcub;&rcub;</span><span class="text-blue-500">&lt;/h1&gt;</span></span>`;
     required = `->required()`;
 
     state = reactive({
@@ -10,9 +9,9 @@ export class TextDemo extends HTMLElement {
         required: false,
         requiredContent: '',
         default: false,
-        defaultContent: '',
+        defaultNrTyped: 0,
         bar: false,
-        barContent: '',
+        barNrTyped: 0,
         barTools: '',
         bold: false,
         italic: false,
@@ -33,17 +32,8 @@ export class TextDemo extends HTMLElement {
             this.state.alias = this.state.label.toLowerCase().replace(/ /g, '_');
         });
 
-        this.state.$on('requiredContent', () => {
-            this.#updateDecorationContent();
-        });
-
-        this.state.$on('defaultContent', () => {
-            this.#updateDecorationContent();
+        this.state.$on('defaultNrTyped', () => {
             document.getElementById('brand-title').innerHTML = this.state.value;
-        });
-
-        this.state.$on('barContent', () => {
-            this.#updateDecorationContent();
         });
 
         this.#typeLabel()
@@ -51,10 +41,40 @@ export class TextDemo extends HTMLElement {
 
     connectedCallback() {
         html`
-            <div class="font-body overflow-x-hidden py-8 md:pt-12 pd:mb-4">
+            <div class="font-body overflow-x-hidden py-8 md:pt-12">
                 <div class="${() => `flex justify-center ` + (this.state.count > 0 ? 'min-h-20' : '')}">
-                    <pre><div class="text-sm md:text-base lg:text-lg xl:text-xl"><div class="${() => this.state.count > 0 ? 'flex flex-col' : 'flex'}">${() => html`
-                        <span><span class="text-blue-500">&lt;h1&gt;</span><span class="text-black">&lcub;&lcub; $header->text(</span><span class="text-green-700">'${this.state.alias}'</span><span class="text-black">)&nbsp;</span></span>${this.state.decorationContent + this.standardSuffix}`}</div></div></pre>
+                    <div class="text-sm md:text-base lg:text-lg xl:text-xl">
+                        <div class="${() => this.state.count > 0 ? 'flex flex-col' : 'flex'}">${() => html`
+                            <div>
+                                <span class="text-blue-500">&lt;h1&gt;</span>
+                                <span class="text-black">{{ $header->text(</span><span class="text-green-700">'${this.state.alias}'</span><span class="text-black">)</span>
+                                <div class="${() => this.state.requiredContent === '' ? 'hidden' : ''}">
+                                    <span class="text-black-500 pl-4">-</span><span>${() => this.state.requiredContent}</span>
+                                </div>
+                                <div class="${() => this.state.defaultNrTyped === 0 ? 'hidden' : ''}">
+                                    <span class="pl-4 flex">
+                                        <span class="text-black-500">${() => `->default(`.substring(0, this.state.defaultNrTyped)}</span>
+                                        <span class="text-green-700">${()=> `'Confetti CMS'`.substring(0, this.state.defaultNrTyped  - `->default(`.length)}</span>
+                                        <span class="text-black-500">${()=> `)`.substring(0, this.state.defaultNrTyped - `->default('Confetti CMS'`.length)}</span>
+                                    </span>
+                                </div>
+                                <div class="${() => this.state.barNrTyped === 0 ? 'hidden' : ''}">
+                                    <span class="pl-4 flex">
+                                        <span class="text-black-500">${() => `->bar([`.substring(0, this.state.barNrTyped)}</span>
+                                        <span class="text-green-500">${() => `'b'`.substring(0, this.state.barNrTyped - `->bar([`.length)}</span>
+                                        <span class="text-black-500">${() => `, `.substring(0, this.state.barNrTyped - `->bar(['b'`.length)}</span>
+                                        <span class="text-green-500">${() => `'i'`.substring(0, this.state.barNrTyped - `->bar(['b', `.length)}</span>
+                                        <span class="text-black-500">${() => `, `.substring(0, this.state.barNrTyped - `->bar(['b', 'i'`.length)}</span>
+                                        <span class="text-green-500">${() => `'u'`.substring(0, this.state.barNrTyped - `->bar(['b', 'i', `.length)}</span>
+                                        <span class="text-black-500">${() => `])`.substring(0, this.state.barNrTyped - `->bar(['b', 'i', 'u'`.length)}</span>
+                                    </span>
+                                </div>
+                                    
+                                <span class="text-black">}}</span><span class="text-blue-500">&lt;/h1&gt;</span>
+                            </div>
+                            `}
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="mt-4 md:mt-1 mx-4 md:mx-auto md:w-2/3 min-h-32">
@@ -73,8 +93,8 @@ export class TextDemo extends HTMLElement {
                                 <button class="${() => `underline py-1 px-2 rounded-sm cursor-pointer ` + (this.state.underline ? 'text-blue-600 bg-blue-100' : 'text-black hover:bg-blue-100')}" @click="${() => this.#toggleUnderline()}">U</button>` : ''}
                         </div>` : ''}
                 </div>
-                <p class="mx-2 mt-2 text-sm text-red-600 _error">${() => this.state.error}</p>
-                <div class="font-body overflow-x-hidden py-8 md:pt-12 pd:mb-4">
+                <p class="h-0 mx-2 mt-2 text-sm text-red-600 _error">${() => this.state.error}</p>
+                <div class="font-body overflow-x-hidden py-8 md:pt-12">
                     <div class="text-sm md:text-base lg:text-lg xl:text-xl">
                         <div class="flex justify-center"><span class="text-black">Try it out yourself:</span></div>
                     </div>
@@ -124,13 +144,11 @@ export class TextDemo extends HTMLElement {
     #toggleRequired() {
         const isRequired = !this.state.required
         if (isRequired) {
-            const prefix = `<span class="text-black-500 pl-4">-`;
-            const suffix = `</span>`;
             const toType = `>required()`;
-            this.state.requiredContent = prefix + suffix;
+            this.state.requiredContent = '';
             let i = 0;
             const interval = setInterval(() => {
-                this.state.requiredContent = prefix + toType.substring(0, i) + suffix;
+                this.state.requiredContent = toType.substring(0, i);
                 i++;
                 if (i > this.required.length || !this.state.required) {
                     clearInterval(interval);
@@ -153,39 +171,26 @@ export class TextDemo extends HTMLElement {
     #toggleDefault() {
         this.state.default = !this.state.default
         if (this.state.default) {
-            const prefix = `<span class="text-black-500">`;
-            const suffix = `</span>`;
-            const methodPrefix = `->default(`; // black
-            const methodSuffix = `)`; // black
+            const toType = `->default('Confetti CMS')`.length;
             const value = `Confetti CMS`; // green
-            const valueInput = `'Confetti CMS'`; // green
-            this.state.defaultContent = '';
-            let i = 0;
+            this.state.defaultNrTyped = 0;
             const interval = setInterval(() => {
-                let iMethod = i > methodPrefix.length ? methodPrefix.length : i;
-                let iValue = i - methodPrefix.length;
+                let iValue = this.state.defaultNrTyped - `->default(`.length;
                 if (iValue <= 0) {
                     iValue = 0;
                 }
-                let iValueInput = i - methodPrefix.length + 1;
                 this.state.value = value.substring(0, iValue);
-                let iSuffix = i - methodPrefix.length - value.length;
-                if (iSuffix <= 0) {
-                    iSuffix = 0;
-                }
-
-                this.state.defaultContent = `<span class="pl-4">` + prefix + methodPrefix.substring(0, iMethod) + suffix + `<span class="text-green-700">${valueInput.substring(0, iValueInput)}</span>` + prefix + methodSuffix.substring(0, iSuffix) + suffix + `</span>`;
-                i++;
-                if (i > (methodPrefix + value + methodSuffix).length || !this.state.default) {
+                this.state.defaultNrTyped++;
+                if (this.state.defaultNrTyped > toType || !this.state.default) {
                     clearInterval(interval);
                 }
                 if (!this.state.default) {
-                    this.state.defaultContent = '';
+                    this.state.defaultNrTyped = 0;
                 }
                 this.#updateError();
             }, 150);
         } else {
-            this.state.defaultContent = '';
+            this.state.defaultNrTyped = 0;
             this.state.value = '';
             this.#updateError();
         }
@@ -195,34 +200,25 @@ export class TextDemo extends HTMLElement {
     #toggleBar() {
         this.state.bar = !this.state.bar
         if (this.state.bar) {
-            const prefix = `<span class="text-black-500">`;
-            const suffix = `</span>`;
             const methodPrefix = `->bar(`; // black
-            const methodSuffix = `)`; // black
             const methodValue = '[\'b\', \'i\', \'u\']'; // green
-            this.state.barContent = '';
-            let i = 0;
+            const methodSuffix = `)`; // black
+            this.state.barNrTyped = 0;
             const interval = setInterval(() => {
-                let iMethod = i > methodPrefix.length ? methodPrefix.length : i;
-                let iValue = i - methodPrefix.length;
+                let iValue = this.state.barNrTyped - methodPrefix.length;
                 if (iValue <= 0) {
                     iValue = 0;
                 }
                 this.state.barTools = methodValue.substring(0, iValue);
-                this.state.barContent = `<span class="pl-4">` + prefix + methodPrefix.substring(0, iMethod) + suffix + `<span class="text-green-700">${methodValue.substring(0, iValue)}</span>` + prefix + methodSuffix.substring(0, i - methodPrefix.length - methodValue.length) + suffix + `</span>`;
-                i++;
-                if (i > (methodPrefix + methodValue + methodSuffix).length || !this.state.bar) {
+                this.state.barNrTyped++;
+                if (this.state.barNrTyped > (methodPrefix + methodValue + methodSuffix).length || !this.state.bar) {
                     this.state.bold = true;
                     clearInterval(interval);
                 }
-                if (!this.state.bar) {
-                    this.state.barContent = '';
-                }
-
             }, 200);
         } else {
-            this.state.barContent = '';
             this.state.barTools = null;
+            this.state.barNrTyped = 0;
         }
         this.state.count = this.#countDeclarations()
     }
@@ -237,10 +233,6 @@ export class TextDemo extends HTMLElement {
 
     #toggleUnderline() {
         this.state.underline = !this.state.underline;
-    }
-
-    #updateDecorationContent() {
-        this.state.decorationContent = this.state.requiredContent + this.state.defaultContent + this.state.barContent;
     }
 
     #countDeclarations() {

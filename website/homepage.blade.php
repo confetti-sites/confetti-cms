@@ -7,7 +7,7 @@
     @include('website.includes.hero')
     @include('website.includes.usps')
 {{--    -- examples of admin --}}
-{{--    -- voorbeelden soorten websites. Blog / static websites --}}
+{{--    -- examples of different websites. Blogs / static websites --}}
     @include('website.includes.compare')
     @include('website.includes.steps')
     @include('website.includes.cta')

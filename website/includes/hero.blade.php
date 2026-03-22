@@ -5,7 +5,7 @@
         </h1>
         <div class="flex items-center">
             <div class="mt-8">
-                <a href="/docs/model" class="inline-block border-2 border-blue-500 bg-white text-blue-600 px-6 py-3 rounded-lg">Learn More</a>
+                <a href="/docs/text" class="inline-block border-2 border-blue-500 bg-white text-blue-600 px-6 py-3 rounded-lg">Learn More</a>
             </div>
             <div class="mt-8 ml-4">
                 <a href="/waiting-list" class="inline-block border-2 border-primary bg-primary text-white px-6 py-3 rounded-lg">Get Started</a>
@@ -14,10 +14,17 @@
     </div>
     <text-demo class="bg-gray-50 md:bg-white px-2 pb-2 md:w-1/2 md:mr-10">
         <!-- skeleton loader -->
-        <div class="font-body overflow-x-hidden py-4 md:pt-8 pd:mb-4">
+        <div class="font-body overflow-x-hidden py-4 md:pt-8">
             <div class="flex justify-center ">
-                <pre><div class="text-sm md:text-base lg:text-lg xl:text-xl"><div class="flex">
-                    <span><span class="text-blue-500">&lt;h1&gt;</span><span class="text-black">@{{ $header-&gt;text(</span><span class="text-green-700">'title'</span><span class="text-black">)&nbsp;</span></span><span><span class="text-black">}}</span><span class="text-blue-500">&lt;/h1&gt;</span></span></div></div></pre>
+                <pre>
+                    <span class="text-sm md:text-base lg:text-lg xl:text-xl">
+                    <span class="flex">
+                        <span>
+                            <span class="text-blue-500">&lt;h1&gt;</span>
+                            <span class="text-black">@{{ $header-&gt;text(</span><span class="text-green-700">'title'</span><span class="text-black">)&nbsp;</span></span><span><span class="text-black">}}</span><span class="text-blue-500">&lt;/h1&gt;</span></span>
+                        </span>
+                    </span>
+                </pre>
             </div>
             <div class="flex mt-2 justify-center">
                 <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">-&gt;required()</button>
