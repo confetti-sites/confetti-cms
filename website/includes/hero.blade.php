@@ -25,25 +25,25 @@
                 </div>
             </div>
         </div>
-        <div class="mt-4 md:mt-1 mx-4 md:mx-auto md:w-2/3 min-h-32">
+        <div class="mt-4 md:mt-1 mx-4 sm:mx-auto sm:w-2/3 min-h-32">
             <div class="text-bold text-xl mt-2 mb-4 mx-2 h-4"></div>
             <div class="px-5 py-3 mx-2 text-gray-700 border-2 border-gray-400 rounded-lg bg-white font-body">&nbsp;</div>
             <p class="h-0 mx-2 mt-2 text-sm text-red-600 _error"></p>
-            <div class="font-body overflow-x-hidden py-8 md:pt-12">
-                <div class="text-sm md:text-base lg:text-lg xl:text-xl">
-                    <div class="flex justify-center"><span class="text-black">Try it out yourself:</span></div>
-                </div>
-                <div class="flex mt-2 justify-center">
-                    <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
-                        -&gt;required()
-                    </button>
-                    <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
-                        -&gt;default()
-                    </button>
-                    <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
-                        -&gt;bar()
-                    </button>
-                </div>
+        </div>
+        <div class="font-body overflow-x-hidden py-8 md:pt-12">
+            <div class="text-sm md:text-base lg:text-lg xl:text-xl">
+                <div class="flex justify-center"><span class="text-black">Try it out yourself:</span></div>
+            </div>
+            <div class="flex mt-2 justify-center">
+                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                    -&gt;required()
+                </button>
+                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                    -&gt;default()
+                </button>
+                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                    -&gt;bar()
+                </button>
             </div>
         </div>
     </text-demo>
