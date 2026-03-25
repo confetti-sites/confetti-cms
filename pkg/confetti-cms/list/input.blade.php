@@ -21,7 +21,8 @@
     <script type="module">
         import {Storage} from '/admin/public/js/admin_service.mjs';
         import LimList from '/pkg/confetti-cms/list/public/list.mjs';
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+        // import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
+        import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
         import {IconMenu as IconDrag} from 'https://esm.sh/@codexteam/icons';
 
         customElements.define('list-component', class extends HTMLElement {

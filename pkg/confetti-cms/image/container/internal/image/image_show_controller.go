@@ -13,8 +13,8 @@ import (
 
 func ShowRequest(request *net.Request) (error, string) {
 	// Remove the container url prefix
-	relativeLocation := strings.TrimPrefix(request.RequestURI, "/conf_api/confetti-cms/media")
-	// Remove the endoint
+	relativeLocation := strings.TrimPrefix(request.RequestURI, "/conf_api/vendor/confetti-cms/image/container")
+	// Remove the endpoint prefix
 	relativeLocation = strings.TrimPrefix(relativeLocation, "/images")
 
 	return nil, relativeLocation

@@ -17,7 +17,7 @@ if (str_ends_with(request()->uri(), '-')) {
 
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Admin</title>
 
@@ -54,7 +54,7 @@ if (str_ends_with(request()->uri(), '-')) {
         @else
             <div class="flex items-center justify-center w-full h-screen bg-gray-50">
                 You are not allowed to access this page. Go back to&nbsp;<a href="/" class="underline">the home page</a>
-                <span>&nbsp;or <a onclick="document.cookie = 'access_token=; Max-Age=0;';location.reload()" class="underline cursor-pointer">retry to login</a>.</span>
+                <span>&nbsp;or <a onclick="document.cookie = 'access_token=; Max-Age=0;';location.replace('/admin')" class="underline cursor-pointer">retry to login</a>.</span>
             </div>
         @endcan
     @endguest

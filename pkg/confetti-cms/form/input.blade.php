@@ -14,7 +14,7 @@
         import {Toolbar} from '/admin/public/js/editor.mjs';
         import {Storage} from '/admin/public/js/admin_service.mjs';
         import {IconUndo, IconMarker, IconTableWithHeadings} from 'https://esm.sh/@codexteam/icons';
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+        import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
 
         customElements.define('tally-component', class extends HTMLElement {
             id

@@ -431,7 +431,7 @@ export class Media {
         const formData = new FormData();
         formData.append(id, file);
 
-        fetch(`${serviceApiUrl}/confetti-cms/media/images`, {
+        fetch(`${serviceApiUrl}/vendor/confetti-cms/image/container/images`, {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + document.cookie.split('access_token=')[1].split(';')[0],

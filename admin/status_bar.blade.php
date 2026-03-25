@@ -2,7 +2,7 @@
 
 @pushonce('boot_end_of_body_status_bar_component')
     <script type="module">
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+        import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
 
         customElements.define('status-bar', class extends HTMLElement {
             state = {
@@ -62,7 +62,7 @@
             }
 
             #renderStatus() {
-                length = this.statuses.length;
+                let length = this.statuses.length;
                 if (length === 0) {
                     return this.#fadeOut();
                 }

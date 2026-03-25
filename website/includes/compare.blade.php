@@ -28,7 +28,7 @@
 
 @pushonce('end_of_body_homepage_compare')
     <script type="module" defer>
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+        import {html, reactive} from 'https://esm.sh/@arrow-js/core@v1.0.0';
 
         customElements.define('homepage-compare', class extends HTMLElement {
             constructor() {

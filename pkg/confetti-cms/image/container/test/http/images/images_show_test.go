@@ -46,7 +46,7 @@ func Test_show_image_by_conf_api(t *testing.T) {
 	// Given
 	config.Path.Storage = filepath.Join(config.Path.Base, "../mock")
 	i := is.New(t)
-	request := httptest.NewRequest(net.MethodGet, "/conf_api/confetti-cms/media/images/pinguin.jpeg", nil)
+	request := httptest.NewRequest(net.MethodGet, "/conf_api/vendor/confetti-cms/image/container/images/pinguin.jpeg", nil)
 	response := httptest.NewRecorder()
 
 	// When

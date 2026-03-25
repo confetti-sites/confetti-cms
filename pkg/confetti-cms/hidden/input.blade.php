@@ -10,7 +10,7 @@
 @pushonce('end_of_body_hidden_component')
     <script type="module">
         import {Storage} from '/admin/public/js/admin_service.mjs';
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+        import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
 
         customElements.define('hidden-component', class extends HTMLElement {
             id

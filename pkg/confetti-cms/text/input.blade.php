@@ -14,7 +14,7 @@
         @import url('/pkg/confetti-cms/text/public/editor_text.css');
     </style>
     <script type="module">
-        import {html} from 'https://esm.sh/@arrow-js/core';
+        import {html} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
         /** see https://github.com/codex-team/editor.js/blob/next/types/configs/editor-config.d.ts */
         import EditorJS from 'https://esm.sh/@editorjs/editorjs@^2';
         import {LimText, Validators} from '/pkg/confetti-cms/text/public/editor_text.mjs'
@@ -70,7 +70,6 @@
                         <span id="_${this.id_slug}"></span>
                     </div>
                     <p class="mt-2 text-sm text-red-600 _error"></p>
-                    ${this.decorations.help.help ? html`<p class="mt-2 text-sm text-gray-500">${this.decorations.help.help}</p>` : ''}
                 `(this)
                 this.renderedCallback();
             }

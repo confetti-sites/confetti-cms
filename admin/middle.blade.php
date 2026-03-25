@@ -43,7 +43,7 @@
              id="actions_bottom">
             <script type="module">
                 import {Storage} from '/admin/public/js/admin_service.mjs';
-                import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+                import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
 
                 const id = '{{ $id }}';
                 let state = {countThis: countThis(), countAll: countAll(), confirmDelete: false, waiting: false};

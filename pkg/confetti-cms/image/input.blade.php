@@ -10,13 +10,13 @@
 ></image-component>
 
 @pushonce('style_cropper')
-    <link rel="stylesheet" href="/admin/pkg/confetti-cms/image/public/cropper.css">
+    <link rel="stylesheet" href="/vendor/confetti-cms/image/public/cropper.css">
 @endpushonce
 @pushonce('end_of_body_image_component')
     <script type="module">
         import {Toolbar} from '/admin/public/js/editor.mjs';
         import {IconTrash, IconUndo, IconUpload, Media, Storage} from '/admin/public/js/admin_service.mjs';
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+        import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
         // https://fengyuanchen.github.io/cropperjs
         import Cropper from 'https://esm.sh/cropperjs@1.5.6';
 
@@ -328,7 +328,7 @@
                     },
                     then: {
                         'method': 'PATCH',
-                        'url': this.serviceApi + '/confetti-cms/media/sources',
+                        'url': this.serviceApi + '/vendor/confetti-cms/image/container/sources',
                         'body': {
                             'id': id,
                             'original': value['original'],
@@ -383,7 +383,7 @@
                 if (path.startsWith('blob:')) {
                     return path;
                 }
-                return `${this.serviceApi}/confetti-cms/media/images${path}`;
+                return `${this.serviceApi}/vendor/confetti-cms/image/container/images${path}`;
             }
         });
     </script>

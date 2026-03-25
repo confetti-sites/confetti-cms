@@ -1,6 +1,6 @@
 @php($current = extendModel($model))
 
-<h1 class="text-3xl font-semibold text-gray-800 mb-2">{{ $current->text('title')->max(50) }}</h1>
+{{--<h1 class="text-3xl font-semibold text-gray-800 mb-2">{{ $current->text('title')->max(50) }}</h1>--}}
 <div class="mt-4 mb-4 text-gray-800 font-body">@include('pkg.confetti-cms.content.website.index', ['model' => $current->content('description')])</div>
 
 @php
@@ -43,7 +43,7 @@
 
 @pushonce('end_of_body_docs_os_tab')
     <script type="module">
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core';
+        import {html, reactive} from 'https://esm.sh/@arrow-js/core@v1.0.0';
 
         customElements.define('docs-installation-steps', class extends HTMLElement {
             data;

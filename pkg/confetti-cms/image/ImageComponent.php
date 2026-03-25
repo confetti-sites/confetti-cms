@@ -76,7 +76,7 @@ class ImageComponent extends ComponentStandard
                 if (str_starts_with($source['name'], 'http')) {
                     return $source['name'];
                 }
-                return getServiceApi() . '/confetti-cms/media/images' . htmlspecialchars($source['name']);
+                return getServiceApi() . '/vendor/confetti-cms/image/container/images' . htmlspecialchars($source['name']);
             }
         }
         return null;

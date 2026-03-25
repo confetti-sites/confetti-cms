@@ -44,7 +44,7 @@ abstract class BaseMap
 
     public static function getViewAdminPreview(): string
     {
-        return 'not_implemented_since_we_thing_this_is_not_needed';
+        return 'please implement ' . __METHOD__ . ' in the child class';
     }
 
     public function canFake(bool $canFake = true): self

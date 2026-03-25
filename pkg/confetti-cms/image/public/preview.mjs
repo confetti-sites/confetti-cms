@@ -45,7 +45,7 @@ export default class {
             return '';
         }
 
-        let prefix = '/conf_api/confetti-cms/media/images/';
+        let prefix = '/conf_api/vendor/confetti-cms/image/container/images/';
         let cl = '';
         let height = this.value.crop.height;
         let width = this.value.crop.width;
@@ -84,7 +84,7 @@ export default class {
             return `
                 <div class="p-3">
                     <picture>
-                        <source class="" srcset="${prefix}${pictureSource1x.name} 1x, /conf_api/confetti-cms/media/images/${pictureSource2x.name} 2x">
+                        <source class="" srcset="${prefix}${pictureSource1x.name} 1x, /conf_api/vendor/confetti-cms/image/container/images/${pictureSource2x.name} 2x">
                         <img class="${cl}" src="${prefix}${pictureSource2x.name}" alt="${this.component.decorations.label.label}">
                     </picture>
                 </div>`;
