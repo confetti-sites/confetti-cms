@@ -4,7 +4,7 @@ RUN apk update
 RUN apk add curl libstdc++ libgcc
 
 # For Confetti users, it is always the following:
-#RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.2.1/tailwindcss-linux-x64-musl
+#RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.2.2/tailwindcss-linux-x64-musl
 #RUN chmod +x tailwindcss-linux-x64-musl
 #RUN mv tailwindcss-linux-x64-musl /bin/tailwindcss
 
@@ -16,7 +16,7 @@ RUN ARCH=$(uname -m) && \
         TAILWIND_ARCH="x64"; \
     fi && \
     echo "Downloading Tailwind for $TAILWIND_ARCH..." && \
-    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.2.1/tailwindcss-linux-$TAILWIND_ARCH-musl && \
+    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.2.2/tailwindcss-linux-$TAILWIND_ARCH-musl && \
     chmod +x tailwindcss-linux-$TAILWIND_ARCH-musl && \
     mv tailwindcss-linux-$TAILWIND_ARCH-musl /bin/tailwindcss
 
