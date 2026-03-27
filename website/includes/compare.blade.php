@@ -9,8 +9,7 @@
         <div class="relative w-full">
             <div class="relative">
                 <button type="button" class="js-edit:{{ $compare->getId() }} text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->text('title')->min(1)->max(50) }}</button>
-                <homepage-compare>
-                    <!-- skeleton loader -->
+                <div id="compare-{{ $compare->getId() }}">
                     <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
                         @foreach($cases as $tapNr => $case)
                             <div class="{{ $tapNr === 0 ? 'text-blue-600 border-b border-blue-600' : 'hover:text-blue-600' }} px-2 py-2 cursor-pointer">
@@ -20,7 +19,7 @@
                         @endforeach
                     </div>
                     <div class="min-h-80"></div>
-                </homepage-compare>
+                </div>
             </div>
         </div>
     </div>
@@ -28,22 +27,16 @@
 
 @pushonce('end_of_body_homepage_compare')
     <script type="module" defer>
-        import {html, reactive} from 'https://esm.sh/@arrow-js/core@v1.0.0';
+        import { component, html, reactive } from 'https://esm.sh/@arrow-js/core@1';
 
-        customElements.define('homepage-compare', class extends HTMLElement {
-            constructor() {
-                super();
-                this.state = reactive({
-                    tab: 0,
-                });
-                this.innerHTML = '';
-            }
-            connectedCallback() {
-                html`
+        const CompareTabs = component(() => {
+            const state = reactive({ tab: 0 });
+
+            return html`
             <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
                 @foreach($cases as $tapNr => $case)
-                    <div class="${() => 'px-2 py-2 cursor-pointer ' + (this.state.tab === {{ $tapNr }} ? 'text-blue-600 border-b border-blue-600' : 'hover:text-blue-600')}"
-                         @click="${() => this.state.tab={{ $tapNr }}}">
+                    <div class="${() => 'px-2 py-2 cursor-pointer ' + (state.tab === {{ $tapNr }} ? 'text-blue-600 border-b border-blue-600' : 'hover:text-blue-600')}"
+                         @click="${() => state.tab = {{ $tapNr }}}">
                         <span>{{ $case->text('title')->min(1)->max(20) }}</span>
                         <span>{{ $case->text('description')->min(1)->max(30) }}</span>
                     </div>
@@ -51,7 +44,7 @@
             </div>
             <div class="md:container mx-auto">
                 @foreach($cases as $tapNr => $case)
-                    <div class="${() => 'grid grid-cols-1 md:grid-cols-2 ' + (this.state.tab === {{ $tapNr }} ? 'block' : 'hidden')}">
+                    <div class="${() => 'grid grid-cols-1 md:grid-cols-2 ' + (state.tab === {{ $tapNr }} ? 'block' : 'hidden')}">
                         @foreach($case->list('column')->sortable()->columns(['title'])->min(2)->max(2)->get() as $column)
                             <div class="js-edit:{{ $column->getId() }} my-4 xl:m-6 mt-0 relative space-x-4 space-y-4">
                                 <div class="flex justify-center mx-8 md:mx-14 lg:mx-24  my-4 lg:my-8 p-4 bg-blue-300 text-xl rounded-lg">
@@ -67,7 +60,6 @@
                                                 {{ $step->text('description')->bar(['b', 'i', 'u'])->min(3)->max(100) }}
                                             </div>
                                         </div>
-                                        <!-- Let tailwind trigger: md:text-base lg:text-lg xl:text-xl w-full hidden lg:inline-block xl:inline-block text-black lg:inline-block -->
                                         @if(!$step->example->isEmpty())
                                             <div class="pb-3 text-center text-gray-500 font-body">
                                                 @include('pkg.confetti-cms.content.website.index', ['model' => $step->content('example')])
@@ -80,10 +72,12 @@
                     </div>
                 @endforeach
             </div>
-        `(this);
-            }
+            `;
         });
 
+        const container = document.getElementById('compare-{{ $compare->getId() }}');
+        container.innerHTML = '';
+        html`${CompareTabs()}`(container);
     </script>
 @endpushonce
 
