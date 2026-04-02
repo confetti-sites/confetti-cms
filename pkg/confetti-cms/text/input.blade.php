@@ -70,6 +70,7 @@
                         <span id="_${this.id_slug}"></span>
                     </div>
                     <p class="mt-2 text-sm text-red-600 _error"></p>
+                    <p class="mt-2 text-sm text-gray-500 _help">${this.decorations.help.help ?? ''}</p>
                 `(this)
                 this.renderedCallback();
             }

@@ -109,6 +109,12 @@ class ContentComponent extends ComponentStandard
         return $this;
     }
 
+    // Help text is shown below the input field
+    public function help(string $help): self
+    {
+        $this->setDecoration(__FUNCTION__, get_defined_vars());
+        return $this;
+    }
     public function getDefaultData(): array
     {
         return $this->getEditorDataByText($this->getComponent()->getDecoration('default', 'default'));

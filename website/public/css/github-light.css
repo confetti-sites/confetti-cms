@@ -90,6 +90,7 @@ discussion {
         width: 100%;
         margin-top: 20px;
         margin-bottom: 20px;
+        background-color: white;
     }
 
     & th, td {

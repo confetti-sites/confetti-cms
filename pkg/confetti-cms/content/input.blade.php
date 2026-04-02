@@ -106,6 +106,7 @@
                     <div class="px-5 py-4 text-gray-700 border-2 border-gray-200 rounded-lg bg-gray-50 _input">
                         <span id="_${this.id_slug}"></span>
                     </div>
+                    <p class="mt-2 text-sm text-gray-500 _help">${this.decorations.help.help ?? ''}</p>
                 `(this)
                 this.renderedCallback();
             }
