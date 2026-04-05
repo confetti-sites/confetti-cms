@@ -8,17 +8,19 @@
     <div class="bg-gray-50 flex items-center justify-center">
         <div class="relative w-full">
             <div class="relative">
-                <button type="button" class="js-edit:{{ $compare->getId() }} text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->text('title')->min(1)->max(50) }}</button>
                 <div id="compare-{{ $compare->getId() }}">
-                    <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
-                        @foreach($cases as $tapNr => $case)
-                            <div class="{{ $tapNr === 0 ? 'text-blue-600 border-b border-blue-600' : 'hover:text-blue-600' }} px-2 py-2 cursor-pointer">
-                                <span>{{ $case->title }}</span>
-                                <span>{{ $case->description }}</span>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="min-h-80"></div>
+                <button type="button" class="js-edit:{{ $compare->getId() }} text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->title }}</button>
+                <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
+                    @foreach($cases as $tapNr => $case)
+                        <div class="{{ $tapNr === 0 ? 'text-blue-600 border-b border-blue-600' : 'hover:text-blue-600' }} px-2 py-2 cursor-pointer">
+                            <span>{{ $case->title }}</span>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="min-h-80">
+                    @foreach($cases as $tapNr => $case)
+                        <div class="${() => 'font-body text-center text-balance ' + (state.tab === 0 ? 'block' : 'hidden')}">{{ $case->description }}</div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -33,17 +35,18 @@
             const state = reactive({ tab: 0 });
 
             return html`
+            <button type="button" class="js-edit:{{ $compare->getId() }} text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->text('title')->min(1)->max(50) }}</button>
             <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
                 @foreach($cases as $tapNr => $case)
                     <div class="${() => 'px-2 py-2 cursor-pointer ' + (state.tab === {{ $tapNr }} ? 'text-blue-600 border-b border-blue-600' : 'hover:text-blue-600')}"
                          @click="${() => state.tab = {{ $tapNr }}}">
                         <span>{{ $case->text('title')->min(1)->max(20) }}</span>
-                        <span>{{ $case->text('description')->min(1)->max(30) }}</span>
                     </div>
                 @endforeach
             </div>
             <div class="md:container mx-auto">
                 @foreach($cases as $tapNr => $case)
+                    <div class="${() => 'font-body text-center text-balance ' + (state.tab === {{ $tapNr }} ? 'block' : 'hidden')}">{{ $case->text('description')->min(1)->max(120) }}</div>
                     <div class="${() => 'grid grid-cols-1 md:grid-cols-2 ' + (state.tab === {{ $tapNr }} ? 'block' : 'hidden')}">
                         @foreach($case->list('column')->sortable()->columns(['title'])->min(2)->max(2)->get() as $column)
                             <div class="js-edit:{{ $column->getId() }} my-4 xl:m-6 mt-0 relative space-x-4 space-y-4">

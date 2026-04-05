@@ -17,7 +17,7 @@ class Website
     {
         return match (true) {
             request()->uri() === '/'                       => new View('website.homepage'),
-            request()->uri() === '/debug_arrow_js'        => new View('website.debug_arrow_js'),
+            request()->uri() === '/debug_arrow_js'         => new View('website.debug_arrow_js'),
             request()->uri() === '/waiting-list'           => new View('website.waitlist'),
             request()->uri() === '/waiting-callback'       => new View('website.waitlist_callback'),
             request()->uri() === '/auth/callback'          => new View('website.includes.auth.callback'),
