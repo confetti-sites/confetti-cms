@@ -2,7 +2,7 @@
 
 <h1 class="text-3xl font-semibold text-gray-800 mb-2">Installation</h1>
 
-<div class="mt-4 mb-4 text-gray-800 font-body">Confetti is a powerful tool for building and managing websites with ease. Follow the steps below to get started on macOS. Keep in mind that you don't need to install PHP or an HTTP server to use Confetti.</div>
+<div class="mt-4 mb-8 text-gray-800 font-body">Confetti is a powerful tool for building and managing websites with ease. Follow the steps below to get started on macOS. Keep in mind that you don't need to install PHP or an HTTP server to use Confetti.</div>
 
 @php($current = extendModel($model))
 <docs-installation-steps-v2 data-tabs="{{ json_encode([
@@ -13,22 +13,18 @@
             [
                 'title_step' => 'Install Confetti:',
                 'example' => 'brew tap confetti-cms/homebrew-client && brew install conf',
-                'second_description' => null,
             ],
             [
                 'title_step' => 'Navigate to the desired directory:',
                 'example' => 'cd ~',
-                'second_description' => null,
             ],
             [
                 'title_step' => 'Clone the project repository:',
                 'example' => 'git clone git@github.com:confetti-sites/__your_repo__.git',
-                'second_description' => null,
             ],
             [
                 'title_step' => 'Move into the project directory:',
                 'example' => 'cd ~/__your_repo__',
-                'second_description' => null,
             ],
         ],
     ],
@@ -37,38 +33,26 @@
         'title' => 'Windows (Scoop, PowerShell)',
         'steps' => [
             [
-                'title' => 'Install Confetti:',
-                'first_description' => null,
-                'title_step' => null,
+                'title_step' => 'Install Confetti:',
                 'example' => 'scoop bucket add org https://github.com/confetti-cms/scoop-conf.git && scoop install confetti-cms/scoop-conf',
-                'second_description' => null,
             ],
             [
-                'title' => 'Navigate to the desired directory:',
-                'first_description' => null,
-                'title_step' => null,
+                'title_step' => 'Navigate to the desired directory:',
                 'example' => 'cd ~',
-                'second_description' => null,
             ],
             [
-                'title' => 'Clone the project repository:',
-                'first_description' => null,
-                'title_step' => null,
+                'title_step' => 'Clone the project repository:',
                 'example' => 'git clone git@github.com:confetti-sites/__your_repo__.git',
-                'second_description' => null,
             ],
             [
-                'title' => 'Move into the project directory:',
-                'first_description' => null,
-                'title_step' => null,
+                'title_step' => 'Move into the project directory:',
                 'example' => 'cd ~\\__your_repo__',
-                'second_description' => null,
             ],
         ],
     ],
 ]) }}"></docs-installation-steps-v2>
 
-<div class="mt-4 mb-4 text-gray-800 font-body">
+<div class="mt-12 mb-4 text-gray-800 font-body">
     <discussion>
         <div class="markdown-heading"><h2 class="heading-element">Running your Project</h2><a id="user-content-running-your-project" class="anchor" aria-label="Permalink: Running your Project" href="#running-your-project"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
         <div class="markdown-heading"><h3 class="heading-element">Start Watching Changes</h3><a id="user-content-start-watching-changes" class="anchor" aria-label="Permalink: Start Watching Changes" href="#start-watching-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -101,9 +85,10 @@
 
             connectedCallback() {
                 html`
-<div class="flex items-center justify-center mt-4 mb-4 space-x-4 border-b border-gray-300 text-xl">
+<div class="flex items-center justify-center mt-4 mb-12 space-x-4 border-b border-gray-300 text-xl">
     ${() => this.#putCurrentOsFirst(this.data).map((tab) => html`
-    <button class="${() => `py-2 px-4 text-lg cursor-pointer ` + (this.state.selectedTab === tab.alias ? 'border-b-2 border-blue-500 font-semibold' : '')}">
+    <button class="${() => `py-2 px-4 text-lg cursor-pointer ` + (this.state.selectedTab === tab.alias ? 'border-b-2 border-blue-500 font-semibold' : '')}"
+            @click="${() => this.state.selectedTab = tab.alias}">
         ${tab.title}
     </button>
     `)}
