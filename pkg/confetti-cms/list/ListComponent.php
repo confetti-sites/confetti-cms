@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ConfettiCms\List;
 
+use ArrayAccess;
 use ConfettiCms\Parser\Components\Map;
 use ConfettiCms\Foundation\Contracts\SelectModelInterface;
 use ConfettiCms\Foundation\Helpers\ComponentEntity;
@@ -146,7 +147,7 @@ class ListComponent
         // With this method, the number of queries is less than the number of component types. Most
         // of the time, the number of component types is less than 2 because when you adjust one part
         // (in the middle) of the query, we can use the cached query to retrieve the rest of the query.
-        return new class($this->parentContentId, $this->relativeContentId, $this->contentStore, $this->as, $className) implements IteratorAggregate, Countable {
+        return new class($this->parentContentId, $this->relativeContentId, $this->contentStore, $this->as, $className) implements IteratorAggregate, Countable, ArrayAccess {
             // If null, then the results are not fetched/generated yet
             private ?array $result = null;
             private bool $complete = false;
@@ -343,6 +344,36 @@ class ListComponent
                 // Give the average 2 times more chance
                 $amount  = [$min, $average, $max];
                 return (int) $amount[array_rand($amount)];
+            }
+
+            public function offsetExists(mixed $offset): bool
+            {
+                if (!is_int($offset)) {
+                    return false;
+                }
+
+                $array = $this->toArray();
+                return array_key_exists($offset, $array);
+            }
+
+            public function offsetGet(mixed $offset): mixed
+            {
+                if (!is_int($offset)) {
+                    return null;
+                }
+
+                $array = $this->toArray();
+                return $array[$offset] ?? null;
+            }
+
+            public function offsetSet(mixed $offset, mixed $value): void
+            {
+                throw new \LogicException('Collection is read-only');
+            }
+
+            public function offsetUnset(mixed $offset): void
+            {
+                throw new \LogicException('Collection is read-only');
             }
         };
     }

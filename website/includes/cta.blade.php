@@ -1,8 +1,8 @@
 <div class="md:container md:mx-auto pt-12 mb-24 lg:mt-32 lg:mb-40">
     <div class="absolute w-64 h-64 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 -z-10"></div>
     <div class="mb-8 flex flex-col items-center justify-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">Make everything as simple as possible</h2>
-        <h3 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">but not simpler</h3>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">As simple as possible,</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">but no simpler</h3>
         <p class="text-lg md:text-xl text-center text-gray-600 mb-4">Albert Einstein</p>
         <div class="flex flex-col md:flex-row items-center md:items-center md:justify-center mt-8">
             <div class="mt-8">

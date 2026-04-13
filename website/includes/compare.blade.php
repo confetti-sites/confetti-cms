@@ -9,18 +9,18 @@
         <div class="relative w-full">
             <div class="relative">
                 <div id="compare-{{ $compare->getId() }}">
-                <button type="button" class="js-edit:{{ $compare->getId() }} text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->title }}</button>
-                <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
-                    @foreach($cases as $tapNr => $case)
-                        <div class="{{ $tapNr === 0 ? 'text-blue-600 border-b border-blue-600' : 'hover:text-blue-600' }} px-2 py-2 cursor-pointer">
-                            <span>{{ $case->title }}</span>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="min-h-80">
-                    @foreach($cases as $tapNr => $case)
-                        <div class="${() => 'font-body text-center text-balance ' + (state.tab === 0 ? 'block' : 'hidden')}">{{ $case->description }}</div>
-                    @endforeach
+                    <!-- The content is a placeholder and will be replaced by the JavaScript component -->
+                    <button type="button" class="js-edit:{{ $compare->getId() }} text-3xl font-bold text-center mt-10 lg:mt-20 w-full">{{ $compare->title }}</button>
+                    <div class="flex items-center justify-center mt-4 mb-4 space-x-4 text-xl border-b border-gray-300">
+                        @foreach($cases as $tapNr => $case)
+                            <div class="text-blue-600 border-b border-blue-600 px-2 py-2 cursor-pointer">
+                                <span>{{ $case->title }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="min-h-80">
+                        <div class="font-body text-center text-balance block">{{ $cases[0]->description }}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
 
         const container = document.getElementById('compare-{{ $compare->getId() }}');
         container.innerHTML = '';
-        html(container)`${CompareTabs()}`;
+        html`${CompareTabs()}`(container);
     </script>
 @endpushonce
 
