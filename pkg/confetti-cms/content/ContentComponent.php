@@ -13,7 +13,7 @@ class ContentComponent extends ComponentStandard
         return 'content';
     }
 
-    public function get(bool $useDefault = false): ?array
+    public function get(): ?array
     {
         // Get saved value
         $content = $this->contentStore->findOneData($this->parentContentId, $this->relativeContentId);

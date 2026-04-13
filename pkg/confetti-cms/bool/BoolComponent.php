@@ -13,7 +13,7 @@ class BoolComponent extends ComponentStandard
         return 'bool';
     }
 
-    public function get(bool $useDefault = false): ?bool
+    public function get(): ?bool
     {
         // Get saved value
         $value = $this->contentStore->findOneData($this->parentContentId, $this->relativeContentId);

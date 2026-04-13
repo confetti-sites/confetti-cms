@@ -13,7 +13,7 @@ class ImageComponent extends ComponentStandard
         return 'image';
     }
 
-    public function get(bool $useDefault = false): array
+    public function get(): array
     {
         // Get saved value
         $content = $this->contentStore->findOneData($this->parentContentId, $this->relativeContentId);
@@ -48,7 +48,7 @@ class ImageComponent extends ComponentStandard
 
     public function __toString(): string
     {
-        return $this->getSource('standard', useDefault: true) ?? '';
+        return $this->getSource('standard') ?? '';
     }
 
     // Returns the full path from the root to a blade file.
@@ -65,9 +65,9 @@ class ImageComponent extends ComponentStandard
         return getPkgDir() . '/public/preview.mjs';
     }
 
-    public function getSource(string $media, bool $useDefault = false): ?string
+    public function getSource(string $media): ?string
     {
-        $data = $this->get($useDefault);
+        $data = $this->get();
         foreach ($data['sources'] ?? [] as $source) {
             if ($source['media'] === $media) {
                 if (empty($source['name'])) {

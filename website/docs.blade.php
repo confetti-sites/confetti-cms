@@ -32,7 +32,7 @@
                                     <li class="ml-2 my-2">
                                         <a href="/docs/{{ $sub->pages()->first()->alias }}" class="text-blue-500{{ $sub->pages()->first()->alias->get() === $alias ? ' underline' : '' }}">{{ $sub->text('title')->min(1)->max(50) }}</a>
                                         @if(count($sub->pages()->get()) > 1)
-                                            @foreach($sub->list('page')->sortable()->columns(['content', 'banner'])->get() as $page)
+                                            @foreach($sub->list('page')->sortable()->columns(['alias', 'content', 'banner'])->get() as $page)
                                                 <ul class="lg:hidden space-y-3">
                                                     <li class="ml-2 my-2">
                                                         <a href="/docs/{{ $page->text('alias')->min(1)->max(50) }}" class="text-blue-500{{ $page->alias->get() === $alias ? ' underline' : '' }}">{{ $page->content->getTitle() }}</a>

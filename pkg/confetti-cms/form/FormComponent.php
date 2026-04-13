@@ -13,7 +13,7 @@ class FormComponent extends ComponentStandard
         return 'form';
     }
 
-    public function get(bool $useDefault = false): ?array
+    public function get(): ?array
     {
         // Get saved value
         $value = $this->contentStore->findOneData($this->parentContentId, $this->relativeContentId);

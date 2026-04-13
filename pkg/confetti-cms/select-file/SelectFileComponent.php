@@ -29,7 +29,7 @@ class SelectFileComponent extends ComponentStandard implements SelectModelInterf
         $this->contentStore->joinPointer($this->relativeContentId);
     }
 
-    public function get(bool $useDefault = false): ?string
+    public function get(): ?string
     {
         // For now, we do not allow to select itself. Then we create a recursive 'from' value. For example:
         // /model/feature/feature~2HEF1WN1HS/type-/value-/value-/value-/value-/value-/value-/value-/value-/

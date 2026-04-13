@@ -13,7 +13,7 @@ class TextComponent extends ComponentStandard
         return 'text';
     }
 
-    public function get(bool $useDefault = false): ?string
+    public function get(): ?string
     {
         // Get saved value
         $content = $this->contentStore->findOneData($this->parentContentId, $this->relativeContentId);
@@ -113,7 +113,7 @@ class TextComponent extends ComponentStandard
 
     /**
      * Let the user style the text with the following tools.
-     * By default the following styles are supported:
+     * By default, the following styles are supported:
      *   b - bold
      *   i - italic
      *   u - underline

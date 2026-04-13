@@ -259,7 +259,7 @@ abstract class ComponentStandard
     /**
      * Get should return the value that is most likely to be used.
      */
-    abstract public function get(bool $useDefault = false): mixed;
+    abstract public function get(): mixed;
 
     /**
      * The return value is a full path from the root to a blade file.

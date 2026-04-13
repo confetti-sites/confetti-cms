@@ -13,7 +13,7 @@ class DiscussionComponent extends ComponentStandard
         return 'discussion';
     }
 
-    public function get(bool $useDefault = false): ?array
+    public function get(): ?array
     {
         // Get saved value
         $value = $this->contentStore->findOneData($this->parentContentId, $this->relativeContentId);

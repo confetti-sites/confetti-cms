@@ -13,7 +13,7 @@ class HiddenComponent extends ComponentStandard
         return 'hidden';
     }
 
-    public function get(bool $useDefault = false): ?string
+    public function get(): ?string
     {
         if ($this->contentStore === null) {
             throw new \RuntimeException('This component is only used as a reference. Therefore, you can\'t call __toString() or get().');
