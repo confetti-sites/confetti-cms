@@ -40,7 +40,7 @@ class ContentComponent extends ComponentStandard
 
     public function __toString(): string
     {
-        $value = $this->get(useDefault: true);
+        $value = $this->get();
         if ($value === null) {
             return '';
         }
