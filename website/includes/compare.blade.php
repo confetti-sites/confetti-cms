@@ -29,7 +29,7 @@
 
 @pushonce('end_of_body_homepage_compare')
     <script type="module" defer>
-        import { component, html, reactive } from 'https://esm.sh/@arrow-js/core@1';
+        import { component, html, reactive } from 'https://esm.sh/@arrow-js/core@1.0.0';
 
         const CompareTabs = component(() => {
             const state = reactive({ tab: 0 });
@@ -80,7 +80,7 @@
 
         const container = document.getElementById('compare-{{ $compare->getId() }}');
         container.innerHTML = '';
-        html`${CompareTabs()}`(container);
+        html(container)`${CompareTabs()}`;
     </script>
 @endpushonce
 
