@@ -68,7 +68,7 @@ class RawService implements RenderInterface
     public function renderByUrl(string $uri): string
     {
         // Get and return content of file. For this, we remove the object prefix
-        $uri = preg_replace('/^' . $this->pathPrefix . '\//', '', $uri, 1);
+        $uri = preg_replace('/^' . $this->pathPrefix . '\//', '', parse_url($uri, PHP_URL_PATH), 1);
 
         // Get the content of the file (and suppress 'No such file or directory')
         $content = @file_get_contents($this->repository . '/' . $uri);
@@ -96,7 +96,7 @@ class RawService implements RenderInterface
 
     private function getCurrentExtension(string $uri): string
     {
-        $currentExtension = pathinfo($uri, PATHINFO_EXTENSION);
+        $currentExtension = pathinfo(parse_url($uri, PHP_URL_PATH), PATHINFO_EXTENSION);
         return strtolower($currentExtension);
     }
 }

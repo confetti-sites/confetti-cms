@@ -52,6 +52,11 @@
     @if($current !== null)
         <!-- Article -->
         <div class="min-w-0 max-w-3xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0">
+            @if($current->bool('beta_warning')->label('Show beta warning')->default(false)->get())
+                <div class="mb-8 p-4 border border-yellow-300 bg-yellow-50 rounded font-body">
+                    <p class="text-yellow-900 text-sm">This documentation is in the BETA stage, and the API is subject to change. Please reach out to us if you want to try it out or have any feedback.</p>
+                </div>
+            @endif
             <article class="js-edit:{{ $current->getId() }} text-gray-800">
                 <div class="mb-9 space-y-1">
                     @if ($current->content->get())
