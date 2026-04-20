@@ -43,7 +43,7 @@ export class TextDemo extends HTMLElement {
         html`
             <div class="font-body overflow-x-hidden py-8 md:pt-12">
                 <div class="${() => `flex justify-center ` + (this.state.count > 0 ? 'min-h-20' : '')}">
-                    <div class="text-sm md:text-base lg:text-lg xl:text-xl">
+                    <div class="m md:text-base md:text-xl">
                         <div class="${() => this.state.count > 0 ? 'flex flex-col' : 'flex'}">${() => html`
                             <div>
                                 <span class="text-blue-500">&lt;h1&gt;</span>
@@ -100,14 +100,14 @@ export class TextDemo extends HTMLElement {
                 <div class="text-sm md:text-base lg:text-lg xl:text-xl">
                     <div class="flex justify-center"><span class="text-black">Try it out yourself:</span></div>
                 </div>
-                <div class="flex mt-2 justify-center">
-                    <button @click="${() => this.#toggleRequired()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.required ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
+                <div class="flex mt-2 justify-center ">
+                    <button @click="${() => this.#toggleRequired()}" class="${() => `mx-2 my-2 p-2 lg:p-3 text-sm lg:text-lg xl:text-xl leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.required ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
                         ->required()
                     </button>
-                    <button @click="${() => this.#toggleDefault()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.default ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
+                    <button @click="${() => this.#toggleDefault()}" class="${() => `mx-2 my-2 p-2 lg:p-3 text-sm lg:text-lg xl:text-xl leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.default ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
                         ->default()
                     </button>
-                    <button @click="${() => this.#toggleBar()}" class="${() => `mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.bar ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
+                    <button @click="${() => this.#toggleBar()}" class="${() => `mx-2 my-2 p-2 lg:p-3 text-sm lg:text-lg xl:text-xl leading-5 cursor-pointer border border-blue-500 rounded-md ${this.state.bar ? 'bg-blue-500 text-white' : 'text-blue-500'}`}">
                         ->bar()
                     </button>
                 </div>

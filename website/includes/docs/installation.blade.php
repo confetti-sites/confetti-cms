@@ -2,7 +2,7 @@
 
 <h1 class="text-3xl font-semibold text-gray-800 mb-2">Installation</h1>
 
-<div class="mt-4 mb-8 text-gray-800 font-body">Confetti is a powerful tool for building and managing websites with ease. Follow the steps below to get started on macOS. Keep in mind that you don't need to install PHP or an HTTP server to use Confetti.</div>
+<div class="mt-4 mb-8 text-gray-800 font-body">Confetti is a powerful tool for building and managing websites with ease. Follow the steps below to get started. Keep in mind that you don't need to install PHP or an HTTP server to use Confetti.</div>
 
 @php($current = extendModel($model))
 <docs-installation-steps-v2 data-tabs="{{ json_encode([
@@ -11,16 +11,16 @@
         'title' => 'macOS (Homebrew)',
         'steps' => [
             [
+                'link_title' => 'Join the Waitlist',
+                'link' => '/waiting-list',
+            ],
+            [
                 'title_step' => 'Install Confetti:',
                 'example' => 'brew tap confetti-cms/homebrew-client && brew install conf',
             ],
             [
-                'title_step' => 'Navigate to the desired directory:',
-                'example' => 'cd ~',
-            ],
-            [
                 'title_step' => 'Clone the project repository:',
-                'example' => 'git clone git@github.com:confetti-sites/__your_repo__.git',
+                'example' => 'cd ~ && git clone git@github.com:confetti-sites/__your_repo__.git',
             ],
             [
                 'title_step' => 'Move into the project directory:',
@@ -33,16 +33,16 @@
         'title' => 'Windows (Scoop, PowerShell)',
         'steps' => [
             [
+                'link_title' => 'Join the Waitlist',
+                'link' => '/waiting-list',
+            ],
+            [
                 'title_step' => 'Install Confetti:',
                 'example' => 'scoop bucket add org https://github.com/confetti-cms/scoop-conf.git && scoop install confetti-cms/scoop-conf',
             ],
             [
-                'title_step' => 'Navigate to the desired directory:',
-                'example' => 'cd ~',
-            ],
-            [
                 'title_step' => 'Clone the project repository:',
-                'example' => 'git clone git@github.com:confetti-sites/__your_repo__.git',
+                'example' => 'cd ~ && git clone git@github.com:confetti-sites/__your_repo__.git',
             ],
             [
                 'title_step' => 'Move into the project directory:',
@@ -50,7 +50,7 @@
             ],
         ],
     ],
-]) }}"></docs-installation-steps-v2>
+]) }}" @guest data-guest="true" @else data-guest="false" @endguest></docs-installation-steps-v2>
 
 <div class="mt-12 mb-4 text-gray-800 font-body">
     <discussion>
@@ -81,6 +81,15 @@
                 this.state = reactive({
                     selectedTab: this.#getCurrentOs(this.data[0]?.alias || null),
                 });
+
+                if (this.dataset.guest === 'false') {
+                    this.data = this.data.map(tab => {
+                        return {
+                            ...tab,
+                            steps: tab.steps?.filter((_, idx) => idx !== 0) || [],
+                        };
+                    });
+                    }
             }
 
             connectedCallback() {
@@ -102,7 +111,7 @@ ${this.data.map(tab => html`
                 <h2 class="my-3 text-2xl font-semibold font-body">${step.title}</h2>` : ''}
             ${this.#filled(step.first_description) ? html`
                 <div class="mt-4 mb-4 text-gray-800 font-body">${step.first_description}</div>` : ''}
-            ${this.#filled(step.title_step) ? html`
+            ${this.#filled(step.title_step) || this.#filled(step.link) ? html`
                 <div class="flex relative py-5 w-full sm:items-center">
                     <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
                         <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
@@ -110,16 +119,21 @@ ${this.data.map(tab => html`
                     <div class="shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-blue-500 text-white relative z-10 font-medium text-sm">
                         <span>${idx + 1}</span>
                     </div>
+                    ${this.#filled(step.title_step) ? html`
                     <div class="grow pl-6 flex sm:items-center items-start flex-col sm:flex-row">
                         <div class="grow sm:pl-6 mt-6 sm:mt-0 font-body">
-                            <h3 class="font-semibold mb-1 text-xl">${step.title_step}</h3>
+                            <h3 class="font-body mb-1 text-xl">${step.title_step}</h3>
                             ${this.#filled(step.example) ? html`
                                 <div class="bg-gray-100 rounded px-2 py-2 my-2 text-sm">
                                     <pre class="whitespace-pre-wrap m-0 px-1 overflow-visible text-base">${step.example}</pre>
                                 </div>
                             ` : ''}
                         </div>
-                    </div>
+                    </div>` : ''}
+                    ${this.#filled(step.link) ? html`
+                    <div class="pl-6 pt-6 sm:pl-12 sm:pt-0">
+                        <a href="${step.link}" class="float-right justify-between px-3 py-2 m-2 ml-0 text-sm leading-5 cursor-pointer text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white rounded-md">${step.link_title}</a>
+                    </div>` : ''}
                 </div>
             ` : ''}
             ${this.#filled(step.second_description) ? html`

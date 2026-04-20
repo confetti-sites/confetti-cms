@@ -16,7 +16,7 @@
         <!-- skeleton loader -->
         <div class="font-body overflow-x-hidden py-8 md:pt-12">
             <div class="flex justify-center ">
-                <div class="text-sm md:text-base lg:text-lg xl:text-xl">
+                <div class="text-m md:text-base md:text-xl">
                     <div class="flex">
                         <span class="text-blue-500">&lt;h1&gt;</span>
                         <span class="text-black">@{{ $header-&gt;text(</span><span class="text-green-700">'title'</span><span class="text-black">)</span>
@@ -35,13 +35,13 @@
                 <div class="flex justify-center"><span class="text-black">Try it out yourself:</span></div>
             </div>
             <div class="flex mt-2 justify-center">
-                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                <button class="mx-2 my-2 p-2 lg:p-3 text-sm lg:text-lg xl:text-xl leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
                     -&gt;required()
                 </button>
-                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                <button class="mx-2 my-2 p-2 lg:p-3 text-sm lg:text-lg xl:text-xl leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
                     -&gt;default()
                 </button>
-                <button class="mx-2 my-2 p-2 text-sm leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
+                <button class="mx-2 my-2 p-2 lg:p-3 text-sm lg:text-lg xl:text-xl leading-5 cursor-pointer border border-blue-500 rounded-md text-blue-500">
                     -&gt;bar()
                 </button>
             </div>
