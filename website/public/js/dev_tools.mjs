@@ -1,70 +1,118 @@
 export class DevTools {
-    /**
-     * Call to localhost:8001/messages every 10 seconds with 11 second timeout
-     * When we receive a message from the server, we parse handle the response
-     * and call the appropriate callback function. Then we wait for the next message.
-     * @param {function} callbackLocalFileChanged
-     * @param {function} callbackRemoteFileProcessed
-     * @param {function} errorCallback
-     */
-    static subscribeFileChanges(callbackLocalFileChanged, callbackRemoteFileProcessed, errorCallback) {
-        const eventSource = new EventSource('http://localhost:8001/messages');
+    static stopped = false;
+    static isPolling = false;
+    static endpoint = '/conf_api/confetti-cms/parser/log_stream';
 
-        // If the user switches tabs, the connection might break.
-        document.addEventListener("visibilitychange", () => {
-            eventSource.close();
-            this.subscribeFileChanges(callbackLocalFileChanged, callbackRemoteFileProcessed, errorCallback);
-        });
+    static subscribeFileChanges(
+        callbackLocalFileChanged,
+        callbackRemoteFileProcessed,
+        errorCallback
+    ) {
+        this.stopped = false;
+        console.info('Subscribed to file changes.');
 
-        eventSource.onerror = (error) => {
-            if (eventSource.readyState === EventSource.CLOSED) {
-                // EventSource is closed, due to page reload or navigation.
+        this.poll(
+            callbackLocalFileChanged,
+            callbackRemoteFileProcessed,
+            errorCallback
+        );
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                console.info('Page hidden, stopping file change polling.');
+                this.stop();
                 return;
             }
-            // Handle
-            if (error.message === 'NetworkError when attempting to fetch resource.') {
-                // The connection is closed, we need to reconnect.
-                console.warn('EventSource failed. Reconnecting in 5 seconds...', error);
-                eventSource.close();
-                setTimeout(() => {
-                    this.subscribeFileChanges(callbackLocalFileChanged, callbackRemoteFileProcessed, errorCallback);
-                }, 5000);
-            } else {
-                errorCallback('Your browser is not connected to a watcher. Start the watcher by running `conf watch` in the terminal and/or refresh the page.');
-                console.error('EventSource failed. Your page may be reloaded or the watcher may have been stopped.', error);
-                eventSource.close();
-                setTimeout(() => {
-                    this.subscribeFileChanges(callbackLocalFileChanged, callbackRemoteFileProcessed, errorCallback);
-                }, 60000);
+
+            setTimeout(() => {
+                console.info('Page visible again, resuming file change polling.');
+                this.restart(
+                    callbackLocalFileChanged,
+                    callbackRemoteFileProcessed,
+                    errorCallback
+                );
+            }, 300);
+        });
+    }
+
+    static stop() {
+        this.stopped = true;
+    }
+
+    static restart(cb1, cb2, errCb) {
+        if (!this.stopped) return;
+
+        this.stopped = false;
+        this.poll(cb1, cb2, errCb);
+    }
+
+    static async poll(
+        callbackLocalFileChanged,
+        callbackRemoteFileProcessed,
+        errorCallback
+    ) {
+        if (this.stopped || this.isPolling) return;
+
+        this.isPolling = true;
+
+        try {
+            while (!this.stopped) {
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 11000);
+
+                try {
+                    const res = await fetch(this.endpoint, {
+                        method: 'GET',
+                        signal: controller.signal,
+                        headers: {
+                            Accept: 'application/json',
+                        },
+                    });
+
+                    clearTimeout(timeout);
+
+                    if (!res.ok) {
+                        const message = `Polling stopped (HTTP ${res.status})`;
+                        console.error(message);
+                        (errorCallback ?? console.error)(message);
+                        this.stop();
+                        break;
+                    }
+
+                    const data = await res.json();
+
+                    switch (data.status) {
+                        case 'file_changed':
+                            callbackLocalFileChanged?.(data);
+                            break;
+
+                        case 'file_parsed':
+                            callbackRemoteFileProcessed?.(data);
+                            break;
+
+                        default:
+                            console.warn('Unknown status:', data.status);
+                    }
+
+                } catch (err) {
+                    clearTimeout(timeout);
+
+                    if (err?.name === 'AbortError') {
+                        continue;
+                    }
+
+                    console.error('Polling error:', err);
+                    (errorCallback ?? console.error)(
+                        'Watcher disconnected. Run `conf watch` or refresh the page.'
+                    );
+
+                    this.stop();
+                    break;
+                }
             }
+        } finally {
+            this.isPolling = false;
+            console.info('Polling fully stopped.');
         }
-
-        /*
-         * The event "open" will capture all events with
-         */
-        eventSource.addEventListener("message", (e) => {
-            if (e.type !== 'message') {
-                errorCallback('Error: ' + e.message);
-                console.error('Error:', e);
-                return;
-            }
-
-            const data = JSON.parse(e.data);
-            switch (data.type) {
-                case 'local_file_changed':
-                    callbackLocalFileChanged(data);
-                    break;
-                case 'remote_file_processed':
-                    callbackRemoteFileProcessed(data, eventSource);
-                    break;
-                case 'error':
-                    console.error('Error:', data.message);
-                    errorCallback(data.message);
-                    break;
-                default:
-                    console.warn('Unknown event:', data.type);
-            }
-        });
-    };
+    }
 }
-

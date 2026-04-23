@@ -97,10 +97,8 @@ if (str_ends_with(request()->uri(), '-')) {
                             title: event.message,
                         }
                     }));
-                    // Prevent error because the event source is closed due the reload
-                    eventSource.close();
                     // Reload the page
-                    document.location.reload();
+                    // document.location.reload();
                 },
                 (message) => {
                     window.dispatchEvent(new CustomEvent('state', {

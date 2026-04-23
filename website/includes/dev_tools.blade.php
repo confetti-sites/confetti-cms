@@ -5,7 +5,7 @@
             // With this script, the page will reload when a file is changed
             // We use /website because the website also needs this
             import {DevTools} from "/website/public/js/dev_tools.mjs";
-            import {html, reactive} from 'https://esm.sh/@arrow-js/core@v1.0.0';
+            import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0-alpha.10';
 
             customElements.define('dev-tools', class extends HTMLElement {
                 data
@@ -32,21 +32,20 @@
                     `(this);
                 }
 
+
                 #subscribeFileChanges = () => {
                     DevTools.subscribeFileChanges(
                         (event) => {
                             // Change title of the page
                             document.title = event.message;
-                            console.info(event.message);
                             this.data.error = null;
+                            console.info(event.message);
                             this.data.info = event.message;
                         },
                         (event, eventSource) => {
                             console.error(event.message);
                             // Change title of the page
                             document.title = event.message;
-                            // Prevent error because the event source is closed due the reload
-                            eventSource.close();
                             // Reload the page
                             document.location.reload();
                             document.title = "🔄 " + event.message;
