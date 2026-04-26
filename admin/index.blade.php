@@ -97,8 +97,6 @@ if (str_ends_with(request()->uri(), '-')) {
                             title: event.message,
                         }
                     }));
-                    // Reload the page
-                    // document.location.reload();
                 },
                 (message) => {
                     window.dispatchEvent(new CustomEvent('state', {

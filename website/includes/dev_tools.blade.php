@@ -32,7 +32,6 @@
                     `(this);
                 }
 
-
                 #subscribeFileChanges = () => {
                     DevTools.subscribeFileChanges(
                         (event) => {
