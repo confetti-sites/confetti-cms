@@ -79,7 +79,7 @@ export class DevTools {
         try {
             while (!s.stopped) {
                 const controller = new AbortController();
-                const timeout = setTimeout(() => controller.abort(), 11000);
+                const timeout = setTimeout(() => controller.abort(), 5 * 60 * 1000);
 
                 try {
                     const res = await fetch(this.endpoint, {

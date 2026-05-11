@@ -21,7 +21,21 @@
                     <a href="/" class="block md:hidden transition hover:text-primary px-4 py-2 md:py-2">Home</a>
                     <a href="/pricing" class="block relative transition hover:text-primary px-4 py-2 md:py-2">Pricing</a>
                     <a href="/docs/installation" class="block transition hover:text-primary px-4 py-2 md:py-2">Docs</a>
-                    <a href="https://github.com/confetti-cms/community/discussions" target="_blank" class="block transition hover:text-primary px-4 py-2 md:py-2">GitHub</a>
+                    <div class="relative">
+                        <button id="github-toggle"
+                                type="button"
+                                class="flex items-center gap-1 transition hover:text-primary px-4 py-2 md:py-2 cursor-pointer"
+                        >GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+
+                        <div id="github-menu" class="hidden absolute right-0 top-full z-50 mt-2 min-w-56 flex-col rounded-xl border border-gray-100 bg-white py-2 shadow-lg">
+                            <a href="https://github.com/confetti-cms/community/discussions" target="_blank" class="px-4 py-2 transition hover:bg-gray-50 cursor-pointer">Community</a>
+                            <a href="https://github.com/confetti-sites/office_template" target="_blank" class="px-4 py-2 transition hover:bg-gray-50 cursor-pointer">Example Repository</a>
+                        </div>
+                    </div>
                     @guest
                         <a href="/waiting-list" class="relative ml-auto flex h-10 w-full items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 px-4">
                             <span class="relative text-sm font-semibold text-white">
@@ -46,6 +60,25 @@
         menuToggle.classList.toggle('hidden');
         menu.classList.toggle('hidden');
         logo.classList.toggle('hidden');
+    });
+
+    // GitHub toggle
+    const githubToggle = document.getElementById('github-toggle');
+    const githubMenu = document.getElementById('github-menu');
+
+    githubToggle.addEventListener('click', () => {
+        githubMenu.classList.toggle('hidden');
+        githubMenu.classList.toggle('flex');
+    });
+
+    document.addEventListener('click', (event) => {
+        if (
+            !githubToggle.contains(event.target) &&
+            !githubMenu.contains(event.target)
+        ) {
+            githubMenu.classList.add('hidden');
+            githubMenu.classList.remove('flex');
+        }
     });
 </script>
 @endpushonce

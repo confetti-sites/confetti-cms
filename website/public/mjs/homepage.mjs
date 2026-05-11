@@ -1,4 +1,4 @@
-import {html, reactive} from 'https://esm.sh/@arrow-js/core@v1.0.0';
+import {html, reactive} from 'https://esm.sh/@arrow-js/core@1.0.0';
 
 export class TextDemo extends HTMLElement {
     required = `->required()`;
