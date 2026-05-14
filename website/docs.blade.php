@@ -97,14 +97,16 @@
                         <span class="relative text-sm font-semibold text-white">Let's Join the Waitlist</span>
                     </a>
                 @elseif ($rand === 1)
+                    <!-- Display producthunt link -->
+                    <a href="https://www.producthunt.com/products/confetti-cms/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-confetti&#0045;cms" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1225638&theme=light" alt="Confetti&#0032;CMS - Easily&#0032;build&#0032;your&#0032;own&#0032;white&#0045;label&#0032;CMS&#0032;with&#0032;complete&#0032;freedom | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
                 @else
                     <!-- Display the newsletter div -->
                     @include('website.includes.newsletter')
                 @endif
             @else
                 @if (rand(0, 3) === 0)
-                    <!-- Display producthunt link -->
-                    <a href="https://www.producthunt.com/products/confetti-cms/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-confetti&#0045;cms" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1225638&theme=light" alt="Confetti&#0032;CMS - Easily&#0032;build&#0032;your&#0032;own&#0032;white&#0045;label&#0032;CMS&#0032;with&#0032;complete&#0032;freedom | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+                    <!-- Display the newsletter -->
+                    @include('website.includes.newsletter')
                 @endif
             @endguest
         </div>
