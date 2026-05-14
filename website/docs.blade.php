@@ -90,19 +90,21 @@
             </article>
 
             @guest
-                @if (rand(0, 1) === 0)
+                @php($rand = rand(0, 2))
+                @if ($rand === 0)
                     <!-- Display the waitlist link -->
                     <a href="/waiting-list" class="relative ml-auto flex h-10 w-full mt-20 items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 px-4">
                         <span class="relative text-sm font-semibold text-white">Let's Join the Waitlist</span>
                     </a>
+                @elseif ($rand === 1)
                 @else
                     <!-- Display the newsletter div -->
                     @include('website.includes.newsletter')
                 @endif
             @else
                 @if (rand(0, 3) === 0)
-                    <!-- Display the newsletter -->
-                    @include('website.includes.newsletter')
+                    <!-- Display producthunt link -->
+                    <a href="https://www.producthunt.com/products/confetti-cms/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-confetti&#0045;cms" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1225638&theme=light" alt="Confetti&#0032;CMS - Easily&#0032;build&#0032;your&#0032;own&#0032;white&#0045;label&#0032;CMS&#0032;with&#0032;complete&#0032;freedom | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
                 @endif
             @endguest
         </div>
