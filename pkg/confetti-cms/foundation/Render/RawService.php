@@ -96,7 +96,12 @@ class RawService implements RenderInterface
 
     private function getCurrentExtension(string $uri): string
     {
-        $currentExtension = pathinfo(parse_url($uri, PHP_URL_PATH), PATHINFO_EXTENSION);
+        $path = parse_url($uri, PHP_URL_PATH);
+        if (!$path) {
+            return '';
+        }
+
+        $currentExtension = pathinfo($path, PATHINFO_EXTENSION);
         return strtolower($currentExtension);
     }
 }
